@@ -8,7 +8,7 @@
 <h1>
 	Hello world!  
 </h1>
-
+<pre>hello</pre>
 <P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>
