@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE  tiles-definitions PUBLIC 
+    "-//Aapche Software Foundation//DTD Tiles Configuration 2.0//EN" 
+    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd"> 
+<tiles-definitions> 
+
+	
+    
+	<!-- 공지사항 목록 -->
+	<definition name="/notices/list" extends="main_list"> 
+	        <put-attribute name="title" value="공지사항" ></put-attribute> 
+	        <put-attribute name="side" value="/WEB-INF/views/notices/side.jsp" />
+	        <put-attribute name="body" value="/WEB-INF/views/notices/list.jsp" /> 
+	</definition>
+	
+	<!-- 공지사항 작성 -->
+	<definition name="/notices/create" extends="main_list"> 
+	        <put-attribute name="title" value="공지사항 작성" ></put-attribute> 
+	        <put-attribute name="side" value="/WEB-INF/views/notices/side.jsp" />
+	        <put-attribute name="body" value="/WEB-INF/views/notices/create.jsp" /> 
+	</definition>
+	
+	<!-- 공지사항 내용 -->
+	<definition name="/notices/read" extends="main_list"> 
+	        <put-attribute name="title" value="공지사항" ></put-attribute> 
+	        <put-attribute name="side" value="/WEB-INF/views/notices/side.jsp" />
+	        <put-attribute name="body" value="/WEB-INF/views/notices/read.jsp" /> 
+	</definition>    
+	
+	<!-- 공지사항 삭제 -->
+	<definition name="/notices/delete" extends="main_list"> 
+	        <put-attribute name="title" value="공지사항 삭제" ></put-attribute> 
+	        <put-attribute name="side" value="/WEB-INF/views/notices/side.jsp" />
+	        <put-attribute name="body" value="/WEB-INF/views/notices/delete.jsp" /> 
+	</definition>  
+	
+	<!-- 공지사항 수정 -->
+	<definition name="/notices/update" extends="main_list"> 
+	        <put-attribute name="title" value="공지사항 수정" ></put-attribute> 
+	        <put-attribute name="side" value="/WEB-INF/views/notices/side.jsp" />
+	        <put-attribute name="body" value="/WEB-INF/views/notices/update.jsp" /> 
+	</definition>
+	
+	
+	<!-- 에러페이지 -->
+	<definition name="/notices/error" extends="main_list"> 
+	        <put-attribute name="title" value="에러페이지" ></put-attribute> 
+	        <put-attribute name="side" value="/WEB-INF/views/notices/side.jsp" />
+	        <put-attribute name="body" value="/WEB-INF/views/template/error.jsp" /> 
+	</definition>    
+</tiles-definitions>

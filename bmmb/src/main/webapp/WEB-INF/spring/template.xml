@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  tiles-definitions PUBLIC 
+    "-//Aapche Software Foundation//DTD Tiles Configuration 2.0//EN" 
+    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="/home" extends="main"> 
+        <put-attribute name="title" value="기본페이지" ></put-attribute> 
+        <put-attribute name="body" value="/WEB-INF/views/home.jsp" /> 
+    </definition> 
+
+	<!-- 메뉴 미표시 -->
+	<definition name="main" template="/WEB-INF/views/template/template.jsp"> 
+        <put-attribute name="header" value="/WEB-INF/views/template/top.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" /> 
+    </definition>
+
+    <!-- 메뉴 표시 -->
+	<definition name="main_list" template="/WEB-INF/views/template/template_list.jsp"> 
+        <put-attribute name="header" value="/WEB-INF/views/template/top.jsp" />
+        <put-attribute name="side" value="" />
+        <put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" /> 
+    </definition>
+</tiles-definitions>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE  tiles-definitions PUBLIC 
+    "-//Aapche Software Foundation//DTD Tiles Configuration 2.0//EN" 
+    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd"> 
+<tiles-definitions> 
+	<!-- 패키지 상품 목록 -->
+	<definition name="/show/list" extends="main"> 
+	        <put-attribute name="title" value="공연목록" ></put-attribute> 
+	        <put-attribute name="body" value="/WEB-INF/views/show/list.jsp" /> 
+	</definition>
+	
+	<!-- 패키지 상품 등록 -->
+	<definition name="/show/create" extends="main"> 
+	        <put-attribute name="title" value="공연등록" ></put-attribute> 
+	        <put-attribute name="body" value="/WEB-INF/views/show/create.jsp" /> 
+	</definition>
+	
+	<!-- 패키지 상품 정보 -->
+	<definition name="/show/read" extends="main"> 
+	        <put-attribute name="title" value="공연정보 읽기" ></put-attribute> 
+	        <put-attribute name="body" value="/WEB-INF/views/show/read.jsp" /> 
+	</definition>
+	
+	<!-- 패키지 상품 정보 -->
+	<definition name="/show/seat_select" extends="main"> 
+	        <put-attribute name="title" value="인원/좌석 선택" ></put-attribute> 
+	        <put-attribute name="body" value="/WEB-INF/views/show/seat_select.jsp" /> 
+	</definition>
+	
+	<!-- 패키지 상품 정보 -->
+	<definition name="/show/booking" extends="main"> 
+	        <put-attribute name="title" value="예약" ></put-attribute> 
+	        <put-attribute name="body" value="/WEB-INF/views/show/booking.jsp" /> 
+	</definition>
+	
+</tiles-definitions>

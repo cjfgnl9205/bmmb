@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spring.model.mapper.NoticesMapper">
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM notices WHERE notices_no = #{notices_no}
+	</delete>
+	
+	<update id="update" parameterType="NoticesDTO">
+		UPDATE notices 
+		<set>
+		notices_title=#{notices_title}, notices_content=#{notices_content}, notices_udate=SYSDATE, 
+			<if test="notices_filesize>0">
+				notices_filename=#{notices_filename, jdbcType=VARCHAR}, notices_filesize=#{notices_filesize, jdbcType=INTEGER}
+			</if>
+		</set>
+			WHERE notices_no=#{notices_no}
+	</update>
+	
+	<update id="upviewcnt" parameterType="int">
+		UPDATE notices SET notices_viewcnt = notices_viewcnt + 1 WHERE notices_no = #{notices_no}
+	</update>
+	
+	<select id="read" parameterType="int" resultType="NoticesDTO">
+		SELECT * FROM notices WHERE notices_no=#{notices_no}
+	</select>
+	
+	<insert id="create" parameterType="NoticesDTO">
+		INSERT INTO notices(notices_no, notices_name, notices_title, notices_content, notices_date, notices_filename, notices_filesize)
+			VALUES((SELECT NVL(MAX(notices_no), 0) + 1 AS notices_no FROM notices), #{notices_name}, #{notices_title}, #{notices_content}, SYSDATE, #{notices_filename, jdbcType=VARCHAR}, #{notices_filesize, jdbcType=INTEGER})
+	</insert>
+	
+	<select id="total" parameterType="Map" resultType="int">
+		SELECT count(*) FROM notices
+		<where>
+			notices_title LIKE '%'||#{word}||'%' 
+			OR
+			notices_content LIKE '%'||#{word}||'%'
+		</where>
+	</select>
+	
+	<select id="list" parameterType="Map" resultType="NoticesDTO">
+		SELECT notices_no, notices_name, notices_title, notices_date, notices_viewcnt, notices_filename, notices_filesize r FROM(
+			SELECT notices_no, notices_name, notices_title, notices_date, notices_viewcnt, notices_filename, notices_filesize, rownum r FROM(
+				SELECT notices_no, notices_name, notices_title, notices_date, notices_viewcnt, notices_filename, notices_filesize FROM notices
+					<where>
+						notices_title LIKE '%'||#{word}||'%' 
+						OR
+						notices_content LIKE '%'||#{word}||'%'
+					</where>
+				ORDER BY notices_no DESC
+				)
+			)
+		<![CDATA[
+			WHERE r>=#{sno} AND r<=#{eno}
+		]]>
+	</select>
+
+</mapper>
