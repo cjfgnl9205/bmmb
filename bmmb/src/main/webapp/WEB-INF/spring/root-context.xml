@@ -61,18 +61,18 @@
 
 
 	<!-- 데이터베이스 접속 설정 -->
-	<bean id="dataSource" destroy-method="close"
-		class="org.apache.commons.dbcp.BasicDataSource"
-		p:driverClassName="oracle.jdbc.driver.OracleDriver"
-		p:url="jdbc:oracle:thin:@localhost:1521:XE" p:username="soldesk"
-		p:password="1234" />
-		
-	<!-- 서버용 -->
 	<!-- <bean id="dataSource" destroy-method="close"
 		class="org.apache.commons.dbcp.BasicDataSource"
 		p:driverClassName="oracle.jdbc.driver.OracleDriver"
-		p:url="jdbc:oracle:thin:@172.16.81.25:1521:XE" p:username="bmmb"
+		p:url="jdbc:oracle:thin:@localhost:1521:XE" p:username="soldesk"
 		p:password="1234" /> -->
+		
+	<!-- 서버용 -->
+	<bean id="dataSource" destroy-method="close"
+		class="org.apache.commons.dbcp.BasicDataSource"
+		p:driverClassName="oracle.jdbc.driver.OracleDriver"
+		p:url="jdbc:oracle:thin:@172.16.81.25:1521:XE" p:username="bmmb"
+		p:password="1234" /> 
 		
 		
 		
