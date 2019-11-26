@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항</title>
+<title>eBook 목록</title>
 <style>
 .ebook_list {
 	padding: 20px 0 0 0;
@@ -159,8 +159,15 @@ $(document).ready(function(){
 		list.push(json);
 	</c:forEach>
 	
-	alert("jsoninfo="+JSON.stringify(list));
+	alert("JSON객체="+JSON.stringify(list));
+	alert(typeof list);
 	
+	for (var i = 0, len = list.length || 0; i < len; i++) {
+		  
+		  str +=  "*";
+		  
+		  namebox.html(str);
+	  } 
 	
 	
 /* 	list = "<c:out value='${list}'/>"; */
