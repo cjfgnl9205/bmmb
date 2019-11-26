@@ -70,42 +70,38 @@ tr td a {
 										src="${pageContext.request.contextPath}/images/booksample.jpg"
 										width="178" height="264" /></td>
 									<c:if test="${status.count % 5 == 0}">
-										</tr>
-										<tr>
-														<c:choose>
-															<c:when test="${status.count % 5 != 0}">
-																<c:forEach var="dto" items="${list}" varStatus="status">
-																	<td><a href="javascript:read('${dto.ebook_ID }')">${dto.name }</a>
-																	</td>
-																</c:forEach>
-																</tr>
-													</c:when>
-													<c:otherwise>
-														</tr>
-													</c:otherwise>
-																</c:choose>
-
-
+											</tr>
+											
+													<tr>
+													<td>
+													<div class="namebox"></div>	
+													</td>
+													</tr>
+											
+											<tr>
 										</c:if>
 
 					</c:forEach>
 					</tr>
-
-					<tr>
-						<c:forEach var="dto" items="${list}" varStatus="status">
-							<td><a href="javascript:read('${dto.ebook_ID }')">${dto.name }</a>
-							</td>
-						</c:forEach>
-					</tr>
-
-
-
-
+<tr>
+<c:forEach var="dto" items="${list}" varStatus="status">
+																	<td><a href="javascript:read('${dto.ebook_ID }')">${dto.name }</a>
+																	</td>
+																</c:forEach>
+</tr>			
 					</c:otherwise>
 					</c:choose>
 				</tbody>
 			</table>
-			<!-- 5일 경우 </tr><tr>삽입하기!  -->
+			
+																		<%-- 				<tr>
+																<c:forEach var="dto" items="${list}" varStatus="status">
+																	<td><a href="javascript:read('${dto.ebook_ID }')">${dto.name }</a>
+																	</td>
+																</c:forEach>
+																</tr> --%>
+			
+			
 		</div>
 		<!-- s: 테이블 실험 -->
 		<div class="row" style="background-color: #eee;">
@@ -144,8 +140,45 @@ tr td a {
 		</div>
 
 		<!-- e: 테이블 실험 -->
-
-
 	</div>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+	/* alert("Counselor!"); */
+	var str = "random";
+	 var namebox = $(".namebox");
+	
+	namebox.append( "<p>"+str+"</p>" );
+	
+	
+	var list = new Array();
+	
+	<c:forEach items="${list}" var="dto">
+		var json = new Object();
+		json.name = "${dto.name}";
+		list.push(json);
+	</c:forEach>
+	
+	alert("jsoninfo="+JSON.stringify(list));
+	
+	
+	
+/* 	list = "<c:out value='${list}'/>"; */
+
+/* 	alert(list); */
+	
+	  /* for (var i = 0, len = list.length || 0; i < len; i++) {
+		  
+		  str +=  "*";
+		  
+		  namebox.html(str);
+	  } */
+	
+	
+	
+	
+});// e: $(document).ready  
+
+</script>	
 </body>
 </html>
