@@ -66,7 +66,7 @@
 						<nav>
 							<ul class="top_nav">
 								<li><a href="#">도서상품</a></li>
-								<li><a href="#">e-Book</a></li>
+								<li><a href="${root }/ebook/list">e-Book</a></li>
 								<li><a href="${root }/show/list">공연 예매</a></li>
 								<li><a href="#">자유게시판</a></li>
 								<li><a href="#">고객센터</a></li>
