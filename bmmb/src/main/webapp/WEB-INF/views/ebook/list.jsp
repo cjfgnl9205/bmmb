@@ -72,7 +72,10 @@ tr td a {
 															
 									<c:if test="${status.count % 5 == 0}">
 											</tr>
-													
+											
+											
+														<tr class="namebox">
+													</tr> 
 													
 											<tr>
 										</c:if>
@@ -89,8 +92,7 @@ tr td a {
 					</c:otherwise>
 					</c:choose>
 					
-													<tr class="namebox">
-													</tr> 
+												
 													
 				</tbody>
 			</table>
