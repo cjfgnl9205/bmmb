@@ -10,6 +10,10 @@
 	.ebook_list { padding : 20px 0 0 0;}
 	tr td a { color:black;}
 
+	.cntr{
+		margin: 0 auto;
+	}
+
 </style>
 <script>
 	function read(no){
@@ -73,7 +77,45 @@
 			</c:choose>
 		</tbody>
 	</table>
-	${paging}
+	
+	<!-- s: 테이블 실험 -->
+	<div class="row" style="background-color: #eee;">
+		<table class="cntr" width="950" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><img src="../images/book1.jpg" width="178" height="264" /></td>
+					<td><img src="../images/book2.jpg" width="178" height="264" /></td>
+					<td><img src="../images/book3.jpg" width="178" height="264" /></td>
+					<td><img src="../images/book4.jpg" width="178" height="264" /></td>
+					<td><img src="../images/book5.jpg" width="178" height="264" /></td>
+				</tr>
+				<tr>
+					<td>책설명1</td>
+					<td>책설명2</td>
+					<td>책설명3</td>
+					<td>책설명4</td>
+					<td>책설명5</td>
+				</tr>
+			
+				<tr>
+					<td><img src="../images/book6.jpg" width="178" height="264" /></td>
+					<td><img src="../images/book7.jpg" width="178" height="264" /></td>
+					<td><img src="../images/book8.jpg" width="178" height="264" /></td>
+					<td><img src="../images/book9.jpg" width="178" height="264" /></td>
+					<td><img src="../images/book10.jpg" width="178" height="264" /></td>
+				</tr>
+				<tr>
+					<td>책설명1</td>
+					<td>책설명2</td>
+					<td>책설명3</td>
+					<td>책설명4</td>
+					<td>책설명5</td>
+				</tr>
+		</table>
+	</div>
+
+	<!-- e: 테이블 실험 -->
+
+
 </div>
 </body>
 </html>
