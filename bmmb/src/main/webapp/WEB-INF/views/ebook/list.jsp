@@ -143,7 +143,6 @@ $(document).ready(function(){
 	 var namebox = $(".namebox");
 	 var testbox = $(".testbox");
 	 
-	var alter = "start: ";
 	var tester;
 	
 	var str = "start: ";
@@ -157,12 +156,10 @@ $(document).ready(function(){
 	</c:forEach>
 	
 	alert("JSON객체="+JSON.stringify(list));
-	alert(typeof list);
 	
-	for (var i = 0, len = list.length; i < len; i++) {
-		  
- 		  str +=  "*"; 
-		  
+
+	for (var i = 0; i < 5; i++) {
+		  		  
  		  str += "<td>" +list[i].name+"</td>";
 
  		  namebox.html(str);
