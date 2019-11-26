@@ -70,25 +70,38 @@ tr td a {
 										src="${pageContext.request.contextPath}/images/booksample.jpg"
 										width="178" height="264" /></td>
 									<c:if test="${status.count % 5 == 0}">
-							</tr>
-							<tr>
-								</c:if>
-								</c:forEach>
-							</tr>
-
-							<tr>
-								<c:forEach var="dto" items="${list}" varStatus="status">
-									<td><a href="javascript:read('${dto.ebook_ID }')">${dto.name }</a>
-									</td>
-									<c:if test="${status.count % 5 == 0}">
-							</tr>
-							<tr>
-								</c:if>
-								</c:forEach>
-							</tr>
+										</tr>
+										<tr>
+														<c:choose>
+															<c:when test="${status.count % 5 != 0}">
+																<c:forEach var="dto" items="${list}" varStatus="status">
+																	<td><a href="javascript:read('${dto.ebook_ID }')">${dto.name }</a>
+																	</td>
+																</c:forEach>
+																</tr>
+													</c:when>
+													<c:otherwise>
+														</tr>
+													</c:otherwise>
+																</c:choose>
 
 
-						</c:otherwise>
+										</c:if>
+
+					</c:forEach>
+					</tr>
+
+					<tr>
+						<c:forEach var="dto" items="${list}" varStatus="status">
+							<td><a href="javascript:read('${dto.ebook_ID }')">${dto.name }</a>
+							</td>
+						</c:forEach>
+					</tr>
+
+
+
+
+					</c:otherwise>
 					</c:choose>
 				</tbody>
 			</table>
