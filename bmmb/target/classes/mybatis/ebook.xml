@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spring.model.mapper.EbookMapper">
+	
+	<update id="upviewcnt" parameterType="int">
+		UPDATE ebook SET viewcnt = viewcnt + 1 WHERE ebook_ID = #{ebook_ID}
+	</update>
+	
+	<select id="read" parameterType="int" resultType="EbookDTO">
+		SELECT * from ebook WHERE ebook_ID = #{ebook_ID}
+	</select>
+	
+	<select id="total" parameterType="Map" resultType="int">
+		SELECT count(*) FROM ebook
+		<where>
+			name LIKE '%'||#{word}||'%' 
+			OR
+			desc1 LIKE '%'||#{word}||'%'
+		</where>
+	</select>
+	
+<select id="list" parameterType="Map" resultType="EbookDTO">
+		SELECT ebook_id, author, name, rdate, viewcnt, image, imagesize, r FROM(
+			SELECT ebook_id, author, name, rdate, viewcnt, image, imagesize, rownum r FROM(
+				SELECT ebook_id, author, name, rdate, viewcnt, image, imagesize from ebook 	
+					<where>
+						name LIKE '%'||#{word}||'%' 
+						OR
+						desc1 LIKE '%'||#{word}||'%'
+					</where>
+				ORDER BY ebook_id DESC
+				)
+			)
+		<![CDATA[
+			WHERE r>=#{sno} AND r<=#{eno}
+		]]>
+	</select>
+
+
+</mapper>
