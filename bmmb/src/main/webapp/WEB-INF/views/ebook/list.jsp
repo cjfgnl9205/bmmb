@@ -157,9 +157,8 @@ $(document).ready(function(){
 		  
  		  str +=  "*"; 
 		  
-/* 		  str += "<td><a href="javascript:read('${dto.ebook_ID }')">"+list[i].name+"</a>";
-		  str += "</td>"
-		   */
+ 		  str += "<td>" +list[i].name+"</td>";
+
 		  namebox.html(str);
 	  } 
 	
@@ -167,7 +166,7 @@ $(document).ready(function(){
 	<%-- 		위의 포문에서 돌릴 것 	
 		<tr>
 	<c:forEach var="dto" items="${list}" varStatus="status">
-		<td><a href="javascript:read('${dto.ebook_ID }')">${dto.name }</a>
+		<td><a href="javascript:read('   ${dto.ebook_ID }     ')">${dto.name }</a>
 		</td>
 	</c:forEach>
 	</tr> --%>
