@@ -53,7 +53,7 @@ tr td a {
 		</form>
 
 		<div class="row" style="background-color: #eee;">
-			<table class="cntr" width="500" border="0" cellspacing="2"
+			<table class="cntr" width="500" border="1" cellspacing="2"
 				cellpadding="2">
 				<tbody>
 					<c:choose>
@@ -69,32 +69,31 @@ tr td a {
 									<td><img
 										src="${pageContext.request.contextPath}/images/booksample.jpg"
 										width="178" height="264" /></td>
+															
 									<c:if test="${status.count % 5 == 0}">
 											</tr>
-											
-													<tr>
-													<td>
-													<div class="namebox"></div>	
-													</td>
-													</tr>
-											
+													
+													
 											<tr>
 										</c:if>
 
 					</c:forEach>
 					</tr>
-<tr>
+					
+<%-- <tr>
 <c:forEach var="dto" items="${list}" varStatus="status">
 																	<td><a href="javascript:read('${dto.ebook_ID }')">${dto.name }</a>
 																	</td>
 																</c:forEach>
-</tr>			
+</tr> --%>			
 					</c:otherwise>
 					</c:choose>
+					
+													<tr class="namebox">
+													</tr> 
+													
 				</tbody>
 			</table>
-			
-																	
 			
 			
 		</div>
