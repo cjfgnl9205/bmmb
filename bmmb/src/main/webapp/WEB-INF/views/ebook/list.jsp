@@ -94,12 +94,7 @@ tr td a {
 				</tbody>
 			</table>
 			
-																		<%-- 				<tr>
-																<c:forEach var="dto" items="${list}" varStatus="status">
-																	<td><a href="javascript:read('${dto.ebook_ID }')">${dto.name }</a>
-																	</td>
-																</c:forEach>
-																</tr> --%>
+																	
 			
 			
 		</div>
@@ -143,19 +138,15 @@ tr td a {
 	</div>
 	
 <script type="text/javascript">
-$(document).ready(function(){
-	/* alert("Counselor!"); */
-	var str = "random";
+$(document).ready(function(){	
 	 var namebox = $(".namebox");
-	
-	namebox.append( "<p>"+str+"</p>" );
-	
-	
+	var str = "start: ";
 	var list = new Array();
 	
 	<c:forEach items="${list}" var="dto">
 		var json = new Object();
 		json.name = "${dto.name}";
+		json.ebook_ID = "${dto.ebook_ID}";
 		list.push(json);
 	</c:forEach>
 	
@@ -164,22 +155,25 @@ $(document).ready(function(){
 	
 	for (var i = 0, len = list.length || 0; i < len; i++) {
 		  
-		  str +=  "*";
+ 		  str +=  "*"; 
 		  
+/* 		  str += "<td><a href="javascript:read('${dto.ebook_ID }')">"+list[i].name+"</a>";
+		  str += "</td>"
+		   */
 		  namebox.html(str);
 	  } 
 	
 	
-/* 	list = "<c:out value='${list}'/>"; */
-
-/* 	alert(list); */
+	<%-- 		위의 포문에서 돌릴 것 	
+		<tr>
+	<c:forEach var="dto" items="${list}" varStatus="status">
+		<td><a href="javascript:read('${dto.ebook_ID }')">${dto.name }</a>
+		</td>
+	</c:forEach>
+	</tr> --%>
 	
-	  /* for (var i = 0, len = list.length || 0; i < len; i++) {
-		  
-		  str +=  "*";
-		  
-		  namebox.html(str);
-	  } */
+	
+
 	
 	
 	
