@@ -135,12 +135,17 @@ tr td a {
 			</table>
 		</div>
 
-		<!-- e: 테이블 실험 -->
+	<div class="testbox"></div>
 	</div>
 	
 <script type="text/javascript">
 $(document).ready(function(){	
 	 var namebox = $(".namebox");
+	 var testbox = $(".testbox");
+	 
+	var alter = "start: ";
+	var tester;
+	
 	var str = "start: ";
 	var list = new Array();
 	
@@ -154,28 +159,25 @@ $(document).ready(function(){
 	alert("JSON객체="+JSON.stringify(list));
 	alert(typeof list);
 	
-	for (var i = 0, len = list.length || 0; i < len; i++) {
+	for (var i = 0, len = list.length; i < len; i++) {
 		  
  		  str +=  "*"; 
 		  
  		  str += "<td>" +list[i].name+"</td>";
 
-		  namebox.html(str);
+ 		  namebox.html(str);
+ 
 	  } 
-	
-	
-	<%-- 		위의 포문에서 돌릴 것 	
-		<tr>
-	<c:forEach var="dto" items="${list}" varStatus="status">
-		<td><a href="javascript:read('   ${dto.ebook_ID }     ')">${dto.name }</a>
-		</td>
-	</c:forEach>
-	</tr> --%>
-	
-	
 
-	
-	
+
+for (var v = 5, len = list.length; v < len; v++) {
+		  
+		 tester += "<td>"+list[v].name+"</td>";
+		  
+			
+ 		  testbox.html(tester); 
+	  
+	  } 
 	
 	
 });// e: $(document).ready  
