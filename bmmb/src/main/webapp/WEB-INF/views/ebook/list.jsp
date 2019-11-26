@@ -143,9 +143,10 @@ $(document).ready(function(){
 	 var namebox = $(".namebox");
 	 var testbox = $(".testbox");
 	 
-	var tester;
 	
-	var str = "start: ";
+	var str;
+	var str2;
+	
 	var list = new Array();
 	
 	<c:forEach items="${list}" var="dto">
@@ -157,7 +158,6 @@ $(document).ready(function(){
 	
 	alert("JSON객체="+JSON.stringify(list));
 	
-
 	for (var i = 0; i < 5; i++) {
 		  		  
  		  str += "<td>" +list[i].name+"</td>";
