@@ -25,6 +25,11 @@ tr td a {
 .cntr {
 	margin: 0 auto;
 }
+
+.hidden{
+	display: none;
+}
+
 </style>
 <script>
 	function read(no) {
@@ -104,6 +109,7 @@ tr td a {
 			
 		
 	<div class="temp_console"></div>
+	<div class="temp_console2"></div>
 	</div>
 	
 <script type="text/javascript">
@@ -111,7 +117,9 @@ $(document).ready(function(){
 	 var namebox = $(".namebox");
 	 var namebox2 = $(".namebox2");
 	var temp_console = $(".temp_console");
-	 
+	var temp_console2 = $(".temp_console2");
+	
+	
 	var str;
 	var str2;
 	
@@ -127,7 +135,7 @@ $(document).ready(function(){
 	alert("JSON객체="+JSON.stringify(list));
 	
 	for (var i = 0; i < 5; i++) {	  		  
- 		  str += "<td class='nametd'>" +list[i].name+"</td>";
+ 		  str += "<td class='nametd'><div class='hidden'>" +list[i].ebook_ID+"</div>"+list[i].name+"</td>";
  		  namebox.html(str);
 	  } 
 
@@ -137,11 +145,19 @@ for (var v = 5, len = list.length; v < len; v++) {
 	  } 
 
 var tdcontainer = document.getElementsByClassName("nametd");
+var hiddencontainer=document.getElementsByClassName("hidden");
 
 for (i=0; i<tdcontainer.length; i++){
 	tdcontainer[i].addEventListener('click', function(){
 		var no = $(this).html();
 		temp_console.html(no);
+	});
+}
+
+for (i=0; i<hiddencontainer.length; i++){
+	hiddencontainer[i].addEventListener('click', function(){
+		var no = $(this).html();
+		temp_console2.html(no);
 	});
 }
 
