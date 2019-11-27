@@ -137,14 +137,11 @@ for (var v = 5, len = list.length; v < len; v++) {
 	  } 
 
 var tdcontainer = document.getElementsByClassName("nametd");
-var star;
+
 for (i=0; i<tdcontainer.length; i++){
 	tdcontainer[i].addEventListener('click', function(){
-		star += "*";
-		alert(star);
-		
-		var name = $(this).html();
-		alert(name);
+		var no = $(this).html();
+		temp_console.html(no);
 	});
 }
 
