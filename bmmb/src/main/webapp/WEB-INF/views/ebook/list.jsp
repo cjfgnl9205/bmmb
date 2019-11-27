@@ -52,9 +52,9 @@ tr td a {
 			</div>
 		</form>
 
-		<div class="row" style="background-color: #eee;">
-			<table class="cntr" width="500" border="0" cellspacing="5"
-				cellpadding="2">
+		<div class="row" style="background-color: white; text-align: center">
+			<table class="cntr" width="500" border="0" cellspacing="10"
+				cellpadding="5">
 				<tbody>
 					<c:choose>
 						<c:when test="${empty list}">
@@ -121,12 +121,12 @@ $(document).ready(function(){
 	alert("JSON객체="+JSON.stringify(list));
 	
 	for (var i = 0; i < 5; i++) {	  		  
- 		  str += "<td>" +list[i].name+"</td>";
+ 		  str += "<td><a href='#'>" +list[i].name+"</a></td>";
  		  namebox.html(str);
 	  } 
 
 for (var v = 5, len = list.length; v < len; v++) {	  
-		 str2 += "<td>"+list[v].name+"</td>";
+		 str2 += "<td><a href='#'>"+list[v].name+"</a></td>";
  		  namebox2.html(str2); 
 	  } 
 	
