@@ -16,6 +16,12 @@ tr td a {
 	color: black;
 }
 
+.nametd:hover{
+
+	  text-shadow: -.25px -.25px 0 black, 
+                .25px .25px black;
+}
+
 .cntr {
 	margin: 0 auto;
 }
@@ -121,16 +127,29 @@ $(document).ready(function(){
 	alert("JSON객체="+JSON.stringify(list));
 	
 	for (var i = 0; i < 5; i++) {	  		  
- 		  str += "<td><a href='#'>" +list[i].name+"</a></td>";
+ 		  str += "<td class='nametd'>" +list[i].name+"</td>";
  		  namebox.html(str);
 	  } 
 
 for (var v = 5, len = list.length; v < len; v++) {	  
-		 str2 += "<td><a href='#'>"+list[v].name+"</a></td>";
+		 str2 += "<td class='nametd'>"+list[v].name+"</td>";
  		  namebox2.html(str2); 
 	  } 
-	
-	
+
+var tdcontainer = document.getElementsByClassName("nametd");
+var star;
+for (i=0; i<tdcontainer.length; i++){
+	tdcontainer[i].addEventListener('click', function(){
+		star += "*";
+		alert(star);
+		
+		var name = $(this).html();
+		alert(name);
+	});
+}
+
+
+
 });// e: $(document).ready  
 
 </script>	
