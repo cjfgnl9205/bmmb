@@ -72,9 +72,9 @@ tr td a {
 															
 									<c:if test="${status.count % 5 == 0}">
 											</tr>
-											
-													
-														<tr class="namebox">
+														   <c:if test="${status.count < 6}">				
+																<tr class="namebox">
+															</c:if>
 													</tr> 
 													
 											<tr>
