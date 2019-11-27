@@ -53,7 +53,7 @@ tr td a {
 		</form>
 
 		<div class="row" style="background-color: #eee;">
-			<table class="cntr" width="500" border="1" cellspacing="2"
+			<table class="cntr" width="500" border="0" cellspacing="5"
 				cellpadding="2">
 				<tbody>
 					<c:choose>
@@ -73,7 +73,7 @@ tr td a {
 									<c:if test="${status.count % 5 == 0}">
 											</tr>
 											
-											
+													
 														<tr class="namebox">
 													</tr> 
 													
@@ -97,53 +97,17 @@ tr td a {
 				</tbody>
 			</table>
 			
-			
-		</div>
-		<!-- s: 테이블 실험 -->
-		<div class="row" style="background-color: #eee;">
-			<table class="cntr" width="950" border="0" cellspacing="0"
-				cellpadding="0">
-				<tr>
-					<td><img src="../images/book1.jpg" width="178" height="264" /></td>
-					<td><img src="../images/book2.jpg" width="178" height="264" /></td>
-					<td><img src="../images/book3.jpg" width="178" height="264" /></td>
-					<td><img src="../images/book4.jpg" width="178" height="264" /></td>
-					<td><img src="../images/book5.jpg" width="178" height="264" /></td>
-				</tr>
-				<tr>
-					<td>책설명1</td>
-					<td>책설명2</td>
-					<td>책설명3</td>
-					<td>책설명4</td>
-					<td>책설명5</td>
-				</tr>
-
-				<tr>
-					<td><img src="../images/book6.jpg" width="178" height="264" /></td>
-					<td><img src="../images/book7.jpg" width="178" height="264" /></td>
-					<td><img src="../images/book8.jpg" width="178" height="264" /></td>
-					<td><img src="../images/book9.jpg" width="178" height="264" /></td>
-					<td><img src="../images/book10.jpg" width="178" height="264" /></td>
-				</tr>
-				<tr>
-					<td>책설명1</td>
-					<td>책설명2</td>
-					<td>책설명3</td>
-					<td>책설명4</td>
-					<td>책설명5</td>
-				</tr>
-			</table>
-		</div>
-
+		
 	<div class="testbox"></div>
+	<div class="temp_console"></div>
 	</div>
 	
 <script type="text/javascript">
 $(document).ready(function(){	
 	 var namebox = $(".namebox");
 	 var testbox = $(".testbox");
+	var temp_console = $(".temp_console");
 	 
-	
 	var str;
 	var str2;
 	
@@ -158,22 +122,15 @@ $(document).ready(function(){
 	
 	alert("JSON객체="+JSON.stringify(list));
 	
-	for (var i = 0; i < 5; i++) {
-		  		  
+	for (var i = 0; i < 5; i++) {	  		  
  		  str += "<td>" +list[i].name+"</td>";
-
  		  namebox.html(str);
- 
 	  } 
 
-
-for (var v = 5, len = list.length; v < len; v++) {
-		  
-		 tester += "<td>"+list[v].name+"</td>";
-		  
-			
- 		  testbox.html(tester); 
-	  
+for (var v = 5, len = list.length; v < len; v++) {	  
+		 str2 += "<td>"+list[v].name+"</td>";
+ 		  testbox.html(str2); 
+ 		  temp_console.html(len);
 	  } 
 	
 	
