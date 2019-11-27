@@ -72,23 +72,22 @@ tr td a {
 															
 									<c:if test="${status.count % 5 == 0}">
 											</tr>
-														   <c:if test="${status.count < 6}">				
-																<tr class="namebox">
-															</c:if>
-													</tr> 
-													
+											
+															<c:choose>
+																<c:when test="${status.count < 6}">
+																<tr class="namebox"></tr>
+																</c:when>
+																<c:otherwise><tr class="namebox2"></tr>
+																</c:otherwise>
+															</c:choose>
+														
 											<tr>
 										</c:if>
 
 					</c:forEach>
 					</tr>
 					
-<%-- <tr>
-<c:forEach var="dto" items="${list}" varStatus="status">
-																	<td><a href="javascript:read('${dto.ebook_ID }')">${dto.name }</a>
-																	</td>
-																</c:forEach>
-</tr> --%>			
+
 					</c:otherwise>
 					</c:choose>
 					
@@ -98,14 +97,13 @@ tr td a {
 			</table>
 			
 		
-	<div class="testbox"></div>
 	<div class="temp_console"></div>
 	</div>
 	
 <script type="text/javascript">
 $(document).ready(function(){	
 	 var namebox = $(".namebox");
-	 var testbox = $(".testbox");
+	 var namebox2 = $(".namebox2");
 	var temp_console = $(".temp_console");
 	 
 	var str;
@@ -129,8 +127,7 @@ $(document).ready(function(){
 
 for (var v = 5, len = list.length; v < len; v++) {	  
 		 str2 += "<td>"+list[v].name+"</td>";
- 		  testbox.html(str2); 
- 		  temp_console.html(len);
+ 		  namebox2.html(str2); 
 	  } 
 	
 	
