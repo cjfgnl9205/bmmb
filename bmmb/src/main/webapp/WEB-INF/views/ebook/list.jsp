@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
@@ -51,7 +52,7 @@
 		</form>
 
 		<div class="row" style="background-color: white; text-align: center">
-			<table class="cntr" width="500" border="0" cellspacing="10"
+			<table class="cntr" width="500" border="2" cellspacing="10"
 				cellpadding="5">
 				<tbody>
 					<c:choose>
@@ -62,17 +63,40 @@
 						</c:when>
 						<c:otherwise>
 							
-								<c:forEach var="dto" items="${list}" varStatus="status">
+
 								<tr>
-												<td><img
-													src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-													width="178" height="264" /></td>							
-								</tr>
-								<tr>
-											<td>${dto.ebook_ID}</td>
+										<c:forEach var="dto" items="${list}" varStatus="status">		
+											<c:choose>
+												<c:when test="${status.count % 5 == 0}">
+														<td><img
+															src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+															width="178" height="264" /></td>	
+															</tr>
+															
+																<tr>
+																		<c:forEach var="namebox" items="${list}" varStatus="nameStatus">
+																			<c:choose>
+																				<c:when test="${nameStatus.count} == ${fn:length(list)}">
+																				</c:when>
+																				<c:otherwise>
+																					<td>${dto.name}</td>
+																				</c:otherwise>
+																			</c:choose>
+																		</c:forEach>
+																</tr>
+															
+															<tr>
+												</c:when>
+												<c:otherwise>
+													<td><img
+															src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+															width="178" height="264" /></td>	
+												</c:otherwise>
+											</c:choose>																		
+										</c:forEach>											
 							  	</tr>
-								</c:forEach>
-							  
+			
+								  				  
 					</c:otherwise>
 					</c:choose>										
 				</tbody>
@@ -89,7 +113,7 @@ $(document).ready(function(){
 	var temp_console = $(".temp_console");
 	var temp_console2 = $(".temp_console2");
 	
-	var str = "<td class='nametd'>";
+	var str = "<td>";
 	
 	var list = new Array();
 	
@@ -100,8 +124,8 @@ $(document).ready(function(){
 		list.push(json);
 	</c:forEach>
 	
-	 alert("JSON객체="+JSON.stringify(list));
-	 alert(list[0].ebook_ID);
+/* 	 alert("JSON객체="+JSON.stringify(list));
+	 alert(list[0].ebook_ID); */
 	 
 for (var i = 0; i < 5; i++) {	  		  		  
  		  str += "<a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
