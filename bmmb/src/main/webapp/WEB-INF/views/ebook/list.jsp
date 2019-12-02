@@ -106,7 +106,7 @@ $(document).ready(function(){
 	var temp_console = $(".temp_console");
 	var temp_console2 = $(".temp_console2");
 	
-	var str = "<td>";
+	var str;
 	
 	var list = new Array();
 	
@@ -122,16 +122,16 @@ $(document).ready(function(){
 
 var list2 = new Array();	 
 for (var i = 0; i < 5; i++) {	  		  		  
- 		  str += "<a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
+ 		  str = "<td><a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
  		  var json2 = new Object();
  		  json2.entry = str;
  		  list2.push(json2);
- 		  alert(JSON.stringify(list2));
  		  temp_console.html(JSON.stringify(list2));
+ 		  namebox.html(JSON.stringify(list2));
 	  }  
 
 for (var v = 5, len = list.length; v < len; v++) {	  
-		 str += "<a href='javascript:read("+list[v].ebook_ID+")'>"+list[v].name+"</a></td>";
+		 str += "<td><a href='javascript:read("+list[v].ebook_ID+")'>"+list[v].name+"</a></td>";
  		  namebox2.html(str); 
 	  } 
 
