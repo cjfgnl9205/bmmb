@@ -61,40 +61,33 @@
 							</tr>
 						</c:when>
 						<c:otherwise>
-
 							<tr>
 								<c:forEach var="dto" items="${list}" varStatus="status">
-									<td><img
-										src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-										width="178" height="264" /></td>
-															
-									<c:if test="${status.count % 5 == 0}">
-											</tr>
-											
-															<c:choose>
-																<c:when test="${status.count < 6}">
-																<tr class="namebox"></tr>
-																</c:when>
-																<c:otherwise><tr class="namebox2"></tr>
-																</c:otherwise>
-															</c:choose>
-														
-											<tr>
-										</c:if>
-
-					</c:forEach>
-					</tr>
-					
-
-					</c:otherwise>
-					</c:choose>
-					
+												<td><img
+													src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+													width="178" height="264" /></td>
+																		
+												<c:if test="${status.count % 5 == 0}">
+														</tr>
+																		<c:choose>
+																			<c:when test="${status.count < 6}">
+																			<tr class="namebox"></tr>
+																			</c:when>
+																			
+																			<c:otherwise><tr class="namebox2"></tr>
+																			</c:otherwise>
+																		</c:choose>					
+														<tr>
+												</c:if>
 												
-													
+														
+								</c:forEach>
+								</tr>
+					</c:otherwise>
+					</c:choose>										
 				</tbody>
 			</table>
-			
-		
+				
 	<div class="temp_console"></div>
 	<div class="temp_console2"></div>
 	</div>
@@ -126,8 +119,8 @@ for (var i = 0; i < 5; i++) {
 	  }  
 
 for (var v = 5, len = list.length; v < len; v++) {	  
-		 str2 += "<a href='javascript:read("+list[v].ebook_ID+")'>"+list[v].name+"</a></td>";
- 		  namebox2.html(str2); 
+		 str += "<a href='javascript:read("+list[v].ebook_ID+")'>"+list[v].name+"</a></td>";
+ 		  namebox2.html(str); 
 	  } 
 
 var tdcontainer = document.getElementsByClassName("nametd");
