@@ -61,28 +61,18 @@
 							</tr>
 						</c:when>
 						<c:otherwise>
-							<tr>
+							
 								<c:forEach var="dto" items="${list}" varStatus="status">
+								<tr>
 												<td><img
 													src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-													width="178" height="264" /></td>
-																		
-												<c:if test="${status.count % 5 == 0}">
-														</tr>
-																		<c:choose>
-																			<c:when test="${status.count < 6}">
-																			<tr class="namebox"></tr>
-																			</c:when>
-																			
-																			<c:otherwise><tr class="namebox2"></tr>
-																			</c:otherwise>
-																		</c:choose>					
-														<tr>
-												</c:if>
-												
-														
-								</c:forEach>
+													width="178" height="264" /></td>							
 								</tr>
+								<tr>
+											<td>${dto.ebook_ID}</td>
+							  	</tr>
+								</c:forEach>
+							  
 					</c:otherwise>
 					</c:choose>										
 				</tbody>
