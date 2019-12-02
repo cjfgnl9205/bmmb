@@ -67,31 +67,23 @@
 								<tr>
 										<c:forEach var="dto" items="${list}" varStatus="status">		
 											<c:choose>
-												<c:when test="${status.count % 5 == 0}">
-														<td><img
-															src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-															width="178" height="264" /></td>	
-															</tr>
+														<c:when test="${status.count % 5 == 0}">
+																<td>
+																<img
+																	src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																	width="178" height="264" /></td>	
+																																		
+																		
+																		</tr>
+																		<tr>
+														</c:when>
+												
+															<c:otherwise>
+																<td><img
+																		src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																		width="178" height="264" /></td>	
+															</c:otherwise>
 															
-																<tr>
-																		<c:forEach var="namebox" items="${list}" varStatus="nameStatus">
-																			<c:choose>
-																				<c:when test="${nameStatus.count} == ${fn:length(list)}">
-																				</c:when>
-																				<c:otherwise>
-																					<td>${dto.name}</td>
-																				</c:otherwise>
-																			</c:choose>
-																		</c:forEach>
-																</tr>
-															
-															<tr>
-												</c:when>
-												<c:otherwise>
-													<td><img
-															src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-															width="178" height="264" /></td>	
-												</c:otherwise>
 											</c:choose>																		
 										</c:forEach>											
 							  	</tr>
