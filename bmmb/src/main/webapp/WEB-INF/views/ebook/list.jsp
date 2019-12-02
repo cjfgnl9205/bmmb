@@ -122,12 +122,12 @@ $(document).ready(function(){
 	alert("JSON객체="+JSON.stringify(list));
 	
 for (var i = 0; i < 5; i++) {	  		  		  
- 		  str += "<td class='nametd'>"+"<a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"+</a></td>";
+ 		  str += "<td class='nametd'>"+"<a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
  		  namebox.html(str);
 	  }  
 
 for (var v = 5, len = list.length; v < len; v++) {	  
-		 str2 += "<td class='nametd'>"+list[v].name+"</td>";
+		 str2 += "<td class='nametd'>"+"<a href='javascript:read("+list[v].ebook_ID+")'>"+list[v].name+"</a></td>";
  		  namebox2.html(str2); 
 	  } 
 
@@ -140,9 +140,6 @@ for (i=0; i<tdcontainer.length; i++){
 		temp_console.html(no);
 	});
 }
-
-
-
 
 
 });// e: $(document).ready  
