@@ -12,23 +12,10 @@
 	padding: 20px 0 0 0;
 }
 
-tr td a {
-	color: black;
-}
-
-.nametd:hover{
-
-	  text-shadow: -.25px -.25px 0 black, 
-                .25px .25px black;
-}
-
 .cntr {
 	margin: 0 auto;
 }
 
-.hidden{
-	display: none;
-}
 
 </style>
 <script>
@@ -134,10 +121,10 @@ $(document).ready(function(){
 	
 	alert("JSON객체="+JSON.stringify(list));
 	
-	for (var i = 0; i < 5; i++) {	  		  
- 		  str += "<td class='nametd'><div class='hidden'>" +list[i].ebook_ID+"</div>"+list[i].name+"</td>";
+for (var i = 0; i < 5; i++) {	  		  		  
+ 		  str += "<td class='nametd'>"+"<a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"+</a></td>";
  		  namebox.html(str);
-	  } 
+	  }  
 
 for (var v = 5, len = list.length; v < len; v++) {	  
 		 str2 += "<td class='nametd'>"+list[v].name+"</td>";
@@ -145,7 +132,7 @@ for (var v = 5, len = list.length; v < len; v++) {
 	  } 
 
 var tdcontainer = document.getElementsByClassName("nametd");
-var hiddencontainer=document.getElementsByClassName("hidden");
+
 
 for (i=0; i<tdcontainer.length; i++){
 	tdcontainer[i].addEventListener('click', function(){
@@ -154,12 +141,7 @@ for (i=0; i<tdcontainer.length; i++){
 	});
 }
 
-for (i=0; i<hiddencontainer.length; i++){
-	hiddencontainer[i].addEventListener('click', function(){
-		var no = $(this).html();
-		temp_console2.html(no);
-	});
-}
+
 
 
 
