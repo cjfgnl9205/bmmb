@@ -65,7 +65,7 @@
 							<tr>
 								<c:forEach var="dto" items="${list}" varStatus="status">
 									<td><img
-										src="${pageContext.request.contextPath}/images/booksample.jpg"
+										src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
 										width="178" height="264" /></td>
 															
 									<c:if test="${status.count % 5 == 0}">
@@ -119,8 +119,8 @@ $(document).ready(function(){
 		list.push(json);
 	</c:forEach>
 	
-	alert("JSON객체="+JSON.stringify(list));
-	
+	/* alert("JSON객체="+JSON.stringify(list));
+	 */
 for (var i = 0; i < 5; i++) {	  		  		  
  		  str += "<td class='nametd'>"+"<a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
  		  namebox.html(str);

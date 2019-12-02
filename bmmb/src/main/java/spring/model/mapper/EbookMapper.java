@@ -4,9 +4,10 @@ import java.util.List;
 import java.util.Map;
 
 import spring.model.ebook.EbookDTO;
-import spring.model.notices.NoticesDTO;
 
 public interface EbookMapper {
+	
+	public int create(EbookDTO dto);
 	
 	public List<EbookDTO> list(Map map);
 	

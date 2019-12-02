@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.model.ebook.EbookDTO;
 import spring.model.mapper.EbookMapper;
@@ -22,6 +24,29 @@ public class EbookController {
 	@Autowired
 	public EbookMapper mapper;
 
+	@PostMapping("/ebook/create")	
+	public String create(EbookDTO dto, HttpServletRequest request) {
+		
+		String basePath = request.getRealPath("/ebook_storage");
+		
+		int filesize = (int)dto.getFilenameMF().getSize();
+
+		if(filesize>0){
+			dto.setImage(Utility.saveFileSpring(dto.getFilenameMF(), basePath));
+			dto.setImagesize(filesize);
+		}
+		
+		if(mapper.create(dto)>0) {
+			return "redirect:list";
+		}else {
+			return "/ebook/create";
+		}
+	}
+	
+	@GetMapping("/ebook/create")
+	public String create() {
+		return "/ebook/create";
+	}
 	
 	@GetMapping("/ebook/read")
 	public String read(int ebook_ID, Model model) {
