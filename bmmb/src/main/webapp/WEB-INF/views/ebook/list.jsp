@@ -75,6 +75,7 @@
 																																		
 																		
 																		</tr>
+																		<tr class="namebox"></tr>
 																		<tr>
 														</c:when>
 												
@@ -118,10 +119,15 @@ $(document).ready(function(){
 	
 /* 	 alert("JSON객체="+JSON.stringify(list));
 	 alert(list[0].ebook_ID); */
-	 
+
+var list2 = new Array();	 
 for (var i = 0; i < 5; i++) {	  		  		  
  		  str += "<a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
- 		  namebox.html(str);
+ 		  var json2 = new Object();
+ 		  json2.entry = str;
+ 		  list2.push(json2);
+ 		  alert(JSON.stringify(list2));
+ 		  temp_console.html(JSON.stringify(list2));
 	  }  
 
 for (var v = 5, len = list.length; v < len; v++) {	  
