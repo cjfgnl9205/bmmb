@@ -119,10 +119,11 @@ $(document).ready(function(){
 		list.push(json);
 	</c:forEach>
 	
-	/* alert("JSON객체="+JSON.stringify(list));
-	 */
+	 alert("JSON객체="+JSON.stringify(list));
+	 alert(list[0].ebook_ID);
+	 
 for (var i = 0; i < 5; i++) {	  		  		  
- 		  str += "<td class='nametd'>"+"<a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
+ 		  str += "<td class='nametd'><a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
  		  namebox.html(str);
 	  }  
 
