@@ -83,6 +83,7 @@
 																<td><img
 																		src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
 																		width="178" height="264" /></td>	
+																		
 															</c:otherwise>
 															
 											</c:choose>																		
@@ -107,6 +108,7 @@ $(document).ready(function(){
 	var temp_console2 = $(".temp_console2");
 	
 	var str;
+	var str3;
 	
 	var list = new Array();
 	
@@ -130,9 +132,14 @@ for (var i = 0; i < 5; i++) {
  		  namebox.html(JSON.stringify(list2));
 	  }  
 
+var list3 = new Array();
 for (var v = 5, len = list.length; v < len; v++) {	  
-		 str += "<td><a href='javascript:read("+list[v].ebook_ID+")'>"+list[v].name+"</a></td>";
- 		  namebox2.html(str); 
+		 str3 += "<td><a href='javascript:read("+list[v].ebook_ID+")'>"+list[v].name+"</a></td>";
+ 		  var json3 = new Object();
+ 		  json3.entry = str;
+ 		  list3.push(json3);
+ 		  temp_console2.html(JSON.stringify(list2));
+ 		  namebox2.html(JSON.stringify(list2));
 	  } 
 
 var tdcontainer = document.getElementsByClassName("nametd");
