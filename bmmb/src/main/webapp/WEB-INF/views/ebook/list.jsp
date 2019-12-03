@@ -75,8 +75,21 @@
 																																		
 																		
 																		</tr>
-																		<tr class="namebox"></tr>
+																		
+																		<c:choose>
+																			<c:when test="${status.count > 5}">
+																				<!-- 순회5번 초과 -->
+																				<tr class="namebox2"></tr>
+																			</c:when>
+																			<c:otherwise>	
+																				<!-- 순회5번 이하 -->
+																				<tr class="namebox"></tr>																		
+																			</c:otherwise>	
+																		</c:choose>
+																		
 																		<tr>
+																		
+																		
 														</c:when>
 												
 															<c:otherwise>
@@ -128,15 +141,23 @@ var list3 = new Array();
 
 
 
-for (var i = 0; i < 10; i++) {	  		  		  
+for (var i = 0; i < 5; i++) {	  		  		  
  		  str = "<td><a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
  		  var json2 = new Object();
  		  json2.entry = str;
  		  list2.push(json2);
  		  temp_console.html(JSON.stringify(list2));
- 		  namebox.html(JSON.stringify(list2));		 
+ 		  namebox.html(JSON.stringify(list2));	
 	  }  
 
+for (var i = 5; i < 10; i++) {	  		  		  
+	  str = "<td><a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
+	  var json3 = new Object();
+	  json3.entry = str;
+	  list3.push(json3);
+	  temp_console2.html(JSON.stringify(list3));
+	  namebox2.html(JSON.stringify(list3));	
+}  
 
 
 
