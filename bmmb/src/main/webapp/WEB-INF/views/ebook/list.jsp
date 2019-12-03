@@ -123,24 +123,23 @@ $(document).ready(function(){
 	 alert(list[0].ebook_ID); */
 
 var list2 = new Array();	 
-for (var i = 0; i < 5; i++) {	  		  		  
+var list3 = new Array();
+
+
+
+
+for (var i = 0; i < 10; i++) {	  		  		  
  		  str = "<td><a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
  		  var json2 = new Object();
  		  json2.entry = str;
  		  list2.push(json2);
  		  temp_console.html(JSON.stringify(list2));
- 		  namebox.html(JSON.stringify(list2));
+ 		  namebox.html(JSON.stringify(list2));		 
 	  }  
 
-var list3 = new Array();
-for (var v = 5, len = list.length; v < len; v++) {	  
-		 str3 += "<td><a href='javascript:read("+list[v].ebook_ID+")'>"+list[v].name+"</a></td>";
- 		  var json3 = new Object();
- 		  json3.entry = str;
- 		  list3.push(json3);
- 		  temp_console2.html(JSON.stringify(list2));
- 		  namebox2.html(JSON.stringify(list2));
-	  } 
+
+
+
 
 var tdcontainer = document.getElementsByClassName("nametd");
 
