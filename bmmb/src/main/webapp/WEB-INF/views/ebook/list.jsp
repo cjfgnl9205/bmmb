@@ -114,7 +114,7 @@ h3 {
 				<h3 class="section_head" ><a href="#">신간</a></h3>
 		<br>
 
-<!-- s: 섹션1 북데이터 -->
+<!-- s: **섹션1 북데이터** -->
 		<div class="row" style="background-color: white; text-align: center">
 			<table class="cntr" width="500" border="0" cellspacing="10"
 				cellpadding="5">
@@ -187,7 +187,7 @@ h3 {
 								<tr>
 										<c:forEach var="dto" items="${list}" varStatus="status">		
 											<c:choose>
-														<c:when test="${status.count % 5 == 0}">
+														   <c:when test="${status.count % 5 == 0}">
 																<td>
 																<a href="javascript:read('${dto.ebook_ID}')">
 																<img
@@ -197,17 +197,17 @@ h3 {
 																	</td>																											
 																		</tr>									
 																		<c:choose>
-																			<c:when test="${status.count > 5}">
-																				<!-- 순회5번 초과 -->
-																				<tr class="namebox2"></tr>
-																			</c:when>
-																			<c:otherwise>	
-																				<!-- 순회5번 이하 -->
-																				<tr class="namebox"></tr>																		
-																			</c:otherwise>	
+																				<c:when test="${status.count > 5}">	<!-- 순회5번 초과 -->
+																					<tr class="namebox2"></tr>
+																				</c:when>
+																				<c:when test="${status.count < 5}"><!-- 순회5번 이하 -->
+																					<tr class="namebox"></tr>																		
+																				</c:when>	
+																				<c:otherwise><!-- 순회5번 이하 -->															
+																				</c:otherwise>	
 																		</c:choose>
 																		<tr>																						
-														</c:when>										
+													    	</c:when>										
 															<c:otherwise>
 																<td>
 																<a href="javascript:read('${dto.ebook_ID}')">
