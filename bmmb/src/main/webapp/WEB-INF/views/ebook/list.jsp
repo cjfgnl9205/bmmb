@@ -113,7 +113,7 @@ h3 {
 			<div class="section first"><!-- s: section1 -->
 				<h3 class="section_head" ><a href="#">신간</a></h3>
 		<br>
-
+			
 <!-- s: **섹션1 북데이터** -->
 		<div class="row" style="background-color: white; text-align: center">
 			<table class="cntr" width="500" border="0" cellspacing="10"
@@ -136,20 +136,19 @@ h3 {
 																	src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
 																	width="178" height="264" />
 																	</a>
-																	</td>																											
-																		</tr>									
+																	</td>
+																		</tr>
 																		<c:choose>
-																			<c:when test="${status.count > 5}">
-																				<!-- 순회5번 초과 -->
-																				<tr class="namebox2"></tr>
-																			</c:when>
-																			<c:otherwise>	
-																				<!-- 순회5번 이하 -->
-																				<tr class="namebox"></tr>																		
-																			</c:otherwise>	
+																					<c:when test="${status.count > 5}">
+																						<!-- 순회5번 초과 -->
+																						<tr class="namebox2"></tr>
+																					</c:when>
+																					<c:otherwise>
+																						<tr class="namebox"></tr>		
+																					</c:otherwise>	
 																		</c:choose>
-																		<tr>																						
-														</c:when>										
+																		<tr>	
+														</c:when>
 															<c:otherwise>
 																<td>
 																<a href="javascript:read('${dto.ebook_ID}')">
@@ -159,7 +158,7 @@ h3 {
 																</a>	
 															</c:otherwise>										
 											</c:choose>																		
-										</c:forEach>											
+										</c:forEach>
 							  	</tr> 				  
 					</c:otherwise>
 					</c:choose>										
@@ -200,10 +199,8 @@ h3 {
 																				<c:when test="${status.count > 5}">	<!-- 순회5번 초과 -->
 																					<tr class="namebox2"></tr>
 																				</c:when>
-																				<c:when test="${status.count < 5}"><!-- 순회5번 이하 -->
-																					<tr class="namebox"></tr>																		
-																				</c:when>	
-																				<c:otherwise><!-- 순회5번 이하 -->															
+																				<c:otherwise><!-- 순회5번 이하 -->		
+																						<tr class="namebox"></tr>													
 																				</c:otherwise>	
 																		</c:choose>
 																		<tr>																						
