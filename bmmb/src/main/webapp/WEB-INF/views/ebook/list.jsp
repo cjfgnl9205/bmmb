@@ -92,7 +92,7 @@ h3 {
 <div class="container">		
 	<div class="temp_console"></div>
 	<div class="temp_console2"></div>
-	
+	<div class="temp_console3">${list}</div>
 	
 	<!--** s: 검색창 **-->
 			<form class="form-inline" action="list" method="post">
@@ -213,7 +213,7 @@ h3 {
 																<a href="javascript:read('${dto.ebook_ID}')">
 																<img
 																		src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-																		width="178" height="264" /></td>	
+																		width="178" height="264" /></td>			
 																</a>	
 															</c:otherwise>										
 											</c:choose>																		
@@ -225,6 +225,11 @@ h3 {
 			</table>
 			</div><!-- e: 섹션2 북데이터 -->					
 		</div><!-- e:  섹션2 -->	
+		
+		
+		
+		
+		
 		
 	</div><!-- e:  도서 섹션 -->
 
