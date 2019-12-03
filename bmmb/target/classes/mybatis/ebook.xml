@@ -36,11 +36,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="list" parameterType="Map" resultType="EbookDTO">
-		SELECT ebook_id, author, name, rdate, viewcnt, image, imagesize, r
+		SELECT ebook_id, author, name, rdate, viewcnt, image, imagesize, category_code, midclass, r
 		FROM(
-		SELECT ebook_id, author, name, rdate, viewcnt, image, imagesize, rownum r
+		SELECT ebook_id, author, name, rdate, viewcnt, image, imagesize, category_code, midclass, rownum r
 		FROM(
-		SELECT ebook_id, author, name, rdate, viewcnt, image, imagesize from ebook
+		SELECT ebook_id, author, name, rdate, viewcnt, image, imagesize, category_code, midclass from ebook
 		<where>
 			name LIKE '%'||#{word}||'%'
 			OR
