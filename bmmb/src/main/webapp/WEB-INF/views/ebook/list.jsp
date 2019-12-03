@@ -52,7 +52,7 @@
 		</form>
 
 		<div class="row" style="background-color: white; text-align: center">
-			<table class="cntr" width="500" border="2" cellspacing="10"
+			<table class="cntr" width="500" border="0" cellspacing="10"
 				cellpadding="5">
 				<tbody>
 					<c:choose>
@@ -69,9 +69,12 @@
 											<c:choose>
 														<c:when test="${status.count % 5 == 0}">
 																<td>
+																<a href="javascript:read('${dto.ebook_ID}')">
 																<img
 																	src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-																	width="178" height="264" /></td>	
+																	width="178" height="264" />
+																	</a>
+																	</td>	
 																																		
 																		
 																		</tr>
@@ -93,10 +96,12 @@
 														</c:when>
 												
 															<c:otherwise>
-																<td><img
+																<td>
+																<a href="javascript:read('${dto.ebook_ID}')">
+																<img
 																		src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
 																		width="178" height="264" /></td>	
-																		
+																</a>	
 															</c:otherwise>
 															
 											</c:choose>																		
@@ -146,8 +151,8 @@ for (var i = 0; i < 5; i++) {
  		  var json2 = new Object();
  		  json2.entry = str;
  		  list2.push(json2);
- 		  temp_console.html(JSON.stringify(list2));
- 		  namebox.html(JSON.stringify(list2));	
+/*  		  temp_console.html(JSON.stringify(list2)); */
+		  namebox.html(JSON.stringify(list2));	
 	  }  
 
 for (var i = 5; i < 10; i++) {	  		  		  
@@ -155,7 +160,7 @@ for (var i = 5; i < 10; i++) {
 	  var json3 = new Object();
 	  json3.entry = str;
 	  list3.push(json3);
-	  temp_console2.html(JSON.stringify(list3));
+/* 	  temp_console2.html(JSON.stringify(list3)); */
 	  namebox2.html(JSON.stringify(list3));	
 }  
 
