@@ -247,8 +247,7 @@ h3 {
 <tr class="midtr"></tr>
 </table>
 
-<script type="text/javascript">
-
+<!-- <script type="text/javascript">
 function pickmid2(f){
 	
 	alert(f);
@@ -261,14 +260,12 @@ function pickmid2(f){
 					  var jsonx = new Object();
 					  jsonx.entry = strx;
 					  midlist.push(jsonx);
-					  /* alert(midlist); */
 					  midtr.html(JSON.stringify(midlist));	
 				} 
 	}
 
 }
-
-</script>
+</script> -->
 
 <script type="text/javascript">
 $(document).ready(function(){	
@@ -276,6 +273,8 @@ $(document).ready(function(){
 	 var namebox2 = $(".namebox2");
 	var temp_console = $(".temp_console");
 	var temp_console2 = $(".temp_console2");
+	var fromlistbox = $(".fromlistbox"); 
+	
 	
 	var str;
 	var str3;
@@ -326,37 +325,7 @@ for (i=0; i<tdcontainer.length; i++){
 
 
 
-/* side바 버튼 액티베이트 --> side.jsp에서 해야될듯 시차문제고려 */
-var midclass01 = document.getElementById("midclass01");
-/* midclass01.addEventListener('click', function(){
-var x = document.getElementsByClassName("midbox");
- */
-/* for(i=0; i<x.length; i++){
-	var y = x.innerText;
-	alert(y);
-} */
 
-/* 	}); */
-
-
-
-function elemFilter(){
-	var x, i;
-	x = document.getElementsByClassName("imgpanel");
-	for (i=0; i<x.length; i++){
-		addClass(x[i], list2[i].category_name);
-	}
-}
-
-function addClass(elem, cname){
-	var i, arr1, arr2;
-	arr1 = elem.className.split(" ");
-	arr2 = cname.split(" ");
-	for (i = 0; i < arr2.length; i++){
-		elem.className += " "+arr2[i];
-		alert(arr2[i]);
-	}
-}
 
 });// e: $(document).ready  
 

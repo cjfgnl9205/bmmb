@@ -14,6 +14,7 @@
 </style>
 </head>
 <body>
+<div class="fromlistbox"></div>
 <div class="side_bar">
 	<ul>
 		<li><a href="${root }/notices/list">공지사항</a></li>
@@ -23,22 +24,43 @@
 		<li><a href="#">어학/학습(04)</a></li>
 		<li><a href="#">외국어(05)</a></li>
 		<li><a href="#">참고서(06)</a></li>
-		<li><a href="#">컴퓨터/IT(07)</a></li>
-		
-		
+		<li><a href="#">컴퓨터/IT(07)</a></li>		
 	</ul>
 </div>
 
+<c:forEach var="dto" items="${list}" varStatus="status">		
+	<ul>
+		<li>+</li>
+	</ul>
+</c:forEach>
 <script type="text/javascript">
-function pickmid(){
-	var x = document.getElementsByClassName("midbox");
 
-	for(i=0; i<x.length; i++){
-		
-		var y = x.innerHTML;
-		alert(y); 
-	}
+function elTest(){
+	
+	
+	
 }
+
+function pickmid2(f){
+	
+	alert(f);
+	var midlist = new Array();
+	var midtr = $(".midtr");
+
+	if(f=='05'){
+		
+		
+				for (var i = 0; i < 5; i++) {	  		  		  
+					  strx = "<td class='txtpanel'>this is test</td>";
+					  var jsonx = new Object();
+					  jsonx.entry = strx;
+					  midlist.push(jsonx);
+					  midtr.html(JSON.stringify(midlist));	
+				} 
+	}
+
+}
+
 </script>
 </body>
 </html>
