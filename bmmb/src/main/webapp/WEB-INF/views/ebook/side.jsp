@@ -35,6 +35,7 @@
 	</ul>
 </c:forEach>
 
+<div class="midtr3"></div>
 
 <script type="text/javascript">
 
@@ -47,7 +48,7 @@ var list = new Array();
 	list.push(json);
 </c:forEach>
 
-var midtr2 = $(".midtr2");
+var midtr3 = $(".midtr3");
 var nlist = new Array();
 function elTest(){
 	
@@ -58,8 +59,8 @@ function elTest(){
 		  json2.entry = str;
 		  nlist.push(json2);
 		  alert(JSON.stringify(nlist));
-/* 		  midtr2.html(JSON.stringify(nlist));	
- */	  }  
+ 		  midtr3.html(JSON.stringify(nlist));	
+	  }  
 	
 	
 	
