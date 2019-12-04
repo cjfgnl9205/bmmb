@@ -70,7 +70,12 @@ function elTest(){
 function sendTest(){
 	var cat2 = document.getElementById("cat2");
 	var x = cat2.innerHTML;
-	alert(x);
+	/* alert(x); */
+	
+	var url = "list";
+	url += "?kmidclass="+x;
+	location.href = url;
+	
 }
 
 
