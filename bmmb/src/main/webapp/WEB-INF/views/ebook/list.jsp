@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
@@ -11,19 +11,18 @@
 <style>
 
 /* display로 list 데이터 확인 */
-.temp_console3{
-display: none;
+.temp_console3 {
+	display: none;
 }
 
-/* s: 사이드바 */ 
-.side_bar:first-child{
-
+/* s: 사이드바 */
+.side_bar:first-child {
+	
 }
 
-/* e: 사이드바 */ 
-
-.row{
-
+/* e: 사이드바 */
+.row {
+	
 }
 
 .ebook_list {
@@ -35,43 +34,41 @@ display: none;
 }
 
 /* s: bcmk 레이아웃 스타일 */
-
 .box_main_best {
 	height: 100%;
-/*     height: 351px; */
-    position: relative;
-   /*  display: none; */
+	/*     height: 351px; */
+	position: relative;
+	/*  display: none; */
 }
 
 div {
-    display: block;
+	display: block;
 	width: auto;
 	height: auto;
 }
 
 .box_main_best .section.first h3 {
-    margin-left: 50px;
-
+	margin-left: 50px;
 }
 
 .box_main_best h3 {
-    float: left;
-    margin: 0 0 40px 0px;
+	float: left;
+	margin: 0 0 40px 0px;
 }
 
-h3 a{
-margin: 0 0 20px 0px;
-padding: 10px;
+h3 a {
+	margin: 0 0 20px 0px;
+	padding: 10px;
 }
 
 h3 {
-    display: block;
-    font-size: 1.17em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
+	display: block;
+	font-size: 1.17em;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	font-weight: bold;
 }
 
 /* body {
@@ -80,7 +77,6 @@ h3 {
     color: #666;
     line-height: 1.2em;
 } */
-
 
 /* e: bcmk 레이아웃 스타일 */
 </style>
@@ -102,13 +98,13 @@ h3 {
 </script>
 </head>
 <body>
-<div class="container">		
-	<div class="temp_console"></div>
-	<div class="temp_console2"></div>
-	<div class="temp_console3">${list}</div>
-	
-	<!--** s: 검색창 **-->
-			<form class="form-inline" action="list" method="post">
+	<div class="container">
+		<div class="temp_console"></div>
+		<div class="temp_console2"></div>
+		<div class="temp_console3">${list}</div>
+
+		<!--** s: 검색창 **-->
+		<form class="form-inline" action="list" method="post">
 			<div class="form-group col-sm-6"
 				style="float: left; padding-left: 0px;">
 				<input type="text" class="form-control" name="word"
@@ -119,89 +115,150 @@ h3 {
 					style="margin-left: 10px;" onclick="location.href='create'">등록</button>
 			</div>
 		</form>
-	<!--** e: 검색창 **-->	
+		<!--** e: 검색창 **-->
 
-	<div class="box_main_best" id="newBook"><!-- s:  도서 섹션 -->
+		<div class="box_main_best" id="newBook">
+			<!-- s:  도서 섹션 -->
+			<c:choose>
+				<c:when test="${empty kmid}">
+					<div class="row"
+						style="background-color: white; text-align: center">
+						<table class="cntr" width="500" border="0" cellspacing="10"
+							cellpadding="5">
+							<tbody>
+								<c:choose>
+									<c:when test="${empty list}">
+										<tr>
+											<td colspan="4">등록된 글이 없습니다.</td>
+										</tr>
+									</c:when>
+									<c:otherwise>
+										<tr>
+											<c:forEach var="dto" items="${list}" varStatus="status" >
+												<c:choose>
+													<c:when test="${status.count % 5 == 0}">
+														<td class="imgpanel">
+															<a href="javascript:read('${dto.ebook_ID}')">																	
+																<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																		width="178" height="264" />
+															</a>
+															<div class="midbox">${dto.midclass}</div>
+														</td>
+														
+														</tr>
+																<c:choose>
+																	<c:when test="${status.count > 5}">
+																		<tr class="namebox2"></tr>
+																	</c:when>																	
+																	<c:otherwise>
+																		<tr class="namebox"></tr>
+																	</c:otherwise>
+																</c:choose>
+														<tr>
+														
+													</c:when>
+													<c:otherwise>
+														<td class="imgpanel">
+															<a href="javascript:read('${dto.ebook_ID}')">
+																<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																			width="178" height="264" />
+															</a>
+															<div class="midbox">${dto.midclass}</div>	
+														</td>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
+										</tr>
+									</c:otherwise>
+								</c:choose>
+							</tbody>
+						</table>
+					</div>
 
 
-	<c:choose>
-		<c:when test="${empty kmid}">
-			<div>${list}</div>
-		</c:when>		
-		<c:otherwise>
-			<div>${kmid}</div>
-		</c:otherwise>
-	</c:choose>
-		
+				</c:when>
+				<c:otherwise>
+					<div>${kmid}</div>
+				</c:otherwise>
+			</c:choose>
 
-	</div><!-- e:  도서 섹션 -->
+
+		</div>
+		<!-- e:  도서 섹션 -->
 	</div>
 
-<table>
-<tr class="midtr"></tr>
-<tr class="midtr2"></tr>
-<tr class="kmid"></tr>
-</table>
+	<table>
+		<tr class="midtr"></tr>
+		<tr class="midtr2"></tr>
+		<tr class="kmid"></tr>
+	</table>
 
 
 
-<script type="text/javascript">
-$(document).ready(function(){	
-	 var namebox = $(".namebox");
-	 var namebox2 = $(".namebox2");
-	var temp_console = $(".temp_console");
-	var temp_console2 = $(".temp_console2");
-	
-	var str;
-	var str3;
-	
-	var list = new Array();
-	
-	<c:forEach items="${list}" var="dto">
-		var json = new Object();
-		json.name = "${dto.name}";
-		json.ebook_ID = "${dto.ebook_ID}";
-		list.push(json);
-	</c:forEach>
-	
-/* 	 alert("JSON객체="+JSON.stringify(list));
-	 alert(list[0].ebook_ID); */
+	<script type="text/javascript">
+		$(document)
+				.ready(
+						function() {
+							var namebox = $(".namebox");
+							var namebox2 = $(".namebox2");
+							var temp_console = $(".temp_console");
+							var temp_console2 = $(".temp_console2");
 
-var list2 = new Array();	 
-var list3 = new Array();
+							var str;
+							var str3;
 
+							var list = new Array();
 
-for (var i = 0; i < 5; i++) {	  		  		  
- 		  str = "<td class='txtpanel'><a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
- 		  var json2 = new Object();
- 		  json2.entry = str;
- 		  list2.push(json2);
-/*  		  temp_console.html(JSON.stringify(list2)); */
-		  namebox.html(JSON.stringify(list2));	
-	  }  
+							<c:forEach items="${list}" var="dto">
+							var json = new Object();
+							json.name = "${dto.name}";
+							json.ebook_ID = "${dto.ebook_ID}";
+							list.push(json);
+							</c:forEach>
 
-for (var i = 5; i < 10; i++) {	  		  		  
-	  str = "<td class='txtpanel'><a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
-	  var json3 = new Object();
-	  json3.entry = str;
-	  list3.push(json3);
-/* 	  temp_console2.html(JSON.stringify(list3)); */
-	  namebox2.html(JSON.stringify(list3));	
-}  
+							/* 	 alert("JSON객체="+JSON.stringify(list));
+							 alert(list[0].ebook_ID); */
 
-/* 필터링에 사용 고려 */
-var tdcontainer = document.getElementsByClassName("nametd");
+							var list2 = new Array();
+							var list3 = new Array();
 
-for (i=0; i<tdcontainer.length; i++){
-	tdcontainer[i].addEventListener('click', function(){
-		var no = $(this).html();
-		temp_console.html(no);
-	});
-}
+							for (var i = 0; i < 5; i++) {
+								str = "<td class='txtpanel'><a href='javascript:read("
+										+ list[i].ebook_ID
+										+ ")'>"
+										+ list[i].name + "</a></td>";
+								var json2 = new Object();
+								json2.entry = str;
+								list2.push(json2);
+								/*  		  temp_console.html(JSON.stringify(list2)); */
+								namebox.html(JSON.stringify(list2));
+							}
 
+							for (var i = 5; i < 10; i++) {
+								str = "<td class='txtpanel'><a href='javascript:read("
+										+ list[i].ebook_ID
+										+ ")'>"
+										+ list[i].name + "</a></td>";
+								var json3 = new Object();
+								json3.entry = str;
+								list3.push(json3);
+								/* 	  temp_console2.html(JSON.stringify(list3)); */
+								namebox2.html(JSON.stringify(list3));
+							}
 
-});// e: $(document).ready  
+							/* 필터링에 사용 고려 */
+							var tdcontainer = document
+									.getElementsByClassName("nametd");
 
-</script>	
+							for (i = 0; i < tdcontainer.length; i++) {
+								tdcontainer[i].addEventListener('click',
+										function() {
+											var no = $(this).html();
+											temp_console.html(no);
+										});
+							}
+
+						});// e: $(document).ready
+	</script>
 </body>
 </html>
