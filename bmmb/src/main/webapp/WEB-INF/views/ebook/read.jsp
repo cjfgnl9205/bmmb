@@ -9,6 +9,12 @@
 	.ebook_read { padding : 20px 0 0 0;}
 </style>
 <script>
+
+	function preview(f){
+		var excerpt = f;
+		alert(excerpt);
+	}
+	
 	function downFile(fname){
 		var url="${pageContext.request.contextPath}/download";
 		url+="?dir=/ebook_storage";
@@ -18,7 +24,7 @@
 	
 	function listM(){
 		var url = "list";
-		url += "?notices_no=${param.ebook_ID}";
+		url += "?ebook_ID=${param.ebook_ID}";
 		url += "&word=${param.word}";
 		url += "&nowPage=${param.nowPage}";
 		
@@ -75,6 +81,10 @@
 				<th>내용</th>
 				<td>${dto.desc1 }</td>
 			</tr>
+			<tr>
+				<th>e북 미리보기</th>
+				<td><a href="javascript:preview('${dto.desc2 }')">뷰어에서 보기</a></td>
+			</tr>
 			<c:if test="${not empty dto.image }">
 				<tr>
 					<th>사진</th>
@@ -87,6 +97,7 @@
 			<button class="btn btn-light" type="button" onclick="updateM();">수정</button>
 			<button class="btn btn-light" type="button" onclick="deleteM();">삭제</button>
 			<button class="btn btn-light" type="button" onclick="listM();">목록</button>
+			<button class="btn btn-light" type="button" onclick="#">장바구니 담기</button>
 		</div>
 	</form>
 </div>

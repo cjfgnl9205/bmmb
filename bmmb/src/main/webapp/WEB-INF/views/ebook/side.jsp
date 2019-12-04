@@ -17,13 +17,13 @@
 <div class="side_bar">
 	<ul>
 		<li><a href="${root }/notices/list">공지사항</a></li>
-		<li><a href="#">문학/인문</a></li>
-		<li><a href="#">경제/교양</a></li>
-		<li><a href="#">유아/실용</a></li>
-		<li><a href="#">어학/학습</a></li>
-		<li><a href="#">외국어</a></li>
-		<li><a href="#">참고서</a></li>
-		<li><a href="#">컴퓨터/IT</a></li>
+		<li id="midclass01"><a href="#">문학/인문(01)</a></li>
+		<li><a href="#">경제/교양(02)</a></li>
+		<li><a href="#">유아/실용(03)</a></li>
+		<li><a href="#">어학/학습(04)</a></li>
+		<li><a href="#">외국어(05)</a></li>
+		<li><a href="#">참고서(06)</a></li>
+		<li><a href="#">컴퓨터/IT(07)</a></li>
 		
 		
 	</ul>

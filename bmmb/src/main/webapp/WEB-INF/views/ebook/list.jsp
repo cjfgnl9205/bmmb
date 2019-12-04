@@ -10,6 +10,13 @@
 <title>eBook 목록</title>
 <style>
 
+/* s: 사이드바 */ 
+.side_bar:first-child{
+
+}
+
+/* e: 사이드바 */ 
+
 .row{
 
 }
@@ -28,6 +35,7 @@
 	height: 100%;
 /*     height: 351px; */
     position: relative;
+   /*  display: none; */
 }
 
 div {
@@ -130,12 +138,13 @@ h3 {
 										<c:forEach var="dto" items="${list}" varStatus="status">		
 											<c:choose>
 														<c:when test="${status.count % 5 == 0}">
-																<td>
+																<td class="imgpanel">
 																<a href="javascript:read('${dto.ebook_ID}')">
 																<img
 																	src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
 																	width="178" height="264" />
 																	</a>
+																	${dto.midclass}
 																	</td>
 																		</tr>
 																		<c:choose>
@@ -150,11 +159,13 @@ h3 {
 																		<tr>	
 														</c:when>
 															<c:otherwise>
-																<td>
+																<td class="imgpanel">
 																<a href="javascript:read('${dto.ebook_ID}')">
 																<img
 																		src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-																		width="178" height="264" /></td>	
+																		width="178" height="264" />
+																${dto.midclass}		
+																</td>	
 																</a>	
 															</c:otherwise>										
 											</c:choose>																		
@@ -171,7 +182,7 @@ h3 {
 			<div class="section first"><!-- s: section1 -->
 				<h3 class="section_head" ><a href="#">이벤트</a></h3>
 		<br>		
-	<!-- s: 섹션2 북데이터 -->
+	<!-- s: **섹션2 북데이터** -->
 		<div class="row" style="background-color: white; text-align: center">
 			<table class="cntr" width="500" border="0" cellspacing="10"
 				cellpadding="5">
@@ -187,13 +198,15 @@ h3 {
 										<c:forEach var="dto" items="${list}" varStatus="status">		
 											<c:choose>
 														   <c:when test="${status.count % 5 == 0}">
-																<td>
-																<a href="javascript:read('${dto.ebook_ID}')">
-																<img
-																	src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-																	width="178" height="264" />
-																	</a>
-																	</td>																											
+																		<td class="imgpanel">
+																		<a href="javascript:read('${dto.ebook_ID}')">
+																		<img
+																			src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																			width="178" height="264" />
+																			</a>
+																			${dto.midclass}
+																			</td>	
+																																										
 																		</tr>									
 																		<c:choose>
 																				<c:when test="${status.count > 5}">	<!-- 순회5번 초과 -->
@@ -206,11 +219,13 @@ h3 {
 																		<tr>																						
 													    	</c:when>										
 															<c:otherwise>
-																<td>
+																<td class="imgpanel">
 																<a href="javascript:read('${dto.ebook_ID}')">
 																<img
 																		src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-																		width="178" height="264" /></td>			
+																		width="178" height="264" />
+																${dto.midclass}
+																</td>			
 																</a>	
 															</c:otherwise>										
 											</c:choose>																		
@@ -223,15 +238,8 @@ h3 {
 			</div><!-- e: 섹션2 북데이터 -->					
 		</div><!-- e:  섹션2 -->	
 		
-		
-		
-		
-		
-		
+
 	</div><!-- e:  도서 섹션 -->
-
-
-
 
 	</div>
 
@@ -262,7 +270,7 @@ var list3 = new Array();
 
 
 for (var i = 0; i < 5; i++) {	  		  		  
- 		  str = "<td><a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
+ 		  str = "<td class='txtpanel'><a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
  		  var json2 = new Object();
  		  json2.entry = str;
  		  list2.push(json2);
@@ -271,7 +279,7 @@ for (var i = 0; i < 5; i++) {
 	  }  
 
 for (var i = 5; i < 10; i++) {	  		  		  
-	  str = "<td><a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
+	  str = "<td class='txtpanel'><a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
 	  var json3 = new Object();
 	  json3.entry = str;
 	  list3.push(json3);
@@ -287,6 +295,31 @@ for (i=0; i<tdcontainer.length; i++){
 		var no = $(this).html();
 		temp_console.html(no);
 	});
+}
+
+/* side바 버튼 액티베이트 */
+var midclass01 = document.getElementById("midclass01");
+	midclass01.addEventListener('click', function(){
+		alert("midclass01!")
+	});
+
+
+function elemFilter(){
+	var x, i;
+	x = document.getElementsByClassName("imgpanel");
+	for (i=0; i<x.length; i++){
+		addClass(x[i], list2[i].category_name);
+	}
+}
+
+function addClass(elem, cname){
+	var i, arr1, arr2;
+	arr1 = elem.className.split(" ");
+	arr2 = cname.split(" ");
+	for (i = 0; i < arr2.length; i++){
+		elem.className += " "+arr2[i];
+		alert(arr2[i]);
+	}
 }
 
 });// e: $(document).ready  
