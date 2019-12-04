@@ -34,8 +34,9 @@ function pickmid(){
 	var x = document.getElementsByClassName("midbox");
 
 	for(i=0; i<x.length; i++){
-		var y = x.innerText;
-		alert(y);
+		
+		var y = x.innerHTML;
+		alert(y); 
 	}
 }
 </script>

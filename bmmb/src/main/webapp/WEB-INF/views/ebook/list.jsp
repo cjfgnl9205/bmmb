@@ -144,7 +144,7 @@ h3 {
 																	src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
 																	width="178" height="264" />
 																	</a>
-																	${dto.midclass}
+																	<div class="midbox">${dto.midclass}</div>
 																	</td>
 																		</tr>
 																		<c:choose>
@@ -164,7 +164,7 @@ h3 {
 																<img
 																		src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
 																		width="178" height="264" />
-																${dto.midclass}		
+																<div class="midbox">${dto.midclass}</div>		
 																</td>	
 																</a>	
 															</c:otherwise>										
@@ -204,7 +204,7 @@ h3 {
 																			src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
 																			width="178" height="264" />
 																			</a>
-																			${dto.midclass}
+																			<div class="midbox">${dto.midclass}</div>
 																			</td>	
 																																										
 																		</tr>									
@@ -224,9 +224,9 @@ h3 {
 																<img
 																		src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
 																		width="178" height="264" />
-																${dto.midclass}
-																</td>			
-																</a>	
+																</a>
+																<div class="midbox"><a href="javascript:pickmid2('${dto.midclass}')">${dto.midclass}</div>
+																</td>		
 															</c:otherwise>										
 											</c:choose>																		
 										</c:forEach>											
@@ -242,6 +242,33 @@ h3 {
 	</div><!-- e:  도서 섹션 -->
 
 	</div>
+
+<table>
+<tr class="midtr"></tr>
+</table>
+
+<script type="text/javascript">
+
+function pickmid2(f){
+	
+	alert(f);
+	var midlist = new Array();
+	var midtr = $(".midtr");
+
+	if(f=='05'){
+				for (var i = 0; i < 5; i++) {	  		  		  
+					  strx = "<td class='txtpanel'>this is test</td>";
+					  var jsonx = new Object();
+					  jsonx.entry = strx;
+					  midlist.push(jsonx);
+					  /* alert(midlist); */
+					  midtr.html(JSON.stringify(midlist));	
+				} 
+	}
+
+}
+
+</script>
 
 <script type="text/javascript">
 $(document).ready(function(){	
@@ -299,16 +326,17 @@ for (i=0; i<tdcontainer.length; i++){
 
 
 
-/* side바 버튼 액티베이트 */
+/* side바 버튼 액티베이트 --> side.jsp에서 해야될듯 시차문제고려 */
 var midclass01 = document.getElementById("midclass01");
+/* midclass01.addEventListener('click', function(){
+var x = document.getElementsByClassName("midbox");
+ */
+/* for(i=0; i<x.length; i++){
+	var y = x.innerText;
+	alert(y);
+} */
 
-midclass01.addEventListener('click', function(){
-		
-/* var x = document.getElementsByClassName("") */
-	
-/* 		alert("midclass01!") */
-		
-	});
+/* 	}); */
 
 
 
