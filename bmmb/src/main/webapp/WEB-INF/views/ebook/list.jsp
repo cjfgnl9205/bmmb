@@ -246,6 +246,7 @@ h3 {
 <table>
 <tr class="midtr"></tr>
 <tr class="midtr2"></tr>
+<tr class="kmid">${kmid}</tr>
 </table>
 
 
