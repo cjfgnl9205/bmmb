@@ -17,7 +17,7 @@
 <div class="side_bar">
 	<ul>
 		<li><a href="${root }/notices/list">공지사항</a></li>
-		<li id="midclass01"><a href="#">문학/인문(01)</a></li>
+		<li id="midclass01"><a href="javascript:pickmid()">문학/인문(01)</a></li>
 		<li><a href="#">경제/교양(02)</a></li>
 		<li><a href="#">유아/실용(03)</a></li>
 		<li><a href="#">어학/학습(04)</a></li>
@@ -28,5 +28,16 @@
 		
 	</ul>
 </div>
+
+<script type="text/javascript">
+function pickmid(){
+	var x = document.getElementsByClassName("midbox");
+
+	for(i=0; i<x.length; i++){
+		var y = x.innerText;
+		alert(y);
+	}
+}
+</script>
 </body>
 </html>
