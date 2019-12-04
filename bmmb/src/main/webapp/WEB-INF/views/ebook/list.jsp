@@ -297,11 +297,19 @@ for (i=0; i<tdcontainer.length; i++){
 	});
 }
 
+
+
 /* side바 버튼 액티베이트 */
 var midclass01 = document.getElementById("midclass01");
-	midclass01.addEventListener('click', function(){
-		alert("midclass01!")
+
+midclass01.addEventListener('click', function(){
+		
+/* var x = document.getElementsByClassName("") */
+	
+/* 		alert("midclass01!") */
+		
 	});
+
 
 
 function elemFilter(){
