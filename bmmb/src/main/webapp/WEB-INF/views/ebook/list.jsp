@@ -116,7 +116,7 @@ h3 {
 			</div>
 		</form>
 		<!--** e: 검색창 **-->
-
+		<br><br>
 		<div class="box_main_best" id="newBook">
 			<!-- s:  도서 섹션 -->
 			<c:choose>
@@ -174,11 +174,12 @@ h3 {
 							</tbody>
 						</table>
 					</div>
-
-
 				</c:when>
-				<c:otherwise>
+				<c:when test="${kmid == '02'}">
 					<div>${kmid}</div>
+				</c:when>				
+				<c:otherwise>
+					<div>Oops</div>
 				</c:otherwise>
 			</c:choose>
 
