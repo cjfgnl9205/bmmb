@@ -145,7 +145,7 @@ h3 {
 																	width="178" height="264" />
 																	</a>
 																	<div class="midbox">${dto.midclass}</div>
-																	</td>
+																</td>
 																		</tr>
 																		<c:choose>
 																					<c:when test="${status.count > 5}">
@@ -245,27 +245,10 @@ h3 {
 
 <table>
 <tr class="midtr"></tr>
+<tr class="midtr2"></tr>
 </table>
 
-<!-- <script type="text/javascript">
-function pickmid2(f){
-	
-	alert(f);
-	var midlist = new Array();
-	var midtr = $(".midtr");
 
-	if(f=='05'){
-				for (var i = 0; i < 5; i++) {	  		  		  
-					  strx = "<td class='txtpanel'>this is test</td>";
-					  var jsonx = new Object();
-					  jsonx.entry = strx;
-					  midlist.push(jsonx);
-					  midtr.html(JSON.stringify(midlist));	
-				} 
-	}
-
-}
-</script> -->
 
 <script type="text/javascript">
 $(document).ready(function(){	
@@ -273,7 +256,6 @@ $(document).ready(function(){
 	 var namebox2 = $(".namebox2");
 	var temp_console = $(".temp_console");
 	var temp_console2 = $(".temp_console2");
-	var fromlistbox = $(".fromlistbox"); 
 	
 	
 	var str;
