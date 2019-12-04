@@ -10,6 +10,11 @@
 <title>eBook 목록</title>
 <style>
 
+/* display로 list 데이터 확인 */
+.temp_console3{
+display: none;
+}
+
 /* s: 사이드바 */ 
 .side_bar:first-child{
 
@@ -190,7 +195,7 @@ h3 {
 					<c:choose>
 						<c:when test="${empty list}">
 							<tr>
-								<td colspan="4">등록된 글이 없습니다.</td>
+								<td colspan="4">등록된 도서가 없습니다.</td>
 							</tr>
 						</c:when>
 						<c:otherwise>
@@ -238,9 +243,33 @@ h3 {
 			</div><!-- e: 섹션2 북데이터 -->					
 		</div><!-- e:  섹션2 -->	
 		
+		<br><br>
+			<div class="section first"><!-- s: section1 -->
+				<h3 class="section_head" ><a href="#">경제/교양</a></h3>
+		<br>		
+	<!-- s: **섹션2 미드클래스02** -->
+		<div class="row" style="background-color: white; text-align: center">
+			<table class="cntr" width="500" border="0" cellspacing="10"
+				cellpadding="5">
+				<tbody>
+					<c:choose>
+						<c:when test="${empty kmid}">
+							<tr>
+								<td colspan="4">등록된 도서가 없습니다.</td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+								${kmid}
+					</c:otherwise>
+					</c:choose>										
+				</tbody>
+			</table>
+			</div><!-- e: 미드클래스02 데이터  -->					
+		</div><!-- e:  미드클래스02 섹션-->	
+		
+		
 
 	</div><!-- e:  도서 섹션 -->
-
 	</div>
 
 <table>
