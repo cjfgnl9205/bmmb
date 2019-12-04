@@ -121,152 +121,17 @@ h3 {
 		</form>
 	<!--** e: 검색창 **-->	
 
-<div class="box_main_best" id="newBook"><!-- s:  도서 섹션 -->
-	<br><br>
-			<div class="section first"><!-- s: section1 -->
-				<h3 class="section_head" ><a href="#">신간</a></h3>
-		<br>
-			
-<!-- s: **섹션1 북데이터** -->
-		<div class="row" style="background-color: white; text-align: center">
-			<table class="cntr" width="500" border="0" cellspacing="10"
-				cellpadding="5">
-				<tbody>
-					<c:choose>
-						<c:when test="${empty list}">
-							<tr>
-								<td colspan="4">등록된 글이 없습니다.</td>
-							</tr>
-						</c:when>
-						<c:otherwise>
-								<tr>
-										<c:forEach var="dto" items="${list}" varStatus="status">		
-											<c:choose>
-														<c:when test="${status.count % 5 == 0}">
-																<td class="imgpanel">
-																<a href="javascript:read('${dto.ebook_ID}')">
-																<img
-																	src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-																	width="178" height="264" />
-																	</a>
-																	<div class="midbox">${dto.midclass}</div>
-																</td>
-																		</tr>
-																		<c:choose>
-																					<c:when test="${status.count > 5}">
-																						<!-- 순회5번 초과 -->
-																						<tr class="namebox2"></tr>
-																					</c:when>
-																					<c:otherwise>
-																						<tr class="namebox"></tr>		
-																					</c:otherwise>	
-																		</c:choose>
-																		<tr>	
-														</c:when>
-															<c:otherwise>
-																<td class="imgpanel">
-																<a href="javascript:read('${dto.ebook_ID}')">
-																<img
-																		src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-																		width="178" height="264" />
-																<div class="midbox">${dto.midclass}</div>		
-																</td>	
-																</a>	
-															</c:otherwise>										
-											</c:choose>																		
-										</c:forEach>
-							  	</tr> 				  
-					</c:otherwise>
-					</c:choose>										
-				</tbody>
-			</table>
-			</div><!-- e: 섹션1 북데이터 -->					
-		</div><!-- e:  섹션1 -->
-		
-	<br><br>
-			<div class="section first"><!-- s: section1 -->
-				<h3 class="section_head" ><a href="#">이벤트</a></h3>
-		<br>		
-	<!-- s: **섹션2 북데이터** -->
-		<div class="row" style="background-color: white; text-align: center">
-			<table class="cntr" width="500" border="0" cellspacing="10"
-				cellpadding="5">
-				<tbody>
-					<c:choose>
-						<c:when test="${empty list}">
-							<tr>
-								<td colspan="4">등록된 도서가 없습니다.</td>
-							</tr>
-						</c:when>
-						<c:otherwise>
-								<tr>
-										<c:forEach var="dto" items="${list}" varStatus="status">		
-											<c:choose>
-														   <c:when test="${status.count % 5 == 0}">
-																		<td class="imgpanel">
-																		<a href="javascript:read('${dto.ebook_ID}')">
-																		<img
-																			src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-																			width="178" height="264" />
-																			</a>
-																			<div class="midbox">${dto.midclass}</div>
-																			</td>	
-																																										
-																		</tr>									
-																		<c:choose>
-																				<c:when test="${status.count > 5}">	<!-- 순회5번 초과 -->
-																					<tr class="namebox2"></tr>
-																				</c:when>
-																				<c:otherwise><!-- 순회5번 이하 -->		
-																						<tr class="namebox"></tr>													
-																				</c:otherwise>	
-																		</c:choose>
-																		<tr>																						
-													    	</c:when>										
-															<c:otherwise>
-																<td class="imgpanel">
-																<a href="javascript:read('${dto.ebook_ID}')">
-																<img
-																		src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-																		width="178" height="264" />
-																</a>
-																<div class="midbox"><a href="javascript:pickmid2('${dto.midclass}')">${dto.midclass}</div>
-																</td>		
-															</c:otherwise>										
-											</c:choose>																		
-										</c:forEach>											
-							  	</tr> 				  
-					</c:otherwise>
-					</c:choose>										
-				</tbody>
-			</table>
-			</div><!-- e: 섹션2 북데이터 -->					
-		</div><!-- e:  섹션2 -->	
-		
-		<br><br>
-			<div class="section first"><!-- s: section1 -->
-				<h3 class="section_head" ><a href="#">경제/교양</a></h3>
-		<br>		
-	<!-- s: **섹션2 미드클래스02** -->
-		<div class="row" style="background-color: white; text-align: center">
-			<table class="cntr" width="500" border="0" cellspacing="10"
-				cellpadding="5">
-				<tbody>
-					<c:choose>
-						<c:when test="${empty kmid}">
-							<tr>
-								<td colspan="4">등록된 도서가 없습니다.</td>
-							</tr>
-						</c:when>
-						<c:otherwise>
-								${kmid}
-					</c:otherwise>
-					</c:choose>										
-				</tbody>
-			</table>
-			</div><!-- e: 미드클래스02 데이터  -->					
-		</div><!-- e:  미드클래스02 섹션-->	
-		
+	<div class="box_main_best" id="newBook"><!-- s:  도서 섹션 -->
+
+
+	<c:choose>
+		<c:when test="${empty kmid}">
+			<div>${list}</div>
+		</c:when>		
+		<c:otherwise>
+			<div>${kmid}</div>
+		</c:otherwise>
+	</c:choose>
 		
 
 	</div><!-- e:  도서 섹션 -->
@@ -275,7 +140,7 @@ h3 {
 <table>
 <tr class="midtr"></tr>
 <tr class="midtr2"></tr>
-<tr class="kmid">${kmid}</tr>
+<tr class="kmid"></tr>
 </table>
 
 
@@ -286,7 +151,6 @@ $(document).ready(function(){
 	 var namebox2 = $(".namebox2");
 	var temp_console = $(".temp_console");
 	var temp_console2 = $(".temp_console2");
-	
 	
 	var str;
 	var str3;
@@ -334,9 +198,6 @@ for (i=0; i<tdcontainer.length; i++){
 		temp_console.html(no);
 	});
 }
-
-
-
 
 
 });// e: $(document).ready  
