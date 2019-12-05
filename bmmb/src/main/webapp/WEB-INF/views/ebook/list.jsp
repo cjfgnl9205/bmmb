@@ -179,10 +179,15 @@ h3 {
 					</div>
 				</c:when>
 				<c:when test="${not empty kmid}">
+					
+					
 					<div>${kmid}</div>
+					
+					
+					
 					<c:if test="${kmid=='01'}">
 						문학/인문
-								<div class="box_main_best" id="newBook">
+			<div class="zzabu">
 			<br><br>
 			<!-- s:  도서 섹션 -->
 						<div class="section first">
@@ -255,7 +260,7 @@ h3 {
 					<div>Oops</div>
 				</c:otherwise>
 			</c:choose>
-
+		</div>
 
 		</div>
 		<!-- e:  도서 섹션 -->
