@@ -118,7 +118,9 @@ h3 {
 		<!--** e: 검색창 **-->
 		<br><br>
 		<div class="box_main_best" id="newBook">
+			<br><br>
 			<!-- s:  도서 섹션 -->
+			<div class="section first">
 			<c:choose>
 				<c:when test="${empty kmid}">
 					<div class="row"
@@ -176,10 +178,16 @@ h3 {
 					</div>
 				</c:when>
 				<c:when test="${not empty kmid}">
-					<div class="changer">${kmid}</div>
-					<c:if test="${kmid=='02'}">
-						하하
+					<div>${kmid}</div>
+					
+					<c:if test="${kmid=='01'}">
+					
+					
+					
+						하하1
 					</c:if>
+					
+					
 				</c:when>				
 				<c:otherwise>
 					<div>Oops</div>
@@ -250,17 +258,7 @@ h3 {
 								namebox2.html(JSON.stringify(list3));
 							}
 
-							/* 필터링에 사용 고려 */
-							var tdcontainer = document
-									.getElementsByClassName("nametd");
 
-							for (i = 0; i < tdcontainer.length; i++) {
-								tdcontainer[i].addEventListener('click',
-										function() {
-											var no = $(this).html();
-											temp_console.html(no);
-										});
-							}
 
 						});// e: $(document).ready
 	</script>
