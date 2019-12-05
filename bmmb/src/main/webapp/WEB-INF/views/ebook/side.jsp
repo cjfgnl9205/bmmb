@@ -21,7 +21,7 @@
 <div class="side_bar">
 	<ul>
 		<li><a href="${root }/notices/list">공지사항</a></li>
-		<li id="midclass01"><a href="javascript:elTest()">문학/인문(01)</a></li>
+		<li><a href="#"><div class="cats">문학/인문</div></a></li>
 		<li><a href="javascript:sendTest()"><div class="cats">경제/교양</div></a></li>
 		<li><a href="#"><div class="cats">유아/실용</div></a></li>
 		<li><a href="#"><div class="cats">어학/학습</div></a></li>
@@ -37,7 +37,7 @@
 	</ul>
 </c:forEach>
 
-<div class="midtr3"></div>
+
 
 <script type="text/javascript">
 
@@ -51,44 +51,39 @@ var list = new Array();
 </c:forEach>
 
 
-var midtr3 = $(".midtr3");
-var nlist = new Array();
-function elTest(){
-	
-	for (var i = 0; i < 5; i++) {	  		  		
-		  str = "<td class='txtpanel'><a href='javascript:read("+list[i].ebook_ID+")'>"+list[i].name+"</a></td>";
-		  var json2 = new Object();
-		  json2.entry = str;
-		  nlist.push(json2);
-		  /* alert(JSON.stringify(nlist)); */
-		  midtr3.html(JSON.stringify(nlist));	
-	  }  	
-}
-
-
 function sendTest(){
 	var cats = document.getElementsByClassName("cats");
 	for(i=0; i<cats.length; i++){
 		var x = cats[i].innerHTML;
 		
 		switch(x){
-			case "컴퓨터/IT":
-				alert("컴퓨터/IT");
-				break;
-			case "참고서":
-				alert("참고서");
-				break;
-			case "외국어":
-				alert("외국어");
-				break;
-			case "어학/학습":
-				alert("어학/학습");
+			case "문학/인문":
+			x = "01";
+			alert(x);
+			break;		
+			case "경제/교양":
+				x = "02";
+				alert(x);
 				break;
 			case "유아/실용":
-				alert("유아/실용");
+				x = "03";
+				alert(x);
 				break;
-			case "경제/교양":
-				alert("경제/교양");
+			case "어학/학습":
+				x = "04";
+				alert(x);
+				break;
+			case "외국어":
+				x = "05";
+				alert(x);
+				break;
+			case "참고서":
+				x = "06";
+				alert(x);
+				break;
+			case "컴퓨터/IT":
+				x = "07";
+				alert(x);
 				break;
 			default:
 				alert("Oops");
@@ -100,21 +95,7 @@ function sendTest(){
 
 
 
-function pickmid2(f){
-	alert(f);
-	var midlist = new Array();
 
-	if(f=='05'){
-				for (var i = 0; i < 5; i++) {	  		  		  
-					  strx = "<td class='txtpanel'>this is test</td>";
-					  var jsonx = new Object();
-					  jsonx.entry = strx;
-					  midlist.push(jsonx);
-					  midtr.html(JSON.stringify(midlist));	
-				} 
-	}
-
-}
 </script>
 </body>
 </html>
