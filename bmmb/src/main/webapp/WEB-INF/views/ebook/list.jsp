@@ -179,15 +179,27 @@ h3 {
 				</c:when>
 				<c:when test="${not empty kmid}">
 					<div>${kmid}</div>
-					
 					<c:if test="${kmid=='01'}">
-					
-					
-					
-						하하1
+						문학/인문
 					</c:if>
-					
-					
+					<c:if test="${kmid=='02'}">
+						경제/교양
+					</c:if>
+					<c:if test="${kmid=='03'}">
+						유아/실용
+					</c:if>
+					<c:if test="${kmid=='04'}">
+						어학/학습
+					</c:if>
+					<c:if test="${kmid=='05'}">
+						외국어
+					</c:if>
+					<c:if test="${kmid=='06'}">
+						참고서
+					</c:if>
+					<c:if test="${kmid=='07'}">
+						컴퓨터/IT
+					</c:if>
 				</c:when>				
 				<c:otherwise>
 					<div>Oops</div>
