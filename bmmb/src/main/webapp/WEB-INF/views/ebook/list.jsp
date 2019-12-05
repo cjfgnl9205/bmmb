@@ -175,8 +175,11 @@ h3 {
 						</table>
 					</div>
 				</c:when>
-				<c:when test="${kmid == '02'}">
-					<div>${kmid}</div>
+				<c:when test="${not empty kmid}">
+					<div class="changer">${kmid}</div>
+					<c:if test="${kmid=='02'}">
+						하하
+					</c:if>
 				</c:when>				
 				<c:otherwise>
 					<div>Oops</div>

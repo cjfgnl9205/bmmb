@@ -70,7 +70,11 @@ function elTest(){
 function sendTest(){
 	var cat2 = document.getElementById("cat2");
 	var x = cat2.innerHTML;
-	/* alert(x); */
+	alert(typeof x); 
+	alert(x);
+	if (x=="경제/교양"){
+		x = "02";
+	}
 	
 	var url = "list";
 	url += "?kmidclass="+x;
