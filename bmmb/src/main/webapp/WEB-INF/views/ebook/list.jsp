@@ -22,7 +22,7 @@
 
 /* e: 사이드바 */
 .row {
-	
+	margin-left: 0px;
 }
 
 .ebook_list {
@@ -48,22 +48,22 @@ div {
 }
 
 .box_main_best .section.first h3 {
-	margin-left: 50px;
+	margin-left: 6px;
 }
 
 .box_main_best h3 {
-	float: left;
-	margin: 0 0 40px 0px;
+	/* float: left; */
+	margin: 0 20px 10px 35px;
 }
 
 h3 a {
-	margin: 0 0 20px 0px;
-	padding: 10px;
+	margin: 0 10px 0px 0px;
+	padding: 0px;
 }
 
 h3 {
 	display: block;
-	font-size: 1.17em;
+	font-size: 1.1em;
 	margin-block-start: 1em;
 	margin-block-end: 1em;
 	margin-inline-start: 0px;
@@ -116,13 +116,14 @@ h3 {
 			</div>
 		</form>
 		<!--** e: 검색창 **-->
-		<br><br>
+		<br>
 		<div class="box_main_best" id="newBook">
 			<br><br>
 			<!-- s:  도서 섹션 -->
 			<div class="section first">
 			<c:choose>
 				<c:when test="${empty kmid}">
+					<h3><a href="#">신간도서</a></h3>
 					<div class="row"
 						style="background-color: white; text-align: center">
 						<table class="cntr" width="500" border="0" cellspacing="10"
@@ -181,6 +182,11 @@ h3 {
 					<div>${kmid}</div>
 					<c:if test="${kmid=='01'}">
 						문학/인문
+						
+
+						${list}
+						
+						
 					</c:if>
 					<c:if test="${kmid=='02'}">
 						경제/교양
