@@ -64,8 +64,9 @@ public class EbookController {
 	public String list(HttpServletRequest request ) {
 		
 		String kmid = request.getParameter("kmidclass");
+		
 		if (kmid != null) {
-			request.setAttribute("kmid", kmid);
+			request.setAttribute("kmid", kmid);		
 		}
 		
 		String word = Utility.checkNull(request.getParameter("word"));
