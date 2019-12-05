@@ -21,13 +21,13 @@
 <div class="side_bar">
 	<ul>
 		<li><a href="${root }/notices/list">공지사항</a></li>
-		<li><a href="#"><div class="cats">문학/인문</div></a></li>
+		<li><a href="javascript:sendTest()"><div class="cats">문학/인문</div></a></li>
 		<li><a href="javascript:sendTest()"><div class="cats">경제/교양</div></a></li>
-		<li><a href="#"><div class="cats">유아/실용</div></a></li>
-		<li><a href="#"><div class="cats">어학/학습</div></a></li>
-		<li><a href="#"><div class="cats">외국어</div></a></li> 
-		<li><a href="#"><div class="cats">참고서</div></a></li> 
-		<li><a href="#"><div class="cats">컴퓨터/IT</div></a></li>		
+		<li><a href="javascript:sendTest()"><div class="cats">유아/실용</div></a></li>
+		<li><a href="javascript:sendTest()"><div class="cats">어학/학습</div></a></li>
+		<li><a href="javascript:sendTest()"><div class="cats">외국어</div></a></li> 
+		<li><a href="javascript:sendTest()"><div class="cats">참고서</div></a></li> 
+		<li><a href="javascript:sendTest()"><div class="cats">컴퓨터/IT</div></a></li>		
 	</ul>
 </div>
 
@@ -54,40 +54,57 @@ var list = new Array();
 function sendTest(){
 	var cats = document.getElementsByClassName("cats");
 	for(i=0; i<cats.length; i++){
-		var x = cats[i].innerHTML;
+		var x = cats[i].innerHTML; // 0:   x = 문학/인문
 		
 		switch(x){
 			case "문학/인문":
-			x = "01";
-			alert(x);
-			break;		
+				x = "01";
+				var url = "list";
+				url += "?kmidclass="+x;
+				location.href = url;
+				break;		
 			case "경제/교양":
 				x = "02";
-				alert(x);
+				var url = "list";
+				url += "?kmidclass="+x;
+				location.href = url;
 				break;
 			case "유아/실용":
 				x = "03";
-				alert(x);
+				var url = "list";
+				url += "?kmidclass="+x;
+				location.href = url;
 				break;
 			case "어학/학습":
 				x = "04";
-				alert(x);
+				var url = "list";
+				url += "?kmidclass="+x;
+				location.href = url;
 				break;
 			case "외국어":
 				x = "05";
-				alert(x);
+				var url = "list";
+				url += "?kmidclass="+x;
+				location.href = url;
 				break;
 			case "참고서":
 				x = "06";
-				alert(x);
+				var url = "list";
+				url += "?kmidclass="+x;
+				location.href = url;
 				break;
 			case "컴퓨터/IT":
 				x = "07";
-				alert(x);
+				var url = "list";
+				url += "?kmidclass="+x;
+				location.href = url;
 				break;
 			default:
 				alert("Oops");
 				break;
+		}
+		if (x != null){
+			break;
 		}
 	}
 }	
