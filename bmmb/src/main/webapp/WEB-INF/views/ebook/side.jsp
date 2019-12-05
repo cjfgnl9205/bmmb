@@ -16,6 +16,8 @@
 	padding: 20px 0 0 0;
 }
 
+
+
 .side_bar ul li a {
 	display: block;
 	height: 50px;
@@ -30,6 +32,24 @@
 .side_bar ul li a:checked {
 	background-color: #e9ecef;
 }
+/* 이벤트리스너에도 적용 */
+.side_bar ul li div {
+	display: block;
+	height: 50px;
+	text-decoration: none;
+	padding: 0px 0 0 0px;
+}
+
+.side_bar ul li div:hover {
+	background-color: #e9ecef;
+	cursor: pointer;
+}
+
+.side_bar ul li div:checked {
+	background-color: #e9ecef;
+}
+
+
 </style>
 </head>
 <body>
@@ -37,7 +57,7 @@
 	<div class="side_bar">
 		<ul>
 			<li><a href="${root }/notices/list">공지사항</a></li>
-			<li><a href="javascript:sendTest()"><div id="cat1">문학/인문</div></a></li>
+			<li><div id="cat1">문학/인문</div></li>
 			<li><a href="javascript:sendTest()"><div id="cat2">경제/교양</div></a></li>
 			<li><a href="javascript:sendTest()"><div id="cat3">유아/실용</div></a></li>
 			<li><a href="javascript:sendTest()"><div id="cat4">어학/학습</div></a></li>
@@ -53,10 +73,22 @@
 		</ul>
 	</c:forEach>
 
-
-
 	<script type="text/javascript">
 
+
+	
+	
+document.getElementById("cat1").addEventListener('click', testClick);
+
+function testClick(){
+	if (cat1.innerHTML = "문학/인문"){
+		var x = "01";
+		var url = "list";
+		url += "?kmidclass="+x;
+		location.href = url;
+	}
+}
+	
 var list = new Array();
 
 <c:forEach items="${list}" var="dto">
