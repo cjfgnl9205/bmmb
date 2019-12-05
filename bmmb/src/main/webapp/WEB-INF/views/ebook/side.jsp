@@ -22,13 +22,12 @@
 	<ul>
 		<li><a href="${root }/notices/list">공지사항</a></li>
 		<li id="midclass01"><a href="javascript:elTest()">문학/인문(01)</a></li>
-		<li><a href="javascript:sendTest()"><div id="cat2">경제/교양</div></a></li>
-		<li><a href="#">유아/실용(03)</a></li>
-		<li><a href="#">어학/학습(04)</a></li>
-		<li><a href="#">외국어(05)</a></li>
-		<li><a href="#">참고서(06)</a></li>
-		<li><a href="#">컴퓨터/IT(07)</a></li>		
-		<li><a href="#"></a></li>				
+		<li><a href="javascript:sendTest()"><div class="cats">경제/교양</div></a></li>
+		<li><a href="#"><div class="cats">유아/실용</div></a></li>
+		<li><a href="#"><div class="cats">어학/학습</div></a></li>
+		<li><a href="#"><div class="cats">외국어</div></a></li> 
+		<li><a href="#"><div class="cats">참고서</div></a></li> 
+		<li><a href="#"><div class="cats">컴퓨터/IT</div></a></li>		
 	</ul>
 </div>
 
@@ -68,20 +67,17 @@ function elTest(){
 
 
 function sendTest(){
-	var cat2 = document.getElementById("cat2");
-	var x = cat2.innerHTML;
-	alert(typeof x); 
-	alert(x);
-	if (x=="경제/교양"){
-		x = "02";
-		
-		var url = "list";
-		url += "?kmidclass="+x;
-		location.href = url;		
-		
+	
+	var cats = document.getElementsByClassName("cats");
+	for(i=0; i<cats.length; i++){
+		var x = cats[i].innerHTML;
+		alert(x);
 	}
 	
+
 }
+	
+
 
 
 
