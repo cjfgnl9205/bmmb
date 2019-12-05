@@ -58,12 +58,12 @@
 		<ul>
 			<li><a href="${root }/notices/list">공지사항</a></li>
 			<li><div id="cat1">문학/인문</div></li>
-			<li><a href="javascript:sendTest()"><div id="cat2">경제/교양</div></a></li>
-			<li><a href="javascript:sendTest()"><div id="cat3">유아/실용</div></a></li>
-			<li><a href="javascript:sendTest()"><div id="cat4">어학/학습</div></a></li>
-			<li><a href="javascript:sendTest()"><div id="cat5">외국어</div></a></li>
-			<li><a href="javascript:sendTest()"><div id="cat6">참고서</div></a></li>
-			<li><a href="javascript:sendTest()"><div id="cat7">컴퓨터/IT</div></a></li>
+			<li><div id="cat2">경제/교양</div></li>
+			<li><div id="cat3">유아/실용</div></li>
+			<li><div id="cat4">어학/학습</div></li>
+			<li><div id="cat5">외국어</div></li>
+			<li><div id="cat6">참고서</div></li>
+			<li><div id="cat7">컴퓨터/IT</div></li>
 		</ul>
 	</div>
 
@@ -74,13 +74,23 @@
 	</c:forEach>
 
 	<script type="text/javascript">
+var cat1 = document.getElementById("cat1");
+cat1.addEventListener('click', testClick1);
+var cat2 = document.getElementById("cat2");
+cat2.addEventListener('click', testClick2);
+var cat3 = document.getElementById("cat3");
+cat3.addEventListener('click', testClick3);
+var cat4 = document.getElementById("cat4");
+cat4.addEventListener('click', testClick4);
+var cat5 = document.getElementById("cat5");
+cat5.addEventListener('click', testClick5);
+var cat6 = document.getElementById("cat6");
+cat6.addEventListener('click', testClick6);
+var cat7 = document.getElementById("cat7");
+cat7.addEventListener('click', testClick7);
 
 
-	
-	
-document.getElementById("cat1").addEventListener('click', testClick);
-
-function testClick(){
+function testClick1(){
 	if (cat1.innerHTML = "문학/인문"){
 		var x = "01";
 		var url = "list";
@@ -88,7 +98,55 @@ function testClick(){
 		location.href = url;
 	}
 }
-	
+function testClick2(){
+	if (cat1.innerHTML = "경제/교양"){
+		var x = "02";
+		var url = "list";
+		url += "?kmidclass="+x;
+		location.href = url;
+	}
+}
+function testClick3(){
+	if (cat1.innerHTML = "유아/실용"){
+		var x = "03";
+		var url = "list";
+		url += "?kmidclass="+x;
+		location.href = url;
+	}
+}
+function testClick4(){
+	if (cat1.innerHTML = "어학/학습"){
+		var x = "04";
+		var url = "list";
+		url += "?kmidclass="+x;
+		location.href = url;
+	}
+}
+function testClick5(){
+	if (cat1.innerHTML = "외국어"){
+		var x = "05";
+		var url = "list";
+		url += "?kmidclass="+x;
+		location.href = url;
+	}
+}
+function testClick6(){
+	if (cat1.innerHTML = "참고서"){
+		var x = "06";
+		var url = "list";
+		url += "?kmidclass="+x;
+		location.href = url;
+	}
+}
+function testClick7(){
+	if (cat1.innerHTML = "컴퓨터/IT"){
+		var x = "07";
+		var url = "list";
+		url += "?kmidclass="+x;
+		location.href = url;
+	}
+}
+
 var list = new Array();
 
 <c:forEach items="${list}" var="dto">
@@ -97,77 +155,6 @@ var list = new Array();
 	json.ebook_ID = "${dto.ebook_ID}";
 	list.push(json);
 </c:forEach>
-
-/* s: sendTest (카테고리)  */
-
-function sendTest(){
-	var cat1 = document.getElementById("cat1");
-	var cat2 = document.getElementById("cat2");
-	var cat3 = document.getElementById("cat3");
-	var cat4 = document.getElementById("cat4");
-	var cat5 = document.getElementById("cat5");
-	var cat6 = document.getElementById("cat6");
-	var cat7 = document.getElementById("cat7");
-	
-	cat1.addEventListener('click', function(){
-		if (cat1.innerHTML = "문학/인문"){
-			var x = "01";
-			var url = "list";
-			url += "?kmidclass="+x;
-			location.href = url;
-		}
-	});
-		cat2.addEventListener('click', function(){
-			if (cat1.innerHTML = "경제/교양"){
-				var x = "02";
-				var url = "list";
-				url += "?kmidclass="+x;
-				location.href = url;
-			}
-		});
-		cat3.addEventListener('click', function(){
-			if (cat1.innerHTML = "유아/실용"){
-				var x = "03";
-				var url = "list";
-				url += "?kmidclass="+x;
-				location.href = url;
-			}
-		});
-			cat4.addEventListener('click', function(){
-				if (cat1.innerHTML = "어학/학습"){
-					var x = "04";
-					var url = "list";
-					url += "?kmidclass="+x;
-					location.href = url;
-				}
-			});
-				cat5.addEventListener('click', function(){
-					if (cat1.innerHTML = "외국어"){
-						var x = "05";
-						var url = "list";
-						url += "?kmidclass="+x;
-						location.href = url;
-					}
-				});
-					cat6.addEventListener('click', function(){
-						if (cat1.innerHTML = "참고서"){
-							var x = "06";
-							var url = "list";
-							url += "?kmidclass="+x;
-							location.href = url;
-						}
-					});
-						cat7.addEventListener('click', function(){
-								if (cat1.innerHTML = "컴퓨터/IT"){
-									var x = "07";
-									var url = "list";
-									url += "?kmidclass="+x;
-									location.href = url;
-								}
-						});
-}	
-
-/* e: sendTest (카테고리)  */
 
 
 </script>

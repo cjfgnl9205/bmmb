@@ -186,8 +186,8 @@ h3 {
 					
 					
 					<c:if test="${kmid=='01'}">
-						문학/인문
-			<div class="zzabu">
+			<div class="midsection1">
+			문학/인문
 			<br><br>
 			<!-- s:  도서 섹션 -->
 						<div class="section first">
@@ -201,6 +201,7 @@ h3 {
 									<tbody>
 										<tr>
 											<c:forEach var="dto" items="${list}" varStatus="status">
+												
 												<c:choose>
 													<c:when test="${status.count % 5 == 0}">
 														<td class="imgpanel"><a
@@ -208,8 +209,10 @@ h3 {
 																src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
 																width="178" height="264" />
 														</a>
-															<div class="midbox">${dto.midclass}</div></td>
+															<div class="midbox">${dto.midclass} , ${kmid}</div></td>
+															
 										</tr>
+										
 										<c:choose>
 											<c:when test="${status.count > 5}">
 												<tr class="namebox2"></tr>
@@ -227,6 +230,7 @@ h3 {
 														width="178" height="264" />
 												</a>
 													<div class="midbox">${dto.midclass}</div></td>
+													
 											</c:otherwise>
 											</c:choose>
 											</c:forEach>
@@ -260,19 +264,11 @@ h3 {
 					<div>Oops</div>
 				</c:otherwise>
 			</c:choose>
-		</div>
+		</div> <!-- e:  -->
 
 		</div>
 		<!-- e:  도서 섹션 -->
 	</div>
-
-	<table>
-		<tr class="midtr"></tr>
-		<tr class="midtr2"></tr>
-		<tr class="kmid"></tr>
-	</table>
-
-
 
 	<script type="text/javascript">
 		$(document)
