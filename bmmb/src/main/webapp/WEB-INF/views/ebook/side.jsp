@@ -74,11 +74,12 @@ function sendTest(){
 	alert(x);
 	if (x=="경제/교양"){
 		x = "02";
+		
+		var url = "list";
+		url += "?kmidclass="+x;
+		location.href = url;		
+		
 	}
-	
-	var url = "list";
-	url += "?kmidclass="+x;
-	location.href = url;
 	
 }
 
