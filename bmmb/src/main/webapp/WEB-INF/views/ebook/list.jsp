@@ -182,11 +182,55 @@ h3 {
 					<div>${kmid}</div>
 					<c:if test="${kmid=='01'}">
 						문학/인문
-						
-
-						${list}
-						
-						
+								<div class="box_main_best" id="newBook">
+			<br><br>
+			<!-- s:  도서 섹션 -->
+						<div class="section first">
+							<h3>
+								<a href="#">신간도서</a>
+							</h3>
+							<div class="row"
+								style="background-color: white; text-align: center">
+								<table class="cntr" width="500" border="0" cellspacing="10"
+									cellpadding="5">
+									<tbody>
+										<tr>
+											<c:forEach var="dto" items="${list}" varStatus="status">
+												<c:choose>
+													<c:when test="${status.count % 5 == 0}">
+														<td class="imgpanel"><a
+															href="javascript:read('${dto.ebook_ID}')"> <img
+																src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																width="178" height="264" />
+														</a>
+															<div class="midbox">${dto.midclass}</div></td>
+										</tr>
+										<c:choose>
+											<c:when test="${status.count > 5}">
+												<tr class="namebox2"></tr>
+											</c:when>
+											<c:otherwise>
+												<tr class="namebox"></tr>
+											</c:otherwise>
+										</c:choose>
+										<tr>
+											</c:when>
+											<c:otherwise>
+												<td class="imgpanel"><a
+													href="javascript:read('${dto.ebook_ID}')"> <img
+														src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+														width="178" height="264" />
+												</a>
+													<div class="midbox">${dto.midclass}</div></td>
+											</c:otherwise>
+											</c:choose>
+											</c:forEach>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- e:  도서 섹션 -->
 					</c:if>
 					<c:if test="${kmid=='02'}">
 						경제/교양
