@@ -37,13 +37,13 @@
 	<div class="side_bar">
 		<ul>
 			<li><a href="${root }/notices/list">공지사항</a></li>
-			<li><a href="javascript:sendTest()"><div id="cat1">문학/인문</div></a></li>
-			<li><a href="javascript:sendTest()"><div id="cat2">경제/교양</div></a></li>
-			<li><a href="javascript:sendTest()"><div id="cat3">유아/실용</div></a></li>
-			<li><a href="javascript:sendTest()"><div id="cat4">어학/학습</div></a></li>
-			<li><a href="javascript:sendTest()"><div id="cat5">외국어</div></a></li>
-			<li><a href="javascript:sendTest()"><div id="cat6">참고서</div></a></li>
-			<li><a href="javascript:sendTest()"><div id="cat7">컴퓨터/IT</div></a></li>
+			<li class="cats"><a href="javascript:sendTest()">문학/인문</a></li>
+			<li class="cats"><a href="javascript:sendTest()">경제/교양</a></li>
+			<li class="cats"><a href="javascript:sendTest()">유아/실용</a></li>
+			<li class="cats"><a href="javascript:sendTest()">어학/학습</a></li>
+			<li class="cats"><a href="javascript:sendTest()">외국어</a></li>
+			<li class="cats"><a href="javascript:sendTest()">참고서</a></li>
+			<li class="cats"><a href="javascript:sendTest()">컴퓨터/IT</a></li>
 		</ul>
 	</div>
 
@@ -68,73 +68,23 @@ var list = new Array();
 
 /* s: sendTest (카테고리)  */
 
-function sendTest(){
-	var cat1 = document.getElementById("cat1");
-	var cat2 = document.getElementById("cat2");
-	var cat3 = document.getElementById("cat3");
-	var cat4 = document.getElementById("cat4");
-	var cat5 = document.getElementById("cat5");
-	var cat6 = document.getElementById("cat6");
-	var cat7 = document.getElementById("cat7");
-	
-	cat1.addEventListener('click', function(){
-		if (cat1.innerHTML = "문학/인문"){
-			var x = "01";
-			var url = "list";
-			url += "?kmidclass="+x;
-			location.href = url;
-		}
-	});
-		cat2.addEventListener('click', function(){
-			if (cat1.innerHTML = "경제/교양"){
-				var x = "02";
-				var url = "list";
-				url += "?kmidclass="+x;
-				location.href = url;
-			}
-		});
-		cat3.addEventListener('click', function(){
-			if (cat1.innerHTML = "유아/실용"){
-				var x = "03";
-				var url = "list";
-				url += "?kmidclass="+x;
-				location.href = url;
-			}
-		});
-			cat4.addEventListener('click', function(){
-				if (cat1.innerHTML = "어학/학습"){
-					var x = "04";
-					var url = "list";
-					url += "?kmidclass="+x;
-					location.href = url;
-				}
-			});
-				cat5.addEventListener('click', function(){
-					if (cat1.innerHTML = "외국어"){
-						var x = "05";
-						var url = "list";
-						url += "?kmidclass="+x;
-						location.href = url;
-					}
-				});
-					cat6.addEventListener('click', function(){
-						if (cat1.innerHTML = "참고서"){
-							var x = "06";
-							var url = "list";
-							url += "?kmidclass="+x;
-							location.href = url;
-						}
-					});
-						cat7.addEventListener('click', function(){
-								if (cat1.innerHTML = "컴퓨터/IT"){
-									var x = "07";
-									var url = "list";
-									url += "?kmidclass="+x;
-									location.href = url;
-								}
-						});
-}	
 
+
+
+function sendTest(){
+	
+	var cats = document.getElementsByClassName("cats");
+	
+	for (i = 0; i < cats.length; i++) {
+		cats[i].addEventListener('click',	
+				function(){
+			
+			
+			
+		});					
+	}
+		
+}	
 /* e: sendTest (카테고리)  */
 
 
