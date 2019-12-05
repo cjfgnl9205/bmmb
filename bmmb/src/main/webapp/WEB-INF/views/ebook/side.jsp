@@ -67,16 +67,35 @@ function elTest(){
 
 
 function sendTest(){
-	
 	var cats = document.getElementsByClassName("cats");
 	for(i=0; i<cats.length; i++){
 		var x = cats[i].innerHTML;
-		alert(x);
+		
+		switch(x){
+			case "컴퓨터/IT":
+				alert("컴퓨터/IT");
+				break;
+			case "참고서":
+				alert("참고서");
+				break;
+			case "외국어":
+				alert("외국어");
+				break;
+			case "어학/학습":
+				alert("어학/학습");
+				break;
+			case "유아/실용":
+				alert("유아/실용");
+				break;
+			case "경제/교양":
+				alert("경제/교양");
+				break;
+			default:
+				alert("Oops");
+				break;
+		}
 	}
-	
-
-}
-	
+}	
 
 
 
