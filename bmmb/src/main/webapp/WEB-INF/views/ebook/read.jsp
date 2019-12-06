@@ -10,12 +10,15 @@
 </style>
 <script>
 
-	function popRead(id){
-		var url = "eread";
-		url += "?ebook_ID="+id;
-		var wr =  window.open(url,"e북read","width=500,height=700");
-		wr.moveTo(((window.screen.width-500)/2), ((window.screen.height-500)/2));
-	}
+function popRead(id){
+	var url = "eread";
+	url += "?ebook_ID="+id;
+	var wr =  window.open(url,"e북read","width=500,height=700");
+/* 	$(wr).on('load', function(){
+		alert(url);
+	}); */
+	wr.moveTo(((window.screen.width-500)/2), ((window.screen.height-500)/2));
+}
 
 	function preview(f){
 		var excerpt = f;
@@ -53,11 +56,29 @@
 		     return false;
 		 }
 	}
+	
+	function ereadTest(){
+		alert("foo!!");
+		
+	}
+
 </script>
 </head>
 <body>
 <div class="ebook_read">
 	<h2>eBook</h2>
+	
+	<form action="eread" name="eread" method="post">
+		<input type="hidden" name="desc2" value="${dto.desc2}">
+		
+		<div class="form-group">
+			<button class="btn btn-light" type="button" onclick="ereadTest();">읽기</button>
+			<button class="btn btn-light" type="button" onclick="location.href='eread'">읽기(구)</button>
+			<button class="btn btn-light" type="button" onclick="location.href='create'">등록</button>
+			<button class="btn btn-light" type="button" onclick="updateM();">수정</button>
+		</div>
+	</form>
+	
 	<form action="delete" name="frm" method="post" enctype="mulipart/form-data">
 		<input type="hidden" name="ebook_ID" value="${param.ebook_ID }">
 		<input type="hidden" name="word" value="${param.word }">
