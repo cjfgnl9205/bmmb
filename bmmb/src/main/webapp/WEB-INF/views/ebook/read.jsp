@@ -10,6 +10,13 @@
 </style>
 <script>
 
+	function popRead(id){
+		var url = "read";
+		url += "?ebook_ID="+id;
+		var wr =  window.open(url,"e북read","width=500,height=700");
+		wr.moveTo(((window.screen.width-500)/2), ((window.screen.height-500)/2));
+	}
+
 	function preview(f){
 		var excerpt = f;
 		alert(excerpt);
@@ -83,7 +90,11 @@
 			</tr>
 			<tr>
 				<th>e북 미리보기</th>
-				<td><a href="javascript:preview('${dto.desc2 }')">뷰어에서 보기</a></td>
+				<td><a href="javascript:preview('${dto.desc2 }')">팝업으로 보기</a></td>
+			</tr>
+			<tr>
+				<th>e북 미리보기</th>
+				<td><a href="javascript:popRead('${dto.ebook_ID }')">새창에서 보기</a></td>
 			</tr>
 			<c:if test="${not empty dto.image }">
 				<tr>
