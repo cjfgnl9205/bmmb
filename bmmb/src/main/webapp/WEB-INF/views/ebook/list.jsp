@@ -182,28 +182,55 @@ h3 {
 				
 				<c:when test="${not empty kmid}"> 	
 				<div class="noempty_kmid"><!-- s: noempty kmid -->
-								<div>${kmid}</div>
 								
 								<div class="midsection1"> <!-- s: midsection1 -->
-										문학/인문
+										${kmid}
 										<br><br>
-										
-										<c:forEach var="dto" items="${list}" varStatus="status">
-												<a href="javascript:paramCheck('${dto.midclass}')"><div id="parambox1">midclass:  ${dto.midclass} vs.</div></a>
-												<a href="javascript:paramCheck('${kmid}')"><div id="parambox2">kmid:   ${kmid}</div></a>
-												
-												
-												<c:choose>
-														<c:when test="${dto.midclass == kmid}">
-															<div class="pickbook1">
-																구획설정중
-															</div>
-														</c:when>
-														<c:otherwise>Oops</c:otherwise>
-												</c:choose>
-												
-										</c:forEach>
-								
+										<tr>
+												<c:forEach var="dto" items="${list}" varStatus="status">											
+														<c:choose>
+																<c:when test="${dto.midclass == kmid}">
+																		<div class="pickbook1">
+																			<c:choose>
+																					<c:when test="${status.count % 5 == 0}">
+																						<td class="imgpanel">
+																							<a href="javascript:read('${dto.ebook_ID}')">
+																									<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																									width="178" height="264" />
+																							</a>
+																							<div class="midbox">${dto.midclass}</div>
+																						</td>
+																						</tr>
+																								<c:choose>
+																										<c:when test="${status.count > 5}">
+																											<tr class="namebox2"></tr>
+																										</c:when>																	
+																										<c:otherwise>
+																											<tr class="namebox"></tr>
+																										</c:otherwise>
+																								</c:choose>
+																						<tr>
+																					</c:when>	
+																					<c:otherwise>
+																						<td class="imgpanel">
+																							<a href="javascript:read('${dto.ebook_ID}')">
+																									<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																									width="178" height="264" />
+																							</a>
+																							<div class="midbox">${dto.midclass}</div>	
+																						</td>
+																					</c:otherwise>
+																			</c:choose>
+																		</div>
+																</c:when>
+																
+																
+																
+																<c:otherwise></c:otherwise>
+														</c:choose>
+														
+												</c:forEach>
+											</tr>
 								</div><!-- e: midsection1 -->
 				</div> <!-- e: noempty kmid -->	 				
 				</c:when>
