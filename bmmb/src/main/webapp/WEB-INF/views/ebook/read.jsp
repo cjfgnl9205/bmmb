@@ -51,14 +51,18 @@ function popRead(id){
 	}
 	function deleteM(){
 		if (confirm("정말 삭제하시겠습니까??") == true){    //확인
-		     document.frm.submit();
+		     document.frm.submit();   
 		 }else{   //취소
 		     return false;
 		 }
 	}
 	
 	function ereadTest(){
-		alert("foo!!");
+		if(eread.name != null){
+			document.eread.submit();
+		}else{
+			return false;
+		}
 		
 	}
 
@@ -76,6 +80,7 @@ function popRead(id){
 			<button class="btn btn-light" type="button" onclick="location.href='eread'">읽기(구)</button>
 			<button class="btn btn-light" type="button" onclick="location.href='create'">등록</button>
 			<button class="btn btn-light" type="button" onclick="updateM();">수정</button>
+			<button class="btn btn-light" type="button" onclick="deleteM();">삭제</button>
 		</div>
 	</form>
 	
