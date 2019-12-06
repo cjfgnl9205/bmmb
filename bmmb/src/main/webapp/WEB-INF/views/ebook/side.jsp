@@ -69,7 +69,7 @@
 
 	<c:forEach var="dto" items="${list}" varStatus="status">
 		<ul>
-			<li>+</li>
+			<li></li>
 		</ul>
 	</c:forEach>
 
