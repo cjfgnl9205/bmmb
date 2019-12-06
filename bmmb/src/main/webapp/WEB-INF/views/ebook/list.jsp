@@ -178,10 +178,11 @@ h3 {
 						</table>
 					</div>
 				</c:when>
-				<c:when test="${not empty kmid}">
-					
+				
+				
+				<c:when test="${not empty kmid}"> 	
+				<div class="noempty_kmid"><!-- s: noempty kmid -->
 								<div>${kmid}</div>
-								<c:if test="${kmid=='01'}">하하</c:if>
 								
 								<div class="midsection1"> <!-- s: midsection1 -->
 										문학/인문
@@ -192,22 +193,22 @@ h3 {
 												<a href="javascript:paramCheck('${kmid}')"><div id="parambox2">kmid:   ${kmid}</div></a>
 												
 												
-												
-												
 												<c:choose>
 														<c:when test="${dto.midclass == kmid}">
-														Yas
+															<div class="pickbook1">
+																구획설정중
+															</div>
 														</c:when>
 														<c:otherwise>Oops</c:otherwise>
 												</c:choose>
 												
-												
-											
 										</c:forEach>
 								
 								</div><!-- e: midsection1 -->
-									
-				</c:when>				
+				</div> <!-- e: noempty kmid -->	 				
+				</c:when>
+				
+							
 				<c:otherwise>
 					<div>Oops</div>
 				</c:otherwise>
