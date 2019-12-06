@@ -11,7 +11,7 @@
 <script>
 
 	function popRead(id){
-		var url = "read";
+		var url = "eread";
 		url += "?ebook_ID="+id;
 		var wr =  window.open(url,"e북read","width=500,height=700");
 		wr.moveTo(((window.screen.width-500)/2), ((window.screen.height-500)/2));
@@ -59,7 +59,7 @@
 <div class="ebook_read">
 	<h2>eBook</h2>
 	<form action="delete" name="frm" method="post" enctype="mulipart/form-data">
-		<input type="hidden" name="notices_no" value="${param.ebook_ID }">
+		<input type="hidden" name="ebook_ID" value="${param.ebook_ID }">
 		<input type="hidden" name="word" value="${param.word }">
 		<input type="hidden" name="nowPage" value="${param.nowPage }">
 		<input type="hidden" name="oldfile" value="${dto.image }">
