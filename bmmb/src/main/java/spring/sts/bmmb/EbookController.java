@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import spring.model.ebook.EbookDTO;
 import spring.model.mapper.EbookMapper;
@@ -58,6 +57,22 @@ public class EbookController {
 		
 		return "/ebook/read";
 	}
+	
+
+	
+	
+	@RequestMapping("/ebook/eread")
+		public String eread(HttpServletRequest request) {
+			String desc2 = request.getParameter("desc2");
+			request.setAttribute("desc2", desc2);
+			
+			String id = request.getParameter("ebook_ID");
+					
+			request.setAttribute("id", id);		
+			
+			return "/ebook/eread";
+		}
+	
 	
 	
 	@RequestMapping("/ebook/list")

@@ -77,10 +77,6 @@ function popRead(id){
 		
 		<div class="form-group">
 			<button class="btn btn-light" type="button" onclick="ereadTest();">읽기</button>
-			<button class="btn btn-light" type="button" onclick="location.href='eread'">읽기(구)</button>
-			<button class="btn btn-light" type="button" onclick="location.href='create'">등록</button>
-			<button class="btn btn-light" type="button" onclick="updateM();">수정</button>
-			<button class="btn btn-light" type="button" onclick="deleteM();">삭제</button>
 		</div>
 	</form>
 	
