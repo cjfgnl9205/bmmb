@@ -23,13 +23,13 @@ where rnum = #{rnum}
 </update>
 
 <select id="list" parameterType="Map" resultType="EreviewDTO">
- select rnum, content, to_char(rdate, 'yyyy-mm-dd')rdate, memberID, r
+ select rnum, rname, content, to_char(rdate, 'yyyy-mm-dd')rdate, ebook_ID, memberID, r
     from(
-    select rnum, content, rdate, memberID, rownum r
+    select rnum, rname, content, rdate, ebook_ID, memberID, rownum r
     from(
-        select rnum, content, rdate, memberID
+        select rnum, rname, content, rdate, ebook_ID, memberID
         from ereview
-            where memberID = #{memberID}
+            where ebook_ID = #{ebook_ID}
             order by rnum desc
         )  
 <![CDATA[

@@ -6,6 +6,7 @@ var replyService = (function() {
 		var sno = param.sno;
 		var eno = param.eno;
 		// alert(param.ebook_ID);
+		
 		$.getJSON("./reply/list/" + ebook_ID + "/" + sno + "/" + eno + ".json",
 				function(data) {
 					// alert(data);

@@ -213,26 +213,29 @@ $(document).ready(function(){
 	  showList();
 
 	  function showList(){
-		    replyService.getList({ebook_ID:ebook_ID,sno:sno,eno:eno}, function(list) {
-		            
-		     var str="";
+		    replyService.getList(  
+		    		{ebook_ID:ebook_ID,sno:sno,eno:eno}, 
+		    		
+		    		function(list) {            
+		    			 var str="";
 		     
-		     if(list == null || list.length == 0){
-		       return;
-		     }
-		     
-		     for (var i = 0, len = list.length || 0; i < len; i++) {
-		       str +="<li class='list-group-item' data-rnum='"+list[i].rnum+"'>";
-		       str +="<div><div class='header'><strong class='primary-font'>"+list[i].rname+"</strong>"; 
-		       str +="<small class='pull-right text-muted'>"+list[i].rdate+"</small></div>";
-		       str +=replaceAll(list[i].content,'\n','<br>')+"</div></li>";
-		     }
-		 
-		     replyUL.html(str);
-		     
-		     showReplyPage();
-	
-});  /* e: function */
+					     if(list == null || list.length == 0){
+					       return;
+					     }
+					     for (var i = 0, len = list.length || 0; i < len; i++) {
+					       str +="<li class='list-group-item' data-rnum='"+list[i].rnum+"'>";
+					       str +="<div><div class='header'><strong class='primary-font'>"+list[i].rname+"</strong>"; 
+					       str +="<small class='pull-right text-muted'>"+list[i].rdate+"</small></div>";
+					       str +=replaceAll(list[i].content,'\n','<br>')+"</div></li>";
+					     }
+					     replyUL.html(str);
+					     showReplyPage();
+}
+		    		
+		    		);  /* e: function */
+		    		
+		    		
+		    		
 	  } /* e: showList */
 	  
 	  function replaceAll(str, searchStr, replaceStr) {
