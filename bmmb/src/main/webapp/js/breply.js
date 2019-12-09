@@ -34,6 +34,7 @@ var replyService = (function() {
 			error : function(xhr, status, er) {
 				if (error) {
 					error(er);
+					alert("code: "+ request.status + "\n" + "message:"+ request.responseText + "\n" + "error: " + er);
 				}
 			}
 		});
@@ -55,6 +56,7 @@ var replyService = (function() {
 			error : function(xhr, status, er) {
 				if (error) {
 					error(er);
+					alert("code: "+ request.status + "\n" + "message:"+ request.responseText + "\n" + "error: " + er);
 				}
 			}
 		});
@@ -71,6 +73,7 @@ var replyService = (function() {
 		}).fail(function(xhr, status, err) {
 			if (error) {
 				error();
+				alert("code: "+ request.status + "\n" + "message:"+ request.responseText + "\n" + "error: " + er);
 			}
 		});
 	}
@@ -87,6 +90,7 @@ var replyService = (function() {
 			error : function(xhr, status, er) {
 				if (error) {
 					error(er);
+					alert("code: "+ request.status + "\n" + "message:"+ request.responseText + "\n" + "error: " + er);
 				}
 			}
 		});
@@ -109,6 +113,7 @@ var replyService = (function() {
 			error : function(xhr, status, er) {
 				if (error) {
 					error(er);
+					alert("code: "+ request.status + "\n" + "message:"+ request.responseText + "\n" + "error: " + er);
 				}
 			}
 		});

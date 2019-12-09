@@ -8,6 +8,11 @@
 <title>e북 조회</title>
 <style>
 	.ebook_read { padding : 20px 0 0 0;}
+	
+	.col-lg-12{
+	margin-left: 50px;
+	margin-bottom: 50px;
+	}
 </style>
 <script>
 
@@ -139,7 +144,6 @@ function popRead(id){
 </div>
 
 
-</div> <!-- e: container -->
 
 
 <!-- s: RESTful row-->
@@ -196,6 +200,12 @@ function popRead(id){
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
+
+
+
+</div> <!-- e: container -->
+
+
       
       
 <script type="text/javascript" src="${root}/js/breply.js"></script>
@@ -384,7 +394,7 @@ modalModBtn.on("click", function(e){
 	    
 	  });//remove
 
-});
+});//end $(document).ready
 </script>
 
 </body>

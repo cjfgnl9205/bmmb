@@ -27,7 +27,13 @@ public class EreviewController {
 	private EreviewInter eInter;
 	
 	
-	
+	@GetMapping("/ebook/reply/{rnum}")
+	public ResponseEntity<EreviewDTO> get(@PathVariable("rnum") int rnum){
+		
+		log.info("get: "+ rnum);
+		
+		return new ResponseEntity<>(eInter.read(rnum), HttpStatus.OK);
+	}
 	
 	@GetMapping("/ebook/reply/list/{ebook_ID}/{sno}/{eno}")
 	public ResponseEntity<List<EreviewDTO>> getList(

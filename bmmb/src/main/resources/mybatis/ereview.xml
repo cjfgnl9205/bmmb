@@ -7,17 +7,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <insert id="create" parameterType="EreviewDTO">
 insert into Ereview(rnum, content, rname, rdate, ebook_ID, memberID)
-values((select nvl(max(rnum),0)+1 from reply), #{content}, #{rname}, sysdate, #{ebook_ID}, #{memberID}) 
+values((select nvl(max(rnum),0)+1 from ereview), #{content}, #{rname}, sysdate, #{ebook_ID}, #{memberID}) 
 </insert>
  
 
 <select id="read" parameterType="int" resultType="EreviewDTO">
-select * from reply
+select * from ereview
 where rnum = #{rnum}
 </select>
  
 <update id="update" parameterType="EreviewDTO">
-update reply
+update ereview
 set content = #{content}
 where rnum = #{rnum}
 </update>
@@ -39,7 +39,7 @@ where rnum = #{rnum}
 
 <select id="total" resultType="int" parameterType="String">
 select count(*) from ereview
-where memberID=#{memberID}
+where ebook_ID=#{ebook_ID}
 </select>
  
 </mapper>
