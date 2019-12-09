@@ -1,12 +1,12 @@
 console.log("*****Reply Module........");
 
-var replyService = (function() {
+var replyService = (function() {     
 	function getList(param, callback, error) {
-		var bbsno = param.bbsno;
+		var ebook_ID = param.ebook_ID;
 		var sno = param.sno;
 		var eno = param.eno;
-		// alert(param.bbsno);
-		$.getJSON("./reply/list/" + bbsno + "/" + sno + "/" + eno + ".json",
+		// alert(param.ebook_ID);
+		$.getJSON("./reply/list/" + ebook_ID + "/" + sno + "/" + eno + ".json",
 				function(data) {
 					// alert(data);
 					if (callback) {
@@ -77,7 +77,7 @@ var replyService = (function() {
 	function remove(param, callback, error) {
 		$.ajax({
 			type : 'delete',
-			url : './reply/'+param.rnum+'/'+param.bbsno+'/'+param.nPage+'.json',
+			url : './reply/'+param.rnum+'/'+param.ebook_ID+'/'+param.nPage+'.json',
 			success : function(deleteResult, status, xhr) {
 				if (callback) {
 					callback(deleteResult);
