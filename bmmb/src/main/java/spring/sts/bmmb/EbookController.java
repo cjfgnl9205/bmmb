@@ -48,17 +48,45 @@ public class EbookController {
 	}
 	
 	@GetMapping("/ebook/read")
-	public String read(int ebook_ID, Model model) {
+	public String read(int ebook_ID, Model model,
+			HttpServletRequest request,
+			int nowPage,
+			String col,
+			String word) {
 		
 		mapper.upviewcnt(ebook_ID);
 		EbookDTO dto = mapper.read(ebook_ID);
+		String desc1 = dto.getDesc1().replaceAll("\r\n", "<br>");
+		dto.setDesc1(desc1);
+		String desc2 = dto.getDesc1().replaceAll("\r\n", "<br>");
+		dto.setDesc2(desc2);
+		model.addAttribute("dto",dto);
+		
+		int nPage = 1;
+		
+		if (request.getParameter("nPage")!=null) {
+			nPage = Integer.parseInt(request.getParameter("nPage"));
+		}
+		int recordPerPage = 3;
+		
+		int sno = ((nPage-1)*recordPerPage) + 1;
+		int eno = nPage * recordPerPage;
+		
+		Map map = new HashMap();
+		map.put("sno", sno);
+		map.put("eno", eno);
+		map.put("ebook_ID", ebook_ID);
+		map.put("nPage",nPage);
+		map.put("nowPage", nowPage);
+		map.put("col", col);
+		map.put("word", word);
+		
+		model.addAllAttributes(map);
 		
 		model.addAttribute("dto", dto);
 		
 		return "/ebook/read";
 	}
-	
-
 	
 	
 	@RequestMapping("/ebook/eread")

@@ -14,11 +14,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="list" parameterType="Map" resultType="SampleDTO">
-		SELECT sampleID, ebook_ID, r
+		SELECT sampleID, ebook_ID, page1, page2, page3, page4, page5, spage,  r
 		FROM(
-			SELECT sampleID, ebook_ID, rownum r
+			SELECT sampleID, ebook_ID, page1, page2, page3, page4, page5, spage, rownum r
 			FROM(
-				SELECT sampleID, ebook_ID from sampleEbook
+				SELECT sampleID, ebook_ID, page1, page2, page3, page4, page5, spage from sampleEbook
 				<where>
 					sampleID LIKE '%'||#{word}||'%'
 					OR

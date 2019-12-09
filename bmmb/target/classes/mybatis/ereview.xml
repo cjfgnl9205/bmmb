@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spring.model.mapper.EreviewInter">
+
+
+<insert id="create" parameterType="EreviewDTO">
+insert into Ereview(rnum, content, rname, rdate, ebook_ID, memberID)
+values((select nvl(max(rnum),0)+1 from reply), #{content}, #{rname}, sysdate, #{ebook_ID}, #{memberID}) 
+</insert>
+ 
+
+<select id="read" parameterType="int" resultType="EreviewDTO">
+select * from reply
+where rnum = #{rnum}
+</select>
+ 
+<update id="update" parameterType="EreviewDTO">
+update reply
+set content = #{content}
+where rnum = #{rnum}
+</update>
+
+<select id="list" parameterType="Map" resultType="EreviewDTO">
+ select rnum, content, to_char(rdate, 'yyyy-mm-dd')rdate, memberID, r
+    from(
+    select rnum, content, rdate, memberID, rownum r
+    from(
+        select rnum, content, rdate, memberID
+        from ereview
+            where memberID = #{memberID}
+            order by rnum desc
+        )  
+<![CDATA[
+)WHERE r >= #{sno} and r <= #{eno}
+]]>
+</select>
+
+<select id="total" resultType="int" parameterType="String">
+select count(*) from ereview
+where memberID=#{memberID}
+</select>
+ 
+</mapper>
+

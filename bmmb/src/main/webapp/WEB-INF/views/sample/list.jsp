@@ -18,8 +18,6 @@
 <div class="sample_list">
 	<h2 style="padding-bottom: 20px;">sample_list</h2>
 
-	
-	
 	<table class="table"  style="margin-top:30px;">
 		<tbody>
 			<c:choose>
