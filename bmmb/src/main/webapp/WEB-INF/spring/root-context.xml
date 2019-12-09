@@ -23,6 +23,7 @@
 				<value>/WEB-INF/spring/notices.xml</value>
 				<value>/WEB-INF/spring/show.xml</value>
 				<value>/WEB-INF/spring/ebook.xml</value>
+				<value>/WEB-INF/spring/sample.xml</value>
 			</list>
 		</property>
 	</bean>

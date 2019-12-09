@@ -71,6 +71,7 @@
 								<li><a href="#">자유게시판</a></li>
 								<li><a href="#">고객센터</a></li>
 								<li><a href="${root }/notices/list">공지사항</a></li>
+								<li><a href="${root }/sample/list">sample(beta)</a></li>
 							</ul>
 						</nav>
 					</div>

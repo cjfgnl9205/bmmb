@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spring.model.mapper.SampleMapper">
+
+	<select id="total" parameterType="Map" resultType="int">
+		SELECT count(*) FROM sampleEbook
+		<where>
+			sampleID LIKE '%'||#{word}||'%'
+			OR
+			ebook_ID LIKE '%'||#{word}||'%'
+		</where>
+	</select>
+
+	<select id="list" parameterType="Map" resultType="SampleDTO">
+		SELECT sampleID, ebook_ID, r
+		FROM(
+			SELECT sampleID, ebook_ID, rownum r
+			FROM(
+				SELECT sampleID, ebook_ID from sampleEbook
+				<where>
+					sampleID LIKE '%'||#{word}||'%'
+					OR
+					ebook_ID LIKE '%'||#{word}||'%'
+				</where>
+				ORDER BY sampleID DESC
+			)
+		)
+		<![CDATA[
+			WHERE r>=#{sno} AND r<=#{eno}
+		]]>
+	</select>
+
+</mapper>

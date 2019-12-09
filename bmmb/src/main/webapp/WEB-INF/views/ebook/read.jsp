@@ -72,7 +72,7 @@ function popRead(id){
 <div class="ebook_read">
 	<h2>eBook</h2>
 	
-	<form action="eread" name="eread" method="post">
+	<form action="eread" name="eread" method="post" target="_blank" >
 		<input type="hidden" name="desc2" value="${dto.desc2}">
 		
 		<div class="form-group">
