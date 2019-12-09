@@ -325,6 +325,7 @@ $(document).ready(function(){
     modal.modal("hide");
     
     //showList(1);
+    
     showList();
     
   }); //end add
