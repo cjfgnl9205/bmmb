@@ -58,7 +58,7 @@ public class EbookController {
 		EbookDTO dto = mapper.read(ebook_ID);
 		String desc1 = dto.getDesc1().replaceAll("\r\n", "<br>");
 		dto.setDesc1(desc1);
-		String desc2 = dto.getDesc1().replaceAll("\r\n", "<br>");
+		String desc2 = dto.getDesc2().replaceAll("\r\n", "<br>");
 		dto.setDesc2(desc2);
 		model.addAttribute("dto",dto);
 		
@@ -93,6 +93,9 @@ public class EbookController {
 		public String eread(HttpServletRequest request) {
 			String desc2 = request.getParameter("desc2");
 			request.setAttribute("desc2", desc2);
+			
+			String author = request.getParameter("author");
+			request.setAttribute("author", author);
 			
 			String id = request.getParameter("ebook_ID");
 					

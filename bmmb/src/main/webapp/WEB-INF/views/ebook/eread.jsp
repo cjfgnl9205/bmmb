@@ -32,6 +32,7 @@
 				<th style="width : 20%;">본문</th>
 				<td>${desc2}</td>
 				<td>${id}</td>
+				<td>${author}</td>
 			</tr>
 		</table>
 </div>
