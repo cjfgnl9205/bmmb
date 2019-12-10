@@ -115,6 +115,11 @@
 <body>
 <div class="container">	
 <h1>미리보기</h1>
+
+<div id="extractor">
+<br><br><br><br><br>
+				<button type="button" onclick="extrac();">추출</button>
+</div>
 <div class="desc_read">
 		<table class="table">
 			<tr>
@@ -129,7 +134,7 @@
 		</table>
 </div>
 
-
+<!-- s: NYT API -->
 <div class="nyt_test">
 
 	<div id="masthead">
@@ -145,9 +150,10 @@
 	</div>
 
 </div>
+<!-- e: NYT API -->
+
 
 </div>
-
 
 <script type="text/javascript">
 fetch('https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=6ad84e249d054efeaefe1abb8f89df5b', {
@@ -218,6 +224,14 @@ $(window).scroll(function (event) {
       $('#nyt-logo').css({'height':'80'})
     }
 });
+
+function extrac(){
+	var sourcetxt = document.getElementById("best-seller-titles");
+	
+	extracted = sourcetxt.textContent;
+	alert(extracted);
+	
+}
 </script>
 
 </body>
