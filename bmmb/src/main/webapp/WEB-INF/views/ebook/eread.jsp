@@ -235,11 +235,16 @@ function extrac(){
 }
 
 function	popentry(){
+	var entryArr = new Array();
+	
 	var entries = document.getElementsByClassName("entry");
 	for (i=0; i<entries.length; i++){
-		alert(entries[i].innerText);
+		alert(entries[i].innerText); 
 	}
-}
+
+} 
+
+
 </script>
 
 </body>
