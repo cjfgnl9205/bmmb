@@ -15,6 +15,10 @@
 	}
 </style>
 <script>
+function typeCheck(f){
+	alert(typeof f);
+}
+
 
 function popRead(id){
 	var url = "eread";
@@ -143,7 +147,7 @@ function popRead(id){
 	</form>
 </div>
 
-<div class="ppg">${ppgret}</div>
+<div class="ppg"><a href="javascript:typeCheck('${ppgret}')">${ppgret}</a></div>
 
 
 <!-- s: RESTful row-->
