@@ -118,7 +118,8 @@
 
 <div id="extractor">
 <br><br><br><br><br>
-				<button type="button" onclick="extrac();">추출</button>
+				<button type="button" onclick="extrac();">'통째 추출</button>
+					
 </div>
 <div class="desc_read">
 		<table class="table">

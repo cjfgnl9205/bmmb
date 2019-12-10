@@ -147,7 +147,7 @@ function popRead(id){
 	</form>
 </div>
 
-<div class="ppg"><a href="javascript:typeCheck('${ppgret}')">${ppgret}</a></div>
+<div class="ppg">${ppgret}</div>
 
 
 <!-- s: RESTful row-->

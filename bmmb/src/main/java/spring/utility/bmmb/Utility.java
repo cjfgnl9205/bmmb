@@ -24,7 +24,8 @@ public class Utility {
 		String clientSecret = "K5MbS3CLOC";
 
 		try {
-			String text = URLEncoder.encode("It is a good day to die.", "UTF-8");
+			String text = URLEncoder.encode("I'm open to discussion, within reasonable limits.",
+					"UTF-8");
 			String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
 			URL url = new URL(apiURL);
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();

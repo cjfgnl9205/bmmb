@@ -91,6 +91,7 @@ public class EbookController {
 		
 		model.addAttribute("dto", dto);
 		
+
 		String ppgret = Utility.enKo();
 		request.setAttribute("ppgret", ppgret);
 		
