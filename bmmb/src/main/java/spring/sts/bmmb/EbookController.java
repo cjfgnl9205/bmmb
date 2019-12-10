@@ -1,5 +1,11 @@
 package spring.sts.bmmb;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -85,6 +91,9 @@ public class EbookController {
 		
 		model.addAttribute("dto", dto);
 		
+		String ppgret = Utility.enKo();
+		request.setAttribute("ppgret", ppgret);
+		
 		return "/ebook/read";
 	}
 	
@@ -100,6 +109,7 @@ public class EbookController {
 			String id = request.getParameter("ebook_ID");
 					
 			request.setAttribute("id", id);		
+			
 			
 			return "/ebook/eread";
 		}
@@ -141,7 +151,6 @@ public class EbookController {
 		request.setAttribute("paging", paging);
 		request.setAttribute("word", word);
 		request.setAttribute("nowPage", nowPage);
-		
 		
 		return "/ebook/list";
 	}
