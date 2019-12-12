@@ -131,6 +131,10 @@
 				<td>${desc2}</td>
 				<td>${id}</td>
 				<td>${author}</td>
+				<!-- 피드백: popentry 버튼 >> 컨트롤러서 데이터 받는곳 -->
+				<td>${testParam}</td>
+				<td>${enkoTest}</td>
+				<td>${retP}</td>
 			</tr>
 		</table>
 </div>
@@ -241,14 +245,19 @@ function	popentry(){
 /* 	for (i=0; i<entries.length; i++){
 		alert(entries[i].innerText);
 		 */
-		//for (i=0; i<3; i++){
-		alert(entries[i].innerText);	
-	//}
 
+	var url = "eread";
+	var testParam = entries[0].innerText;
+	url += "?testParam="+testParam;
+		
+	location.href = url;
+				 
 } 
 
 
-// read에서 eread 요청하듯 (post) eread에서 ebookcont 거쳐서 eread로 다시 오기.
+
+//구: read에서 eread 요청하듯 (post) eread에서 ebookcont 거쳐서 eread로 다시 오기.
+//신: form 없이, 다른 함수에서, post방식으로 데이터 보내기.
 function ereadTest2(){
 	if(eread.name != null){
 		document.eread.submit();
@@ -256,15 +265,19 @@ function ereadTest2(){
 		return false;
 	}
 }
+
+
 </script>
 
 	<form action="eread" name="eread" method="post" target="_blank" >
-		<input type="hidden" name="desc2" value="${dto.desc2}">
-		<input type="hidden" name="author" value="${dto.author}">
+		<input type="hidden" name="desc2" value="12345678">
+		<input type="hidden" name="author" value="12345678">
 		<div class="form-group">
 			<button class="btn btn-light" type="button" onclick="ereadTest2();">읽기</button>
 		</div>
 	</form>
+
+
 
 
 </body>

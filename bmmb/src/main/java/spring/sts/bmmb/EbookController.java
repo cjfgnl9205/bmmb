@@ -101,6 +101,22 @@ public class EbookController {
 	
 	@RequestMapping("/ebook/eread")
 		public String eread(HttpServletRequest request) {
+			/* pop버튼 눌러서 받은 파라미터 */
+			String testParam = request.getParameter("testParam");
+			
+			/* 파파고 처리 부분 */
+			String retP = Utility.enKo();
+			request.setAttribute("retP", retP);
+			
+			/*뷰에 찍을 번역된 부분*/
+			String enkoTest = Utility.enkoTest(testParam);
+			request.setAttribute("enkoTest", enkoTest);
+			
+			request.setAttribute("testParam", testParam);
+			
+			
+			
+			
 			String desc2 = request.getParameter("desc2");
 			request.setAttribute("desc2", desc2);
 			

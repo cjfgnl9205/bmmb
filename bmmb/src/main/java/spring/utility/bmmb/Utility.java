@@ -16,6 +16,54 @@ import org.springframework.web.multipart.MultipartFile;
 public class Utility {
 	
 	//ppg 유틸 추가
+	public static String enkoTest(String str) {
+		
+		String testStr = str;
+		String clientId = "XawlTZBqCeTgRM6PSa8O";
+		String clientSecret = "K5MbS3CLOC";
+
+		try {
+			String text = URLEncoder.encode(testStr,"UTF-8");
+			String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
+			URL url = new URL(apiURL);
+			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+			con.setRequestMethod("POST");
+			con.setRequestProperty("X-Naver-Client-Id", clientId);
+			con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
+			
+			String postParams = "source=en&target=ko&text=" + text;
+			con.setDoOutput(true);
+			DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+			wr.writeBytes(postParams);
+			wr.flush();
+			wr.close();
+			int responseCode = con.getResponseCode();
+			BufferedReader br;
+			
+			if (responseCode==200) {
+				br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+				
+			}else {
+				br = new BufferedReader(new InputStreamReader(con.getErrorStream()));	
+			}
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			
+			while((inputLine = br.readLine())!=null) {
+				response.append(inputLine);
+			}
+			br.close();
+			System.out.println(response.toString());
+			
+			testStr = response.toString();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return testStr;
+	}
+
 	
 	public static String enKo() {
 		
