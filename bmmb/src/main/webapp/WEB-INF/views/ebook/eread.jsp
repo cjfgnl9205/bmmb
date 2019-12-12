@@ -238,14 +238,34 @@ function	popentry(){
 	var entryArr = new Array();
 	
 	var entries = document.getElementsByClassName("entry");
-	for (i=0; i<entries.length; i++){
-		alert(entries[i].innerText); 
-	}
+/* 	for (i=0; i<entries.length; i++){
+		alert(entries[i].innerText);
+		 */
+		//for (i=0; i<3; i++){
+		alert(entries[i].innerText);	
+	//}
 
 } 
 
 
+// read에서 eread 요청하듯 (post) eread에서 ebookcont 거쳐서 eread로 다시 오기.
+function ereadTest2(){
+	if(eread.name != null){
+		document.eread.submit();
+	}else{
+		return false;
+	}
+}
 </script>
+
+	<form action="eread" name="eread" method="post" target="_blank" >
+		<input type="hidden" name="desc2" value="${dto.desc2}">
+		<input type="hidden" name="author" value="${dto.author}">
+		<div class="form-group">
+			<button class="btn btn-light" type="button" onclick="ereadTest2();">읽기</button>
+		</div>
+	</form>
+
 
 </body>
 </html>
