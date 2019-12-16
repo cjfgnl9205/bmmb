@@ -115,8 +115,6 @@ public class EbookController {
 			request.setAttribute("testParam", testParam);
 			
 			
-			
-			
 			String desc2 = request.getParameter("desc2");
 			request.setAttribute("desc2", desc2);
 			

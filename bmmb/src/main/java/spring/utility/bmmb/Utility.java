@@ -54,7 +54,7 @@ public class Utility {
 			}
 			br.close();
 			
-			System.out.println("response 출력: "+ response);
+			System.out.println("스트링버퍼 response 출력: "+response);
 			System.out.println(response.toString());
 			
 			testStr = response.toString();
