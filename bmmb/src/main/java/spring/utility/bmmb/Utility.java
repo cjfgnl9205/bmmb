@@ -53,6 +53,8 @@ public class Utility {
 				response.append(inputLine);
 			}
 			br.close();
+			
+			System.out.println("response 출력: "+ response);
 			System.out.println(response.toString());
 			
 			testStr = response.toString();

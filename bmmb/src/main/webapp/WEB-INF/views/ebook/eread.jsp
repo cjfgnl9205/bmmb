@@ -120,6 +120,8 @@
 <br><br><br><br><br>
 				<button type="button" onclick="extrac();">통째 추출</button>
 				<button type="button" onclick="popentry();">부분 추출</button>					
+				<button type="button" onclick="retpType();">타입 추출</button>					
+				
 </div>
 <div class="desc_read">
 		<table class="table">
@@ -133,11 +135,12 @@
 				<td>${author}</td>
 				<!-- 피드백: popentry 버튼 >> 컨트롤러서 데이터 받는곳 -->
 				<td>${testParam}</td>
-				<td>${enkoTest}</td>
-				<td>${retP}</td>
+				<td id="enkoTest">${enkoTest}</td>
+				<td id="retP">${retP}</td>
 			</tr>
 		</table>
 </div>
+
 
 <!-- s: NYT API -->
 <div class="nyt_test">
@@ -253,6 +256,14 @@ function	popentry(){
 	location.href = url;
 				 
 } 
+
+function retpType(){
+	var retP = document.getElementById("retP");
+	var retpElem = retP.innerHTML;
+	alert(retpElem);
+	alert(typeof retpElem);
+}
+
 
 
 

@@ -98,7 +98,7 @@ public class EbookController {
 		return "/ebook/read";
 	}
 	
-	
+	// 피드백: 컨트롤러에서 translatedText 부분만 짤라서 el에 넣어서, eread로 리턴할 수 있는지 체크하기.
 	@RequestMapping("/ebook/eread")
 		public String eread(HttpServletRequest request) {
 			/* pop버튼 눌러서 받은 파라미터 */
