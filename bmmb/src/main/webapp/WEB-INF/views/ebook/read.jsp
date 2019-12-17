@@ -147,7 +147,7 @@ function popRead(id){
 	</form>
 </div>
 
-<div class="ppg">${ppgret}</div>
+<%-- <div class="ppg">${ppgret}</div> --%>
 
 
 <!-- s: RESTful row-->

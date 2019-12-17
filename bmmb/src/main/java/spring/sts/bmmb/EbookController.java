@@ -91,9 +91,9 @@ public class EbookController {
 		
 		model.addAttribute("dto", dto);
 		
-
-		String ppgret = Utility.enKo();
-		request.setAttribute("ppgret", ppgret);
+		/* 인수없는 ppg 메소드 호출:
+		 * String ppgret = Utility.enKo(); request.setAttribute("ppgret", ppgret);
+		 */
 		
 		return "/ebook/read";
 	}
@@ -101,22 +101,23 @@ public class EbookController {
 	// 피드백: 컨트롤러에서 translatedText 부분만 짤라서 el에 넣어서, eread로 리턴할 수 있는지 체크하기.
 	@RequestMapping("/ebook/eread")
 		public String eread(HttpServletRequest request) {
-			/* pop버튼 눌러서 받은 파라미터 */
+			/* pop버튼 눌러서, 뷰에서 받은 파라미터 */
 			String testParam = request.getParameter("testParam");
 			System.out.println("ppg 인수 출력: "+ testParam);
 			
-			/* 파파고 처리 부분 */
-			String retP = Utility.enKo();
-			request.setAttribute("retP", retP);
+			/* 파파고: 인수없는 메소드 호출 */
+		/*
+		 * String retP = Utility.enKo(); request.setAttribute("retP", retP);
+		 */
 			
-			/*뷰에 찍을 번역된 부분*/
+			/*파파고: 인수있는 메소드 호출*/
 			String enkoTest = Utility.enkoTest(testParam);
-		/* System.out.println("스프링버퍼 enkoTest 출력: "+enkoTest); */
+
 			request.setAttribute("enkoTest", enkoTest);
-			
 			request.setAttribute("testParam", testParam);
+			/* System.out.println("스프링버퍼 enkoTest 출력: "+enkoTest); */
 			
-			
+			/*리드에서 히든으로 가져온것?*/
 			String desc2 = request.getParameter("desc2");
 			request.setAttribute("desc2", desc2);
 			

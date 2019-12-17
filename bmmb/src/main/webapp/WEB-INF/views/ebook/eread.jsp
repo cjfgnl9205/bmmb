@@ -134,9 +134,9 @@
 				<td>${id}</td>
 				<td>${author}</td>
 				<!-- 피드백: popentry 버튼 >> 컨트롤러서 데이터 받는곳 -->
-				<td>${testParam}</td>
+				<td id="testParam">${testParam}</td>
 				<td id="enkoTest">${enkoTest}</td>
-				<td id="retP">${retP}</td>
+				<%-- <td id="retP">${retP}</td> --%>
 			</tr>
 		</table>
 </div>
@@ -186,7 +186,7 @@ function updateBestSellers(nytimesBestSellers) {
           '<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/387928/book%20placeholder.png" class="book-cover" id="cover-' + book.rank + '">' + 
           '</p>' + 
           '<h2><a href="' + book.amazon_product_url + '" target="_blank">' + bookInfo.title + '</a></h2>' +
-          '<h4>By ' + bookInfo.author + '</h4>' +
+          '<h4>' + bookInfo.author + '</h4>' +
           '<h4 class="publisher">' + bookInfo.publisher + '</h4>' +
           '<p>' + bookInfo.description + '</p>' + 
           '<div class="stats">' +
@@ -245,18 +245,17 @@ function	popentry(){
 	var entryArr = new Array();
 	
 	var entries = document.getElementsByClassName("entry");
-/* 	for (i=0; i<entries.length; i++){
+	for (i=0; i<entries.length; i++){
 		alert(entries[i].innerText);
-		 */
+	}	 
 
 	var url = "eread";
 	var testParam = entries[0].innerText;
 	url += "?testParam="+testParam;
 		
-	location.href = url;
-				 
-} 
-
+	location.href = url;			 
+	
+}
 function retpType(){
 	var retP = document.getElementById("retP");
 	var retpElem = retP.innerHTML;
