@@ -185,8 +185,8 @@ function updateBestSellers(nytimesBestSellers) {
           '<p>' + 
           '<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/387928/book%20placeholder.png" class="book-cover" id="cover-' + book.rank + '">' + 
           '</p>' + 
-          '<h2><a href="' + book.amazon_product_url + '" target="_blank">' + bookInfo.title + '</a></h2>' +
-          '<h4>' + bookInfo.author + '</h4>' +
+          '<h2><a href="' + book.amazon_product_url + '" target="_blank">&nbsp;' + bookInfo.title + '&nbsp;.</a></h2>' +
+          '<h4>&nbsp;' + bookInfo.author + '&nbsp;.</h4>' +
           '<h4 class="publisher">' + bookInfo.publisher + '</h4>' +
           '<p>' + bookInfo.description + '</p>' + 
           '<div class="stats">' +
@@ -245,9 +245,9 @@ function	popentry(){
 	var entryArr = new Array();
 	
 	var entries = document.getElementsByClassName("entry");
-	for (i=0; i<entries.length; i++){
+/* 	for (i=0; i<entries.length; i++){
 		alert(entries[i].innerText);
-	}	 
+	}	  */
 
 	var url = "eread";
 	var testParam = entries[0].innerText;
