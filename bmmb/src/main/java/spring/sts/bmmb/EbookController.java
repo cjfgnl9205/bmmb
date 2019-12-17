@@ -103,6 +103,7 @@ public class EbookController {
 		public String eread(HttpServletRequest request) {
 			/* pop버튼 눌러서 받은 파라미터 */
 			String testParam = request.getParameter("testParam");
+			System.out.println("ppg 인수 출력: "+ testParam);
 			
 			/* 파파고 처리 부분 */
 			String retP = Utility.enKo();
@@ -110,6 +111,7 @@ public class EbookController {
 			
 			/*뷰에 찍을 번역된 부분*/
 			String enkoTest = Utility.enkoTest(testParam);
+		/* System.out.println("스프링버퍼 enkoTest 출력: "+enkoTest); */
 			request.setAttribute("enkoTest", enkoTest);
 			
 			request.setAttribute("testParam", testParam);

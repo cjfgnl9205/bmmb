@@ -15,6 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Utility {
 	
+	/* private static StringBuffer response; */
+
 	//ppg 유틸 추가
 	public static String enkoTest(String str) {
 		
@@ -55,6 +57,7 @@ public class Utility {
 			br.close();
 			
 			System.out.println("스트링버퍼 response 출력: "+response);
+			System.out.println("스트링버퍼 인덱싱: "+response.substring(151));
 			System.out.println(response.toString());
 			
 			testStr = response.toString();
@@ -233,18 +236,7 @@ public class Utility {
 		return str.toString();
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	public static void deleteFile(String basePath, String oldfile) {
 		if(oldfile !=null && !oldfile.equals("")) {
