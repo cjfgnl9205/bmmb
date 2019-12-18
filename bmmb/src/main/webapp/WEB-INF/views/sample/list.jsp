@@ -30,7 +30,7 @@
 							<td>${dto.sampleID}</td>
 							<td><a href="javascript:read('${dto.sampleID}')">${dto.sampleID}</a></td>
 							
-							<td>${strBeta}</td>
+							<td id="strBeta">${strBeta}</td>
 							
 							
 							<td>${dto.page1}</td>
