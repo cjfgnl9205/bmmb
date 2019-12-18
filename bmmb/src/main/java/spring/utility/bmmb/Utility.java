@@ -60,7 +60,14 @@ public class Utility {
 			System.out.println("스트링버퍼 인덱싱: "+response.substring(151));
 			System.out.println(response.toString());
 			
-			testStr = response.toString();
+			
+			
+			/* testStr = response.toString(); */
+			testStr = response.substring(151);
+			
+			if (testStr.contains("}")) {
+				testStr = testStr.replace("}", " ");
+			}
 			
 		} catch (Exception e) {
 			System.out.println(e);
