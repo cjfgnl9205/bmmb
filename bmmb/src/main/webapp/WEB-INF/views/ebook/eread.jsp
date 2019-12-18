@@ -136,6 +136,8 @@
 				<!-- 피드백: popentry 버튼 >> 컨트롤러서 데이터 받는곳 -->
 				<td id="testParam">${testParam}</td>
 				<td id="enkoTest">${enkoTest}</td>
+				<td id="enkoTest">${enkoTest1}</td>
+				<td id="enkoTest">${enkoTest2}</td>
 				<%-- <td id="retP">${retP}</td> --%>
 			</tr>
 		</table>
@@ -185,9 +187,9 @@ function updateBestSellers(nytimesBestSellers) {
           '<p>' + 
           '<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/387928/book%20placeholder.png" class="book-cover" id="cover-' + book.rank + '">' + 
           '</p>' + 
-          '<h2><a href="' + book.amazon_product_url + '" target="_blank">&nbsp;.' + bookInfo.title + '&nbsp;.</a></h2>' +
-          '<h4>&nbsp;' + bookInfo.author + '&nbsp;.</h4>' +
-          '<h4 class="publisher">' + bookInfo.publisher + '&nbsp;.</h4>' +
+          '<h2 class="btitle"><a href="' + book.amazon_product_url + '" target="_blank">.' + bookInfo.title + '.</a></h2>' +
+          '<h4 class="author">' + bookInfo.author + '.</h4>' +
+          '<h4 class="publisher">' + bookInfo.publisher + '.</h4>' +
           '<p>' + bookInfo.description + '</p>' + 
           '<div class="stats">' +
             '<hr>' + 
@@ -242,19 +244,36 @@ function extrac(){
 }
 
 function	popentry(){
-	var entryArr = new Array();
+/* 	var entryArr = new Array(); */
 	
 	var entries = document.getElementsByClassName("entry");
 /* 	for (i=0; i<entries.length; i++){
 		alert(entries[i].innerText);
 	}	  */
 
+	var titles = document.getElementsByClassName("btitle");
+	var authors = document.getElementsByClassName("author");
+	var publishers = document.getElementsByClassName("publisher");
+	
+	
 	var url = "eread";
-	var testParam = entries[0].innerText;
+/* 	var testParam = entries[0].innerText; */
+
+	var croppedTxt = titles[0].innerText;
+	var testParam = croppedTxt.toLowerCase();
+	
+  	var testParam1 = authors[0].innerText;
+	var testParam2 = publishers[0].innerText;
 	
 	url += "?testParam="+testParam;
-		
+	url += "&testParam1="+testParam1;
+	url += "&testParam2="+testParam2;
+
 	location.href = url;			 
+
+	// url에다가 그냥 부분별로 쭉 붙여넣기 &... 이런 방식으로. 
+	// 즉, class별로 크로핑해서, 그렇게도 가능하나? 컨트롤러 파파고에서 인수를 여러개 둬야하나?
+	// 일단 단변수로... 로워케이스한거 넘겨서 번역해서, 다시 이리드로 가져와보기		
 	
 }
 function retpType(){
@@ -263,9 +282,6 @@ function retpType(){
 	alert(retpElem);
 	alert(typeof retpElem);
 }
-
-
-
 
 //구: read에서 eread 요청하듯 (post) eread에서 ebookcont 거쳐서 eread로 다시 오기.
 //신: form 없이, 다른 함수에서, post방식으로 데이터 보내기.

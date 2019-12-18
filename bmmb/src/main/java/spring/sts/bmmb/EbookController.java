@@ -105,16 +105,31 @@ public class EbookController {
 			String testParam = request.getParameter("testParam");
 			System.out.println("ppg 인수 출력: "+ testParam);
 			
+			String testParam1 = request.getParameter("testParam1");
+			System.out.println("ppg 인수1 출력: "+ testParam1);
+			
+			String testParam2 = request.getParameter("testParam2");
+			System.out.println("ppg 인수2 출력: "+ testParam2);
+			
+			
 			/* 파파고: 인수없는 메소드 호출 */
 		/*
 		 * String retP = Utility.enKo(); request.setAttribute("retP", retP);
 		 */
 			
 			/*파파고: 인수있는 메소드 호출*/
+			
 			String enkoTest = Utility.enkoTest(testParam);
-
+			String enkoTest1 = Utility.enkoTest(testParam1);
+			String enkoTest2 = Utility.enkoTest(testParam2);
+			
+			
 			request.setAttribute("enkoTest", enkoTest);
+			request.setAttribute("enkoTest1", enkoTest1);
+			request.setAttribute("enkoTest2", enkoTest2);
+			
 			request.setAttribute("testParam", testParam);
+			
 			/* System.out.println("스프링버퍼 enkoTest 출력: "+enkoTest); */
 			
 			/*리드에서 히든으로 가져온것?*/
