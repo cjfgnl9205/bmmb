@@ -136,8 +136,11 @@
 				<!-- 피드백: popentry 버튼 >> 컨트롤러서 데이터 받는곳 -->
 				<td id="testParam">${testParam}</td>
 				<td id="enkoTest">${enkoTest}</td>
-				<td id="enkoTest">${enkoTest1}</td>
-				<td id="enkoTest">${enkoTest2}</td>
+				<td id="enkoTest1">${enkoTest1}</td>
+				<td id="enkoTest2">${enkoTest2}</td>
+				<td id="enkoTest3">${enkoTest3}</td>
+				<td id="enkoTest3">${enkoTest4}</td>
+				
 				<%-- <td id="retP">${retP}</td> --%>
 			</tr>
 		</table>
@@ -190,7 +193,7 @@ function updateBestSellers(nytimesBestSellers) {
           '<h2 class="btitle"><a href="' + book.amazon_product_url + '" target="_blank">.' + bookInfo.title + '.</a></h2>' +
           '<h4 class="author">' + bookInfo.author + '.</h4>' +
           '<h4 class="publisher">' + bookInfo.publisher + '.</h4>' +
-          '<p>' + bookInfo.description + '</p>' + 
+          '<p class="bdescription">' + bookInfo.description + '</p>' + 
           '<div class="stats">' +
             '<hr>' + 
             '<p>Last Week: ' + lastWeekRank + '</p>' + 
@@ -254,7 +257,8 @@ function	popentry(){
 	var titles = document.getElementsByClassName("btitle");
 	var authors = document.getElementsByClassName("author");
 	var publishers = document.getElementsByClassName("publisher");
-	
+	var descriptions = document.getElementsByClassName("bdescription");	
+	var stats = document.getElementsByClassName("stats");
 	
 	var url = "eread";
 /* 	var testParam = entries[0].innerText; */
@@ -264,11 +268,15 @@ function	popentry(){
 	
   	var testParam1 = authors[0].innerText;
 	var testParam2 = publishers[0].innerText;
+	var testParam3 = descriptions[0].innerText;
+	var testParam4 = stats[0].innerText;
 	
 	url += "?testParam="+testParam;
 	url += "&testParam1="+testParam1;
 	url += "&testParam2="+testParam2;
-
+	url += "&testParam3="+testParam3;
+	url += "&testParam4="+testParam4;
+	
 	location.href = url;			 
 
 	// url에다가 그냥 부분별로 쭉 붙여넣기 &... 이런 방식으로. 
