@@ -69,6 +69,14 @@ public class Utility {
 				testStr = testStr.replace("}", " ");
 			}
 			
+			if (testStr.contains("\"")) {
+				testStr = testStr.replace("\"", " ");
+			}
+
+			if (testStr.contains("WD")) {
+				testStr = testStr.replace("WD", " ");
+			}
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}

@@ -29,12 +29,18 @@
 						<tr>
 							<td>${dto.sampleID}</td>
 							<td><a href="javascript:read('${dto.sampleID}')">${dto.sampleID}</a></td>
+							
+							<td>${strBeta}</td>
+							
+							
 							<td>${dto.page1}</td>
 							<td>${dto.page2}</td>
 							<td>${dto.page3}</td>
 							<td>${dto.page4}</td>
 							<td>${dto.page5}</td>
 							<td>${dto.spage}</td>
+							
+							
 							
 							</tr>
 					</c:forEach>

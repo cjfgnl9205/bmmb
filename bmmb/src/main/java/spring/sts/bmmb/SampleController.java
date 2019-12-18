@@ -21,8 +21,9 @@ public class SampleController {
 	public SampleMapper smapper;
 	
 	@RequestMapping("/sample/list")
-	public String list(HttpServletRequest request ) {
-				
+	public String list(HttpServletRequest request, String str) {
+		
+		String strBeta = request.getParameter("str");
 		String word = Utility.checkNull(request.getParameter("word"));
 		
 		int nowPage = 1;

@@ -19,6 +19,11 @@ function typeCheck(f){
 	alert(typeof f);
 }
 
+function toBeta(id){
+	var url = "/sample/list";
+	url += "?ebook_ID="+id;
+	location.href=url;	
+}
 
 function popRead(id){
 	var url = "eread";
@@ -123,13 +128,17 @@ function popRead(id){
 				<td>${dto.desc1 }</td>
 			</tr>
 			<tr>
-				<th>e북 미리보기</th>
+				<th>e북 팝업</th>
 				<td><a href="javascript:preview('${dto.desc2 }')">팝업으로 보기</a></td>
 			</tr>
 			<tr>
-				<th>e북 미리보기</th>
+				<th>eread 새창 </th>
 				<td><a href="javascript:popRead('${dto.ebook_ID }')">새창에서 보기</a></td>
 			</tr>
+			<tr>
+				<th>e북,샘플 조인 </th>
+				<td><a href="javascript:toBeta('${dto.ebook_ID }')">조인한 테이블 조작</a></td>
+			</tr>			
 			<c:if test="${not empty dto.image }">
 				<tr>
 					<th>사진</th>
