@@ -250,7 +250,7 @@ function	popentry(){
 	}	  */
 
 	var url = "eread";
-	var testParam = entries[7].innerText;
+	var testParam = entries[0].innerText;
 	url += "?testParam="+testParam;
 		
 	location.href = url;			 
