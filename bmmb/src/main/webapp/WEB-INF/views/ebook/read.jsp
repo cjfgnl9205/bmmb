@@ -19,11 +19,11 @@ function typeCheck(f){
 	alert(typeof f);
 }
 
-function toBeta(id){
-	var url = "/sample/list";
+ function sRead(id){
+	var url = "/ebook/sread";
 	url += "?ebook_ID="+id;
 	location.href=url;	
-}
+} 
 
 function popRead(id){
 	var url = "eread";
@@ -137,7 +137,7 @@ function popRead(id){
 			</tr>
 			<tr>
 				<th>e북,샘플 조인 </th>
-				<td><a href="javascript:toBeta('${dto.ebook_ID }')">조인한 테이블 조작</a></td>
+				<td><a href="javascript:sRead('${dto.ebook_ID }')">sread 테스트</a></td>
 			</tr>			
 			<c:if test="${not empty dto.image }">
 				<tr>

@@ -21,10 +21,8 @@ public class SampleController {
 	public SampleMapper smapper;
 	
 	@RequestMapping("/sample/list")
-	public String list(HttpServletRequest request, String str) {
+	public String list(HttpServletRequest request) {
 		
-		String strB = request.getParameter("ebook_ID");
-		request.setAttribute("strB", strB);
 		String word = Utility.checkNull(request.getParameter("word"));
 		
 		int nowPage = 1;

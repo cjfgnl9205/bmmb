@@ -49,6 +49,21 @@ public class EbookController {
 		return "/ebook/create";
 	}
 	
+	@GetMapping("/ebook/sread")
+	public String sread(int ebook_ID, HttpServletRequest request, Model model) {
+		
+		String ebook_param = request.getParameter("ebook_ID");
+		int ebook_int = Integer.parseInt(ebook_param);
+		
+		SampleDTO dto = mapper.sread(ebook_int);
+		
+		model.addAttribute("dto", dto);
+		
+		return "/ebook/sread";
+	}
+	
+	
+	
 	@GetMapping("/ebook/read")
 	public String read(int ebook_ID, Model model,
 			HttpServletRequest request,
@@ -86,10 +101,6 @@ public class EbookController {
 		model.addAllAttributes(map);
 		
 		model.addAttribute("dto", dto);
-		
-		/* 인수없는 ppg 메소드 호출:
-		 * String ppgret = Utility.enKo(); request.setAttribute("ppgret", ppgret);
-		 */
 		
 		return "/ebook/read";
 	}
