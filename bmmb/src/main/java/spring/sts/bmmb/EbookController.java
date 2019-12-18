@@ -1,11 +1,5 @@
 package spring.sts.bmmb;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring.model.ebook.EbookDTO;
 import spring.model.mapper.EbookMapper;
+import spring.model.mapper.SampleMapper;
+import spring.model.sample.SampleDTO;
 import spring.utility.bmmb.Utility;
 
 @Controller
@@ -28,6 +24,45 @@ public class EbookController {
 
 	@Autowired
 	public EbookMapper mapper;
+
+	@Autowired
+	public SampleMapper smapper;
+	
+	@RequestMapping("/sample/list")
+	public String list(HttpServletRequest request, String str) {
+		
+		String strBeta = request.getParameter("str");
+		String word = Utility.checkNull(request.getParameter("word"));
+		
+		int nowPage = 1;
+		
+		if(request.getParameter("nowPage") != null) {
+			nowPage = Integer.parseInt(request.getParameter("nowPage"));
+		}
+		int recordPerPage = 10;
+		
+		int sno = ((nowPage-1)*recordPerPage)+1;
+		int eno = nowPage*recordPerPage;
+		
+		Map map = new HashMap();
+		map.put("word", word);
+		map.put("sno", sno);
+		map.put("eno", eno);
+		
+		List<SampleDTO> list = smapper.list(map);
+		int total = smapper.total(map);
+		
+		String paging = Utility.paging(total, nowPage, recordPerPage, word);
+		
+		request.setAttribute("list", list);
+		request.setAttribute("paging", paging);
+		request.setAttribute("word", word);
+		request.setAttribute("nowPage", nowPage);
+		
+		
+		return "/sample/list";
+	}
+
 
 	@PostMapping("/ebook/create")	
 	public String create(EbookDTO dto, HttpServletRequest request) {
@@ -103,14 +138,12 @@ public class EbookController {
 		public String eread(HttpServletRequest request) {
 			/* pop버튼 눌러서, 뷰에서 받은 파라미터 */
 			String testParam = request.getParameter("testParam");
-			System.out.println("ppg 인수 출력: "+ testParam);
-			
+			System.out.println("ppg 인수 출력: "+ testParam);		
 			String testParam1 = request.getParameter("testParam1");
 			System.out.println("ppg 인수1 출력: "+ testParam1);
-			
 			String testParam2 = request.getParameter("testParam2");
-			System.out.println("ppg 인수2 출력: "+ testParam2);
-			
+			String testParam3 = request.getParameter("testParam3");
+			String testParam4 = request.getParameter("testParam4");			
 			
 			/* 파파고: 인수없는 메소드 호출 */
 		/*
@@ -122,11 +155,14 @@ public class EbookController {
 			String enkoTest = Utility.enkoTest(testParam);
 			String enkoTest1 = Utility.enkoTest(testParam1);
 			String enkoTest2 = Utility.enkoTest(testParam2);
-			
+			String enkoTest3 = Utility.enkoTest(testParam3);
+			String enkoTest4 = Utility.enkoTest(testParam4);			
 			
 			request.setAttribute("enkoTest", enkoTest);
 			request.setAttribute("enkoTest1", enkoTest1);
 			request.setAttribute("enkoTest2", enkoTest2);
+			request.setAttribute("enkoTest3", enkoTest3);
+			request.setAttribute("enkoTest4", enkoTest4);
 			
 			request.setAttribute("testParam", testParam);
 			
