@@ -19,7 +19,11 @@
 
 <div class="container">
 
-${dto.ebook_ID }
+${dto.ebook_ID }<br>
+${dto.page1}<br>
+${dto.page2}<br>
+${dto.page3}
+
 
 </div>
 </body>
