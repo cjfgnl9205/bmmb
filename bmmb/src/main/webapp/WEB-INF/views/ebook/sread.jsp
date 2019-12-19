@@ -15,10 +15,10 @@
 </script>
 </head>
 <body>
-	<h2 style="padding-bottom: 20px;">sread</h2>
 
 <div class="container">
-
+	<h2 style="padding-bottom: 20px;">sread</h2><br>
+	<h4>e북 미리보기</h4><br>
 ${dto.ebook_ID }<br>
 ${dto.page1}<br>
 ${dto.page2}<br>
