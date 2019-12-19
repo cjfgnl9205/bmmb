@@ -22,8 +22,12 @@ function typeCheck(f){
  function sRead(id){
 	var url = "sread";
 	url += "?ebook_ID="+id;
-	location.href=url;	
-} 
+/* 	location.href=url;	 */
+ 
+	var wr =  window.open(url,"sRead","width=1000,height=1200"); 
+	wr.moveTo(((window.screen.width-500)/2), ((window.screen.height-500)/2));
+	
+ } 
 
 function popRead(id){
 	var url = "eread";
