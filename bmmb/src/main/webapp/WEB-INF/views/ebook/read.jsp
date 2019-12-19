@@ -20,7 +20,7 @@ function typeCheck(f){
 }
 
  function sRead(id){
-	var url = "/ebook/sread";
+	var url = "sread";
 	url += "?ebook_ID="+id;
 	location.href=url;	
 } 

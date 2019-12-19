@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<select id="sread" parameterType="int" resultType="SampleDTO">
-		SELECT * from
+		SELECT * FROM
 		sampleebook WHERE ebook_ID = #{ebook_ID}
 	</select>
 
