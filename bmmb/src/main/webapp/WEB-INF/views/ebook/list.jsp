@@ -287,7 +287,7 @@ h3 {
 			<c:otherwise>	
 																<c:forEach var="dto" items="${list}">
 																<c:choose> 
-																		<c:when test="${util:newImg(dto.rdate)  && dto.viewcnt < 20}"> 
+																		<c:when test="${util:newImg(dto.rdate)  && dto.viewcnt > 20}"> 
 																
 																	<tr>		
 																		<td id="test_id">${dto.ebook_ID}</td>
@@ -303,7 +303,7 @@ h3 {
 																		</c:when>						
 																<c:otherwise>							
 																					
-																							
+																	Foo! 		
 																																											
 																</c:otherwise> 	
 																				</c:choose> 
