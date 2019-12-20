@@ -49,6 +49,23 @@ public class EbookController {
 		return "/ebook/create";
 	}
 	
+
+	@GetMapping("/ebook/cart")
+	public String vcart(int ebook_ID, HttpServletRequest request, Model model) {
+		
+		String ebook_param = request.getParameter("ebook_ID");
+		int ebook_int = Integer.parseInt(ebook_param);
+		
+		EbookDTO dto = mapper.vcart(ebook_ID);
+		/*
+		 * SampleDTO dto = mapper.sread(ebook_int);
+		 */
+		model.addAttribute("dto", dto);
+		
+		return "/ebook/cart";
+	}
+	
+	
 	@GetMapping("/ebook/sread")
 	public String sread(int ebook_ID, HttpServletRequest request, Model model) {
 		

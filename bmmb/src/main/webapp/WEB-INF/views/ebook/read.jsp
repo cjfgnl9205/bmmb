@@ -85,6 +85,11 @@ function popRead(id){
 		
 	}
 
+	function vcart(id){
+		var url = "cart";
+		url += "?ebook_ID="+id;
+		location.href = url;
+	}
 </script>
 </head>
 <body>
@@ -155,9 +160,13 @@ function popRead(id){
 			<button class="btn btn-light" type="button" onclick="updateM();">수정</button>
 			<button class="btn btn-light" type="button" onclick="deleteM();">삭제</button>
 			<button class="btn btn-light" type="button" onclick="listM();">목록</button>
-			<button class="btn btn-light" type="button" onclick="#">장바구니 담기</button>
 		</div>
 	</form>
+	<div class="cart">
+					<a href="javascript:vcart('${dto.ebook_ID }')">장바구니 담기</a>
+	</div>
+	
+
 </div>
 
 <%-- <div class="ppg">${ppgret}</div> --%>

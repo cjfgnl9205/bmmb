@@ -20,8 +20,11 @@
 	<h2 style="padding-bottom: 20px;">장바구니</h2><br>
 	<h4>내가 선택한 도서</h4><br>
 
-	<button type="button" class="btn btn-light"
-				style="margin-left: 10px;" onclick="#">결제</button>
+	<p>${dto.ebook_ID }</p>
+	<p>${dto.name }</p>
+	<p>${dto.price }</p>
+
+	<button onclick="#">결제</button>
 </div>
 </body>
 </html>

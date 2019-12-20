@@ -21,6 +21,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		viewcnt + 1 WHERE ebook_ID = #{ebook_ID}
 	</update>
 
+<select id="vcart" parameterType="int" resultType="EbookDTO">
+SELECT EBOOK_ID, NAME, PRICE
+		FROM EBOOK
+ WHERE EBOOK_ID = #{ebook_ID}    
+</select>
+
 	<select id="sread" parameterType="int" resultType="SampleDTO">
 		SELECT * FROM
 		sampleebook WHERE ebook_ID = #{ebook_ID}

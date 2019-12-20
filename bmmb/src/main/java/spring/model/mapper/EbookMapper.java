@@ -18,6 +18,8 @@ public interface EbookMapper {
 
 	public SampleDTO sread(int ebook_ID);
 	
+	public EbookDTO vcart(int ebook_ID);
+	
 	public void upviewcnt(int ebook_ID);
 	
 }

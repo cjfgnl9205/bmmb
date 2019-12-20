@@ -146,6 +146,7 @@ h3 {
 																		width="178" height="264" />
 															</a>
 															<div class="midbox">${dto.midclass}</div>
+															<div class="viewbox">${dto.viewcnt}</div>
 														</td>
 														
 														</tr>
@@ -167,6 +168,7 @@ h3 {
 																			width="178" height="264" />
 															</a>
 															<div class="midbox">${dto.midclass}</div>	
+															<div class="viewbox">${dto.viewcnt}</div>
 														</td>
 													</c:otherwise>
 												</c:choose>

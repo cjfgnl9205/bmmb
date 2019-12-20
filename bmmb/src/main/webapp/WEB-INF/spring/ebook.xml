@@ -4,9 +4,12 @@
     "http://tiles.apache.org/dtds/tiles-config_2_0.dtd"> 
 <tiles-definitions> 
 
-	장바구니
-
-	
+  <!-- cart 조회 -->
+	<definition name="/ebook/cart" extends="main_list"> 
+	        <put-attribute name="title" value="eBook" ></put-attribute> 
+	        <put-attribute name="body" value="/WEB-INF/views/ebook/cart.jsp" /> 
+	</definition>    
+		
 	<!--sread 테스트 -->
 	<definition name="/ebook/sread" extends="main_list"> 
 	        <put-attribute name="title" value="eBook" ></put-attribute> 
