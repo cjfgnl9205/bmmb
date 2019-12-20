@@ -19,6 +19,32 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Utility {
 	
+	// 날짜 관련 유틸 -- '신간도서' 용?
+	
+	public static List<String> getDay(){
+		List<String> list2 = new ArrayList<String>();
+		
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");  //대소문자 구분해야
+		Calendar cal = Calendar.getInstance();  // 매변없으면 현재날짜알려줌. 이건 뉴로 만들필요없음.
+		for (int i=0;i<3;i++) {
+			list2.add(sd.format(cal.getTime()));
+			cal.add(Calendar.DATE, -1);
+		}
+		return list2;
+	}
+	
+	public static boolean compareDay(String wdate) {
+		boolean flag = false;
+
+		List<String> list2 = getDay();
+		if(wdate.equals(list2.get(0)) || wdate.equals(list2.get(1))	
+		    || wdate.equals(list2.get(2)))   {
+		flag = true;
+		}
+		return flag;
+	}
+	
+	
 	/* private static StringBuffer response; */
 
 	//ppg 유틸 추가
@@ -345,30 +371,7 @@ public class Utility {
 		   } 
 	
 	
-	// 날짜 관련 유틸 -- '신간도서' 용?
-	
-	public static List<String> getDay(){
-		List<String> list2 = new ArrayList<String>();
-		
-		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");  //대소문자 구분해야
-		Calendar cal = Calendar.getInstance();  // 매변없으면 현재날짜알려줌. 이건 뉴로 만들필요없음.
-		for (int i=0;i<3;i++) {
-			list2.add(sd.format(cal.getTime()));
-			cal.add(Calendar.DATE, -1);
-		}
-		return list2;
-	}
-	
-	public static boolean compareDay(String wdate) {
-		boolean flag = false;
 
-		List<String> list2 = getDay();
-		if(wdate.equals(list2.get(0)) || wdate.equals(list2.get(1))	
-		    || wdate.equals(list2.get(2)))   {
-		flag = true;
-		}
-		return flag;
-	}
 	
 	
 	

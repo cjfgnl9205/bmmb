@@ -150,7 +150,7 @@ h3 {
 															</a>
 															<div class="midbox">${dto.midclass}</div>
 															<div class="viewbox">${dto.viewcnt}</div>
-															<div class="utilbox"><c:if test="${util:newImg(dto.rdate)}">FOO------------!</c:if></div>
+															<div class="utilbox"><c:if test="${util:newElems(dto.rdate)}">HOO------------!</c:if></div>
 														</td>
 														
 														</tr>
@@ -261,9 +261,8 @@ h3 {
 		</div>	<!-- e: 총 도서 섹션 -->
 		
 		
-		
-		<!-- s: testTable -->
-		
+					<!-- s:testSection -->
+		<div class="testSection"> 
 		<!-- 신간도서 테이블 -->
 		<table class="table table-striped" id="testTable">
 			<thead>
@@ -272,11 +271,10 @@ h3 {
 					<th>제목</th>
 					<th>작성자</th>
 					<th>viewcnt</th>
-
+					<th>rdate</th>
 				</tr>
 			</thead>
 			<tbody>
-		
 			
 			<c:choose>
 				<c:when test="${empty list}">
@@ -286,27 +284,27 @@ h3 {
 			
 			<c:otherwise>	
 																<c:forEach var="dto" items="${list}">
-																<c:choose> 
+																	<c:choose> 
 																		<c:when test="${dto.viewcnt > 20}"> 
 																
-																	<tr>		
-																		<td id="test_id">${dto.ebook_ID}</td>
-																		<td>
-																									
-																				 <a href="javascript:read('${dto.ebook_ID}') ">${dto.name}</a>												
-																	</td>
-																	<td>
-																	 ${dto.author} 
-																	</td>					
-																	<td>${dto.viewcnt}</td>	
-																	</tr>
-																		</c:when>						
-																<c:otherwise>							
-																					
-																	Foo! 		
-																																											
-																</c:otherwise> 	
-																				</c:choose> 
+																				<tr>		
+																					<td id="test_id">${dto.ebook_ID}</td>
+																					<td>
+																												
+																							 <a href="javascript:read('${dto.ebook_ID}') ">${dto.name}</a>												
+																				</td>
+																				<td>
+																				 ${dto.author} 
+																				</td>					
+																				<td>${dto.viewcnt}</td>	
+																				<td>${dto.rdate}</td>
+																				</tr>
+																		</c:when>			
+																																							
+																				<c:otherwise>																												
+																					Foo! 																
+																				</c:otherwise> 	
+																</c:choose> 
 															</c:forEach>			
 				
 					</c:otherwise>
@@ -314,11 +312,19 @@ h3 {
 				
 			</tbody>
 		</table>
+				
+			</div> 
+			<!-- e:testSection -->
 		
 		
 		
-		<!-- e:testTable -->
+		
+		
+		
 	</div>
+
+
+		
 
 	<script type="text/javascript">
 		$(document)

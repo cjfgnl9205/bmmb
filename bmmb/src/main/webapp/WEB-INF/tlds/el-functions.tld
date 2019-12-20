@@ -10,10 +10,10 @@
     <tlib-version>1.0</tlib-version> 
     <uri>/ELFunction</uri> 
     <function>
-    	<description>new 요소 선택자</description>
-    	<name>newImg</name>
+    	<description>new면 True 반환</description>
+    	<name>newElems</name>
     	<function-class>
-    			spring.utility.bmmb.Utility
+    				spring.utility.bmmb.Utility
     	</function-class>
     	<function-signature>
     			boolean compareDay( java.lang.String )
