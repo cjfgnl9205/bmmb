@@ -139,6 +139,8 @@ h3 {
 									<c:otherwise>
 										<tr>
 											<c:forEach var="dto" items="${list}" varStatus="status" >
+											
+																				
 												<c:choose>
 													<c:when test="${status.count % 5 == 0}">
 														<td class="imgpanel">
@@ -148,6 +150,7 @@ h3 {
 															</a>
 															<div class="midbox">${dto.midclass}</div>
 															<div class="viewbox">${dto.viewcnt}</div>
+															<div class="utilbox"><c:if test="${util:newImg(dto.rdate)}">FOO------------!</c:if></div>
 														</td>
 														
 														</tr>
@@ -173,6 +176,11 @@ h3 {
 														</td>
 													</c:otherwise>
 												</c:choose>
+												
+												
+												
+												
+												
 											</c:forEach>
 										</tr>
 									</c:otherwise>
@@ -251,6 +259,65 @@ h3 {
 		<br>
 		<br>
 		</div>	<!-- e: 총 도서 섹션 -->
+		
+		
+		
+		<!-- s: testTable -->
+		
+		<!-- 신간도서 테이블 -->
+		<table class="table table-striped" id="testTable">
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>viewcnt</th>
+
+				</tr>
+			</thead>
+			<tbody>
+		
+			
+			<c:choose>
+				<c:when test="${empty list}">
+						<tr>
+							<td colspan="7">등록된 글이 없습니다.</td>
+				</c:when>
+			
+			<c:otherwise>	
+																<c:forEach var="dto" items="${list}">
+																<c:choose> 
+																		<c:when test="${util:newImg(dto.rdate)  && dto.viewcnt < 20}"> 
+																
+																	<tr>		
+																		<td id="test_id">${dto.ebook_ID}</td>
+																		<td>
+																									
+																				 <a href="javascript:read('${dto.ebook_ID}') ">${dto.name}</a>												
+																	</td>
+																	<td>
+																	 ${dto.author} 
+																	</td>					
+																	<td>${dto.viewcnt}</td>	
+																	</tr>
+																		</c:when>						
+																<c:otherwise>							
+																					
+																							
+																																											
+																</c:otherwise> 	
+																				</c:choose> 
+															</c:forEach>			
+				
+					</c:otherwise>
+			</c:choose>
+				
+			</tbody>
+		</table>
+		
+		
+		
+		<!-- e:testTable -->
 	</div>
 
 	<script type="text/javascript">
