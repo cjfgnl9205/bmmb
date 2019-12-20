@@ -287,7 +287,7 @@ h3 {
 			<c:otherwise>	
 																<c:forEach var="dto" items="${list}">
 																<c:choose> 
-																		<c:when test="${util:newImg(dto.rdate)  && dto.viewcnt > 20}"> 
+																		<c:when test="${dto.viewcnt > 20}"> 
 																
 																	<tr>		
 																		<td id="test_id">${dto.ebook_ID}</td>
@@ -342,7 +342,8 @@ h3 {
 							</c:forEach>
 
 							/* 	 alert("JSON객체="+JSON.stringify(list));
-							 alert(list[0].ebook_ID); */
+							alert(list[0].ebook_ID); */
+							 
 
 							var list2 = new Array();
 							var list3 = new Array();
