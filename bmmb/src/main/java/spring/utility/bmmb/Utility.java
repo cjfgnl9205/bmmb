@@ -10,6 +10,10 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -340,6 +344,31 @@ public class Utility {
 		 
 		   } 
 	
+	
+	// 날짜 관련 유틸 -- '신간도서' 용?
+	
+	public static List<String> getDay(){
+		List<String> list = new ArrayList<String>();
+		
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");  //대소문자 구분해야
+		Calendar cal = Calendar.getInstance();  // 매변없으면 현재날짜알려줌. 이건 뉴로 만들필요없음.
+		for (int i=0;i<3;i++) {
+			list.add(sd.format(cal.getTime()));
+			cal.add(Calendar.DATE, -1);
+		}
+		return list;
+	}
+	
+	public static boolean compareDay(String wdate) {
+		boolean flag = false;
+
+		List<String> list = getDay();
+		if(wdate.equals(list.get(0)) || wdate.equals(list.get(1))	
+		    || wdate.equals(list.get(2)))   {
+		flag = true;
+		}
+		return flag;
+	}
 	
 	
 	

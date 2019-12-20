@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="util" uri="/ELFunction" %>
 <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
@@ -123,7 +124,7 @@ h3 {
 			<div class="section first"> <!-- s:  도서 섹션1 -->
 			<c:choose>
 				<c:when test="${empty kmid}">
-					<h3><a href="#">신간도서</a></h3>
+					<h3><a href="#">오늘의책</a></h3>
 					<div class="row"
 						style="background-color: white; text-align: center">
 						<table class="cntr" width="500" border="0" cellspacing="10"
@@ -223,7 +224,7 @@ h3 {
 																						</td>
 																					</c:otherwise>
 																			</c:choose>
-																		</div>
+																		</div>  <!-- e: 도서 섹션 1 --> 
 																</c:when>
 																
 																
