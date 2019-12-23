@@ -149,9 +149,9 @@ h3 {
 															</a>
 															<div class="midbox">${dto.midclass}</div>
 															<div class="viewbox">${dto.viewcnt}</div>
+															<!-- <div class="textbox">PRINT ME!</div> -->
 															<div class="utilbox">
 															${dto.rdate}
-															<c:if test="${util:newElems(dto.rdate)}">PRINT ME!!!</c:if>
 															</div>
 														</td>
 														
@@ -309,12 +309,12 @@ h3 {
 																			<td id="util_works1">UTILITY 작동 !!</td>
 																		</c:when>
 																																
-																				<c:otherwise>																												
-																					<c:if test="${util:newElems(dto.rdate)}">
-																						<td id="util_works2">UTILITY 작동 !!</td>
-																					</c:if>	
-																					FOO!													
-																				</c:otherwise> 	
+																		<c:otherwise>																												
+																			<c:if test="${util:newElems(dto.rdate)}">
+																				<td id="util_works2">UTILITY 작동 !!</td>
+																			</c:if>	
+																			util 작동 x												
+																		</c:otherwise> 	
 																</c:choose> 
 															</c:forEach>			
 				
