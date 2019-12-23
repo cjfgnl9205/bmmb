@@ -257,11 +257,297 @@ h3 {
 				
 			</c:choose>
 		</div> <!-- e: 도서섹션 1 -->
+		
+		
+		<br><br><br><br>
+		
+		<div class="section second"> <!-- s:  도서 섹션2 -->
+			<c:choose>
+				<c:when test="${empty kmid}">
+					<h3><a href="#">신간도서</a></h3>
+					<div class="row"
+						style="background-color: white; text-align: center">
+						<table class="cntr" width="500" border="0" cellspacing="10"
+							cellpadding="5">
+							<tbody>
+								<c:choose>
+									<c:when test="${empty list}">
+										<tr>
+											<td colspan="4">등록된 글이 없습니다.</td>
+										</tr>
+									</c:when>
+									<c:otherwise>
+										<tr>
+											<c:forEach var="dto" items="${list}" varStatus="status" >
+											
+																				
+												<c:choose>
+													<c:when test="${status.count % 5 == 0}">
+														<td class="imgpanel">
+															<a href="javascript:read('${dto.ebook_ID}')">																	
+																<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																		width="178" height="264" />
+															</a>
+															<div class="midbox">${dto.midclass}</div>
+															<div class="viewbox">${dto.viewcnt}</div>
+															<!-- <div class="textbox">PRINT ME!</div> -->
+															<div class="utilbox">
+															${dto.rdate}
+															</div>
+														</td>
+														
+														</tr>
+																<c:choose>
+																	<c:when test="${status.count > 5}">
+																		<tr class="namebox2"></tr>
+																	</c:when>																	
+																	<c:otherwise>
+																		<tr class="namebox"></tr>
+																	</c:otherwise>
+																</c:choose>
+														<tr>
+														
+													</c:when>
+													<c:otherwise>
+														<td class="imgpanel">
+															<a href="javascript:read('${dto.ebook_ID}')">
+																<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																			width="178" height="264" />
+															</a>
+															<div class="midbox">${dto.midclass}</div>	
+															<div class="viewbox">${dto.viewcnt}</div>
+															<div class="utilbox">
+															${dto.rdate}
+															</div>
+														</td>
+													</c:otherwise>
+												</c:choose>
+												
+												
+											
+											</c:forEach>
+										</tr>
+									</c:otherwise>
+								</c:choose>
+							</tbody>
+						</table>
+					</div>
+				</c:when>
+				
+				
+				<c:when test="${not empty kmid}"> 	
+				<div class="noempty_kmid"><!-- s: noempty kmid -->
+								
+								<div class="midsection1"> <!-- s: midsection1 -->
+										${kmid}
+										<br><br>
+										<tr>
+												<c:forEach var="dto" items="${list}" varStatus="status">											
+														<c:choose>
+																<c:when test="${dto.midclass == kmid}">
+																		<div class="pickbook1">
+																			<c:choose>
+																					<c:when test="${status.count % 5 == 0}">
+																						<td class="imgpanel">
+																							<a href="javascript:read('${dto.ebook_ID}')">
+																									<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																									width="178" height="264" />
+																							</a>
+																							<div class="midbox">${dto.midclass}</div>
+																						</td>
+																						</tr>
+																								<c:choose>
+																										<c:when test="${status.count > 5}">
+																											<tr class="namebox2"></tr>
+																										</c:when>																	
+																										<c:otherwise>
+																											<tr class="namebox"></tr>
+																										</c:otherwise>
+																								</c:choose>
+																						<tr>
+																					</c:when>	
+																					<c:otherwise>
+																						<td class="imgpanel">
+																							<a href="javascript:read('${dto.ebook_ID}')">
+																									<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																									width="178" height="264" />
+																							</a>
+																							<div class="midbox">${dto.midclass}</div>	
+																						</td>
+																					</c:otherwise>
+																			</c:choose>
+																		</div>  <!-- e: 도서 섹션 1 --> 
+																</c:when>
+																
+																
+																
+																<c:otherwise></c:otherwise>
+														</c:choose>
+														
+												</c:forEach>
+											</tr>
+								</div><!-- e: midsection1 -->
+				</div> <!-- e: noempty kmid -->	 				
+				</c:when>
+				
+							
+				<c:otherwise>
+					<div>Oops</div>
+				</c:otherwise>
+				
+				
+			</c:choose>
+		</div> <!-- e: 도서 섹션2-->
+	
+			<br>
+			<br>
+			<br>
+			<br>
+	
+<div class="section third"> <!-- s:  도서 섹션3-->
+			<c:choose>
+				<c:when test="${empty kmid}">
+					<h3><a href="#">HOT</a></h3>
+					<div class="row"
+						style="background-color: white; text-align: center">
+						<table class="cntr" width="500" border="0" cellspacing="10"
+							cellpadding="5">
+							<tbody>
+								<c:choose>
+									<c:when test="${empty list}">
+										<tr>
+											<td colspan="4">등록된 글이 없습니다.</td>
+										</tr>
+									</c:when>
+									<c:otherwise>
+										<tr>
+											<c:forEach var="dto" items="${list}" varStatus="status" >
+											
+																				
+												<c:choose>
+													<c:when test="${status.count % 5 == 0}">
+														<td class="imgpanel">
+															<a href="javascript:read('${dto.ebook_ID}')">																	
+																<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																		width="178" height="264" />
+															</a>
+															<div class="midbox">${dto.midclass}</div>
+															<div class="viewbox">${dto.viewcnt}</div>
+															<!-- <div class="textbox">PRINT ME!</div> -->
+															<div class="utilbox">
+															${dto.rdate}
+															</div>
+														</td>
+														
+														</tr>
+																<c:choose>
+																	<c:when test="${status.count > 5}">
+																		<tr class="namebox2"></tr>
+																	</c:when>																	
+																	<c:otherwise>
+																		<tr class="namebox"></tr>
+																	</c:otherwise>
+																</c:choose>
+														<tr>
+														
+													</c:when>
+													<c:otherwise>
+														<td class="imgpanel">
+															<a href="javascript:read('${dto.ebook_ID}')">
+																<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																			width="178" height="264" />
+															</a>
+															<div class="midbox">${dto.midclass}</div>	
+															<div class="viewbox">${dto.viewcnt}</div>
+															<div class="utilbox">
+															${dto.rdate}
+															</div>
+														</td>
+													</c:otherwise>
+												</c:choose>
+												
+												
+											
+											</c:forEach>
+										</tr>
+									</c:otherwise>
+								</c:choose>
+							</tbody>
+						</table>
+					</div>
+				</c:when>
+				
+				
+				<c:when test="${not empty kmid}"> 	
+				<div class="noempty_kmid"><!-- s: noempty kmid -->
+								
+								<div class="midsection1"> <!-- s: midsection1 -->
+										${kmid}
+										<br><br>
+										<tr>
+												<c:forEach var="dto" items="${list}" varStatus="status">											
+														<c:choose>
+																<c:when test="${dto.midclass == kmid}">
+																		<div class="pickbook1">
+																			<c:choose>
+																					<c:when test="${status.count % 5 == 0}">
+																						<td class="imgpanel">
+																							<a href="javascript:read('${dto.ebook_ID}')">
+																									<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																									width="178" height="264" />
+																							</a>
+																							<div class="midbox">${dto.midclass}</div>
+																						</td>
+																						</tr>
+																								<c:choose>
+																										<c:when test="${status.count > 5}">
+																											<tr class="namebox2"></tr>
+																										</c:when>																	
+																										<c:otherwise>
+																											<tr class="namebox"></tr>
+																										</c:otherwise>
+																								</c:choose>
+																						<tr>
+																					</c:when>	
+																					<c:otherwise>
+																						<td class="imgpanel">
+																							<a href="javascript:read('${dto.ebook_ID}')">
+																									<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																									width="178" height="264" />
+																							</a>
+																							<div class="midbox">${dto.midclass}</div>	
+																						</td>
+																					</c:otherwise>
+																			</c:choose>
+																		</div>  <!-- e: 도서 섹션 1 --> 
+																</c:when>
+																
+																
+																
+																<c:otherwise></c:otherwise>
+														</c:choose>
+														
+												</c:forEach>
+											</tr>
+								</div><!-- e: midsection1 -->
+				</div> <!-- e: noempty kmid -->	 				
+				</c:when>
+				
+							
+				<c:otherwise>
+					<div>Oops</div>
+				</c:otherwise>
+				
+				
+			</c:choose>
+		</div> <!-- e: 도서 섹션3-->	
+	
 		<br>
 		<br>
 		<br>
 		<br>
-		</div>	<!-- e: 총 도서 섹션 -->
+	
+			</div>	<!-- e: 총 도서 섹션 -->
 		
 		
 					<!-- s:testSection -->
