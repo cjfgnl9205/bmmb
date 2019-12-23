@@ -8,7 +8,9 @@
     
     <description>EL에서 함수실행</description> 
     <tlib-version>1.0</tlib-version> 
-    <uri>/ELFunction</uri> 
+    <short-name>ELfunctions</short-name>
+    <uri>/ELFunctions</uri> 
+    
     <function>
     	<description>new면 True 반환</description>
     	<name>newElems</name>

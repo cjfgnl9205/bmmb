@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="util" uri="/ELFunction"%>
+<%@ taglib prefix="util" uri="/ELFunctions"%>
 <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
@@ -306,23 +306,14 @@ h3 {
 																				
 																		</c:when>			
 																		<c:when test="${util:newElems(dto.rdate)}">
-																			
-																						<tr>		
-																					<td id="test_new">${dto.ebook_ID}</td>
-																					<td>
-																												
-																							 <a href="javascript:read('${dto.ebook_ID}') ">${dto.name}</a>												
-																				</td>
-																				<td>
-																				 ${dto.author} 
-																				</td>					
-																				<td>${dto.viewcnt}</td>	
-																				<td>${dto.rdate}</td>
-																				</tr>
-
-																		</c:when>																																			
+																			<td id="util_works1">UTILITY 작동 !!</td>
+																		</c:when>
+																																
 																				<c:otherwise>																												
-																					Foo! 																
+																					<c:if test="${util:newElems(dto.rdate)}">
+																						<td id="util_works2">UTILITY 작동 !!</td>
+																					</c:if>	
+																					FOO!													
 																				</c:otherwise> 	
 																</c:choose> 
 															</c:forEach>			

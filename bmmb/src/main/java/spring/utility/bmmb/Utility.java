@@ -24,7 +24,7 @@ public class Utility {
 	public static List<String> getDay(){
 		List<String> list = new ArrayList<String>();
 		
-		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");  //대소문자 구분해야
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy-mm-dd");  //대소문자 구분해야
 		Calendar cal = Calendar.getInstance();  // 매변없으면 현재날짜알려줌. 이건 뉴로 만들필요없음.
 		for (int i=0;i<3;i++) {
 			list.add(sd.format(cal.getTime()));

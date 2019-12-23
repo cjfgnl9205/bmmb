@@ -175,7 +175,7 @@ public class EbookController {
 	
 	
 	@RequestMapping("/ebook/list")
-	public String list(HttpServletRequest request ) {
+	public String list(HttpServletRequest request, EbookDTO dto ) {
 		
 		String kmid = request.getParameter("kmidclass");
 		
@@ -209,6 +209,10 @@ public class EbookController {
 		request.setAttribute("paging", paging);
 		request.setAttribute("word", word);
 		request.setAttribute("nowPage", nowPage);
+		
+		String rdate; // set 애트리뷰트하기 전에. list에 쩜찍고 접근해서, 어찌 가져올지 보기.
+		System.out.println(list);
+		
 		
 		return "/ebook/list";
 	}

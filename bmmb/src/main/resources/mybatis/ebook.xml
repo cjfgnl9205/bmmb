@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(select nvl(max(ebook_ID),0)+1 from ebook),
 		#{price},#{desc1},#{desc2},#{author},
 		#{name},#{image, jdbcType=VARCHAR},
-		#{imagesize, jdbcType=INTEGER},SYSDATE,
+		#{imagesize, jdbcType=INTEGER},  SYSDATE,
 		#{category_code},	#{midclass}
 		)
 	</insert>
@@ -47,7 +47,7 @@ SELECT EBOOK_ID, NAME, PRICE
 	</select>
 
 	<select id="list" parameterType="Map" resultType="EbookDTO">
-		SELECT ebook_id, author, name, rdate, viewcnt, image, imagesize, category_code, midclass, r
+		SELECT ebook_id, author, name, TO_CHAR(rdate,  'yyyy-mm-dd') rdate, viewcnt, image, imagesize, category_code, midclass, r
 		FROM(
 		SELECT ebook_id, author, name, rdate, viewcnt, image, imagesize, category_code, midclass, rownum r
 		FROM(
