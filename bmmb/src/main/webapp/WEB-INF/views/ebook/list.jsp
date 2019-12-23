@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="util" uri="/ELFunction" %>
+<%@ taglib prefix="util" uri="/ELFunction"%>
 <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
@@ -150,7 +149,10 @@ h3 {
 															</a>
 															<div class="midbox">${dto.midclass}</div>
 															<div class="viewbox">${dto.viewcnt}</div>
-															<div class="utilbox"><c:if test="${util:newElems(dto.rdate)}">HOO------------!</c:if></div>
+															<div class="utilbox">
+															${dto.rdate}
+															<c:if test="${util:newElems(dto.rdate)}">PRINT ME!!!</c:if>
+															</div>
 														</td>
 														
 														</tr>
@@ -173,14 +175,16 @@ h3 {
 															</a>
 															<div class="midbox">${dto.midclass}</div>	
 															<div class="viewbox">${dto.viewcnt}</div>
+															<div class="utilbox">
+															${dto.rdate}
+															<c:if test="${util:newElems(dto.rdate)}">PRINT ME!!!</c:if>
+															</div>
 														</td>
 													</c:otherwise>
 												</c:choose>
 												
 												
-												
-												
-												
+											
 											</c:forEach>
 										</tr>
 									</c:otherwise>
@@ -299,8 +303,24 @@ h3 {
 																				<td>${dto.viewcnt}</td>	
 																				<td>${dto.rdate}</td>
 																				</tr>
+																				
 																		</c:when>			
-																																							
+																		<c:when test="${util:newElems(dto.rdate)}">
+																			
+																						<tr>		
+																					<td id="test_new">${dto.ebook_ID}</td>
+																					<td>
+																												
+																							 <a href="javascript:read('${dto.ebook_ID}') ">${dto.name}</a>												
+																				</td>
+																				<td>
+																				 ${dto.author} 
+																				</td>					
+																				<td>${dto.viewcnt}</td>	
+																				<td>${dto.rdate}</td>
+																				</tr>
+
+																		</c:when>																																			
 																				<c:otherwise>																												
 																					Foo! 																
 																				</c:otherwise> 	
