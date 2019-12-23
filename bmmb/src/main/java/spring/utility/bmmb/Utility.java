@@ -37,9 +37,11 @@ public class Utility {
 		boolean flag = false;
 
 		List<String> list = getDay();
-		System.out.println(list.get(0));
-		System.out.println(list.get(1));
-		System.out.println(list.get(2));
+		/*
+		 * System.out.println(list.get(0));
+		 *  System.out.println(list.get(1));
+		 * System.out.println(list.get(2));
+		 */
 			
 		if(rdate.equals(list.get(0)) || rdate.equals(list.get(1))	
 		    || rdate.equals(list.get(2)))   {

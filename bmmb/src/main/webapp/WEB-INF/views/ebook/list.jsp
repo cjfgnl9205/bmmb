@@ -177,7 +177,6 @@ h3 {
 															<div class="viewbox">${dto.viewcnt}</div>
 															<div class="utilbox">
 															${dto.rdate}
-															<c:if test="${util:newElems(dto.rdate)}">PRINT ME!!!</c:if>
 															</div>
 														</td>
 													</c:otherwise>
@@ -306,13 +305,21 @@ h3 {
 																				
 																		</c:when>			
 																		<c:when test="${util:newElems(dto.rdate)}">
-																			<td id="util_works1">UTILITY 작동 !!</td>
+																																							<tr>		
+																					<td id="test_id">${dto.ebook_ID}</td>
+																					<td>
+																												
+																							 <a href="javascript:read('${dto.ebook_ID}') ">${dto.name}</a>												
+																				</td>
+																				<td>
+																				 ${dto.author} 
+																				</td>					
+																				<td>${dto.viewcnt}</td>	
+																				<td>${dto.rdate}</td>
+																				</tr>
 																		</c:when>
 																																
 																		<c:otherwise>																												
-																			<c:if test="${util:newElems(dto.rdate)}">
-																				<td id="util_works2">UTILITY 작동 !!</td>
-																			</c:if>	
 																			util 작동 x												
 																		</c:otherwise> 	
 																</c:choose> 
