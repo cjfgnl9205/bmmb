@@ -102,23 +102,26 @@ h3 {
         var rnum;
 
         for(var i=1; i<=n; i++){
-            ar.push(i);
+            ar.push(i);                             // ar = [1,2,3]
         }
 
         for(var i=0; i< ar.length ; i++)
         {
-            rnum = Math.floor(Math.random() *n);
-            temp = ar[i];
-            ar[i] = ar[rnum];
-            ar[rnum] = temp;
+            rnum = Math.floor(Math.random() *n);     //2
+            /* alert(rnum);  */      // ex) 1,2,1 순 출력
+            temp = ar[i];        // 0회차: temp=ar[0]
+            ar[i] = ar[rnum];  //0회차: ar[0] = ar[2]   -->  ar[0]  = 3  ...  ar =  [3,2,3]  ,  먼저 0번 자리에 0회차 난수 입.
+            ar[rnum] = temp;       //0회차: ar[2] = ar[0]                      ... ar  = [ 3,2,1 ] , ar[0]과 ar[2] 자리 교체. 
         }
-
+       
         return ar;
 }
 	
 	function randPop(n){
 		
-		alert(shuffleRandom(n));
+		alert(typeof shuffleRandom(n));
+		alert(shuffleRandom(n)[0]);
+		
 	}
 
 	
@@ -128,7 +131,7 @@ h3 {
 
 	<div class="randTest">
 	
-		<a href="javascript:randPop(3)">																	
+		<a href="javascript:randPop(5)">																	
 			randPop															
 		</a>
 	</div>
@@ -656,23 +659,15 @@ h3 {
 			<!-- e:testSection -->
 		
 		
-		
-		
-		
-		
+	
 	</div>
 
 
-		
-
+	
 	<script type="text/javascript">
 		$(document)
 				.ready(
 						function() {
-							
-							
-				
-							
 							
 							var namebox = $(".namebox");
 							var namebox2 = $(".namebox2");
