@@ -658,6 +658,30 @@ h3 {
 						function() {
 							
 							
+							var vlist = new Array();
+
+							<c:forEach items="${list}" var="dto">
+								var vjson = new Object();
+								vjson.name = "${dto.name}";
+								vjson.ebook_ID = "${dto.ebook_ID}";
+								vlist.push(vjson);
+							</c:forEach>
+
+							/* alert(typeof vlist);
+							alert(vlist[0]);
+							
+							alert(Object.values(vlist[0]));   */
+							/* ㅇ,19 */
+							
+							/* for(i=0; i<vlist.length; i++){
+								alert("foo!");
+							} */
+						
+/* 							[{"name":"ㅇ","ebook_ID":"19"},... */
+											
+/* 							var str_list = JSON.stringify(vlist);							
+							alert(typeof str_list); */
+							
 							/*s: 오늘의책 */
 							var bem = [1,2,3];
 							var bera = [4,5,6];
@@ -665,9 +689,19 @@ h3 {
 							
 							var myArray = [bem, bera, bero];
 							
-							var randItem = myArray[Math.floor(Math.random()*myArray.length)][Math.floor(Math.random()*myArray.length)];
 							
-							alert(randItem);
+							var randItem = myArray[Math.floor(Math.random()*myArray.length)][Math.floor(Math.random()*myArray.length)];
+						
+							/* vlist[i] , i는 랜덤. 의 밸류값을 반환. ex) ㅇ,19 */
+							
+							var randvlist1 = Object.values(vlist[Math.floor(Math.random()*myArray.length)]);
+							var randvlist2 = Object.values(vlist[Math.floor(Math.random()*myArray.length)]);
+							var randvlist3 = Object.values(vlist[Math.floor(Math.random()*myArray.length)]);
+							
+							alert(randvlist1);
+							alert(randvlist2);
+							alert(randvlist3);
+							
 							
 							/*e: 오늘의책 */							
 							
@@ -689,8 +723,8 @@ h3 {
 								list.push(json);
 							</c:forEach>
 
-							/* 	 alert("JSON객체="+JSON.stringify(list));
-							alert(list[0].ebook_ID); */
+/* 							alert("JSON객체="+JSON.stringify(list)); */
+							/* alert(list[0].ebook_ID);  */
 							 
 
 							var list2 = new Array();
