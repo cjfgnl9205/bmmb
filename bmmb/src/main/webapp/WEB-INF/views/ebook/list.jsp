@@ -96,18 +96,31 @@ h3 {
 		location.href = url;
 	}
 	
-	function randPop(){
+	function shuffleRandom(n){
+        var ar = new Array();
+        var temp;
+        var rnum;
+
+        for(var i=1; i<=n; i++){
+            ar.push(i);
+        }
+
+        for(var i=0; i< ar.length ; i++)
+        {
+            rnum = Math.floor(Math.random() *n);
+            temp = ar[i];
+            ar[i] = ar[rnum];
+            ar[rnum] = temp;
+        }
+
+        return ar;
+}
+	
+	function randPop(n){
 		
-		var bem = "bem";
-		var bera = "bera";
-		var bero = "bero";
-		
-		var myArray = [bem, bera, bero];
-		
-		var randItem = myArray[Math.floor(Math.random()*myArray.length)];
-		
-		alert(randItem);
+		alert(shuffleRandom(n));
 	}
+
 	
 </script>
 </head>
@@ -115,7 +128,7 @@ h3 {
 
 	<div class="randTest">
 	
-		<a href="javascript:randPop()">																	
+		<a href="javascript:randPop(3)">																	
 			randPop															
 		</a>
 	</div>
@@ -658,51 +671,7 @@ h3 {
 						function() {
 							
 							
-							var vlist = new Array();
-
-							<c:forEach items="${list}" var="dto">
-								var vjson = new Object();
-								vjson.ebook_ID = "${dto.ebook_ID}";
-								vlist.push(vjson);
-							</c:forEach>
-
-							/* alert(typeof vlist);
-							alert(vlist[0]);
-							
-							alert(Object.values(vlist[0]));   */
-							/* ㅇ,19 */
-							
-							/* for(i=0; i<vlist.length; i++){
-								alert("foo!");
-							} */
-						
-/* 							[{"name":"ㅇ","ebook_ID":"19"},... */
-											
-/* 							var str_list = JSON.stringify(vlist);							
-							alert(typeof str_list); */
-							
-							/*s: 오늘의책 */
-							var bem = [1,2,3];
-							var bera = [4,5,6];
-							var bero = [7,8,9];
-							
-							var myArray = [bem, bera, bero];
-							
-							
-							var randItem = myArray[Math.floor(Math.random()*myArray.length)][Math.floor(Math.random()*myArray.length)];
-						
-							/* vlist[i] , i는 랜덤. 의 밸류값을 반환. ex) ㅇ,19 */
-							
-							var randvlist1 = Object.values(vlist[Math.floor(Math.random()*myArray.length)]);
-							var randvlist2 = Object.values(vlist[Math.floor(Math.random()*myArray.length)]);
-							var randvlist3 = Object.values(vlist[Math.floor(Math.random()*myArray.length)]);
-							
-							alert(randvlist1);
-							alert(randvlist2);
-							alert(randvlist3);
-							
-							
-							/*e: 오늘의책 */							
+				
 							
 							
 							var namebox = $(".namebox");
