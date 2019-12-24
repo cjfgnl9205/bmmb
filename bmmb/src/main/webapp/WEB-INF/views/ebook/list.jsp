@@ -95,9 +95,31 @@ h3 {
 		url += "&filename=" + fname;
 		location.href = url;
 	}
+	
+	function randPop(){
+		
+		var bem = "bem";
+		var bera = "bera";
+		var bero = "bero";
+		
+		var myArray = [bem, bera, bero];
+		
+		var randItem = myArray[Math.floor(Math.random()*myArray.length)];
+		
+		alert(randItem);
+	}
+	
 </script>
 </head>
 <body>
+
+	<div class="randTest">
+	
+		<a href="javascript:randPop()">																	
+			randPop															
+		</a>
+	</div>
+
 	<div class="container">
 		<div class="temp_console"></div>
 		<div class="temp_console2"></div>
@@ -634,6 +656,22 @@ h3 {
 		$(document)
 				.ready(
 						function() {
+							
+							
+							/*s: 오늘의책 */
+							var bem = [1,2,3];
+							var bera = [4,5,6];
+							var bero = [7,8,9];
+							
+							var myArray = [bem, bera, bero];
+							
+							var randItem = myArray[Math.floor(Math.random()*myArray.length)][Math.floor(Math.random()*myArray.length)];
+							
+							alert(randItem);
+							
+							/*e: 오늘의책 */							
+							
+							
 							var namebox = $(".namebox");
 							var namebox2 = $(".namebox2");
 							var temp_console = $(".temp_console");
@@ -645,10 +683,10 @@ h3 {
 							var list = new Array();
 
 							<c:forEach items="${list}" var="dto">
-							var json = new Object();
-							json.name = "${dto.name}";
-							json.ebook_ID = "${dto.ebook_ID}";
-							list.push(json);
+								var json = new Object();
+								json.name = "${dto.name}";
+								json.ebook_ID = "${dto.ebook_ID}";
+								list.push(json);
 							</c:forEach>
 
 							/* 	 alert("JSON객체="+JSON.stringify(list));
