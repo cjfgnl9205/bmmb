@@ -119,8 +119,17 @@ h3 {
 	
 	function randPop(n){
 		
-		alert(typeof shuffleRandom(n));
-		alert(shuffleRandom(n)[0]);
+	
+		/* alert(shuffleRandom(n));*/
+	
+		var shuffleRet = shuffleRandom(n); 
+		alert(shuffleRet);
+		alert(shuffleRet[0]);
+		alert(shuffleRet[1]);
+		alert(shuffleRet[2]);
+		alert(shuffleRet[3]);
+		alert(shuffleRet[4]);
+		
 		
 	}
 
