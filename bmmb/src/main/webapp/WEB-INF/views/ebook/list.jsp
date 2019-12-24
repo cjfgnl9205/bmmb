@@ -662,7 +662,6 @@ h3 {
 
 							<c:forEach items="${list}" var="dto">
 								var vjson = new Object();
-								vjson.name = "${dto.name}";
 								vjson.ebook_ID = "${dto.ebook_ID}";
 								vlist.push(vjson);
 							</c:forEach>
