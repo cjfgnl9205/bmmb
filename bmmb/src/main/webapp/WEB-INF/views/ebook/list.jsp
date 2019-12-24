@@ -123,14 +123,43 @@ h3 {
 		/* alert(shuffleRandom(n));*/
 	
 		var shuffleRet = shuffleRandom(n); 
-		alert(shuffleRet);
+		/* alert(shuffleRet);
 		alert(shuffleRet[0]);
 		alert(shuffleRet[1]);
 		alert(shuffleRet[2]);
 		alert(shuffleRet[3]);
-		alert(shuffleRet[4]);
+		alert(shuffleRet[4]); */
 		
+		var vlist = new Array();
+
+		<c:forEach items="${list}" var="dto">
+			var vjson = new Object();
+			vjson.ebook_ID = "${dto.ebook_ID}";
+			vlist.push(vjson);
+		</c:forEach>
+
+		/* alert(vlist[shuffleRet[0]]);
+		alert(vlist[shuffleRet[1]]);
+		alert(vlist[shuffleRet[2]]);
+		alert(vlist[shuffleRet[3]]);
+		alert(vlist[shuffleRet[4]]);
+		 */
+		var ret0 = document.getElementById("ret0");
+		var ret1 = document.getElementById("ret1");
+		var ret2 = document.getElementById("ret2");
+		var ret3 = document.getElementById("ret3");
+		var ret4 = document.getElementById("ret4");
+		   
+		/* ret0.innerHTML =   Object.values(JSON.stringify(vlist[shuffleRet[0]]));
+		 *//* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
 		
+		ret0.innerHTML =   Object.values(vlist[shuffleRet[0]]); /* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
+		
+		ret1.innerHTML = JSON.stringify(vlist[shuffleRet[1]]);
+		ret2.innerHTML = JSON.stringify(vlist[shuffleRet[2]]);
+		ret3.innerHTML = JSON.stringify(vlist[shuffleRet[3]]);
+		ret4.innerHTML = JSON.stringify(vlist[shuffleRet[4]]);
+
 	}
 
 	
@@ -139,10 +168,17 @@ h3 {
 <body>
 
 	<div class="randTest">
-	
 		<a href="javascript:randPop(5)">																	
 			randPop															
 		</a>
+	</div>
+	
+	<div class="randPanel">
+		<p id="ret0"></p>
+		<p id="ret1"></p>
+		<p id="ret2"></p>
+		<p id="ret3"></p>
+		<p id="ret4"></p>
 	</div>
 
 	<div class="container">
