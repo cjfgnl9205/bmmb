@@ -216,23 +216,28 @@ h3 {
 								<tr class="rand_tr">							
 									<td class="rand_td">
                                         <div class="rnamebox">rand1</div>
-                                        <br><div class="ridbox">rid1</div>                                        
+                                        <br><div class="ridbox">rid1</div>  
+                                        <br><div class="rimgbox">rimg1</div>                                      
                                     </td> 
                                     <td class="rand_td">
                                         <div class="rnamebox">rand2</div>
                                         <br><div class="ridbox">rid2</div>
+                                        <br><div class="rimgbox">rimg2</div>     
                                     </td> 
                                     <td class="rand_td">
                                         <div class="rnamebox">rand3</div>
                                         <br><div class="ridbox">rid3</div>
+                                        <br><div class="rimgbox">rimg3</div>     
                                     </td> 
                                     <td class="rand_td">
                                         <div class="rnamebox">rand4</div>
                                         <br><div class="ridbox">rid4</div>
+                                        <br><div class="rimgbox">rimg4</div>     
                                     </td> 
                                     <td class="rand_td">
                                         <div class="rnamebox">rand5</div>
                                         <br><div class="ridbox">rid5</div>
+                                        <br><div class="rimgbox">rimg5</div>     
                                     </td>     
 								</tr>
 							</tbody>
@@ -783,30 +788,36 @@ h3 {
 						
 						var vlist = new Array();
                         var vlist2 = new Array();
-						
+                        var vlist3 = new Array();
+                        
 						<c:forEach items="${list}" var="dto">
 								var vjson = new Object();
 								vjson.name = "${dto.name}";
 								vlist.push(vjson);  
-						</c:forEach>
-						
-						<c:forEach items="${list}" var="dto">
+									
 		                        var vjson2 = new Object();
 		                        vjson2.ebook_ID = "${dto.ebook_ID}";
 		                        vlist2.push(vjson2);  
-					    </c:forEach>
-						
-
+									
+		                        var vjson3 = new Object();
+		                        vjson3.image = "${dto.image}";
+		                        vlist3.push(vjson3);  
+		                        
+						</c:forEach>
+		
 					   //0~4까지 포문화
 					   /* alert(JSON.stringify(vlist2));
 					    */
 					   var rnamebox = document.getElementsByClassName("rnamebox");
 					   var ridbox = document.getElementsByClassName("ridbox");  
+					   var rimgbox = document.getElementsByClassName("rimgbox");  
 					    
+					   
 					   for(i=0; i<rnamebox.length; i++){
 						  rnamebox[i].innerHTML = Object.values(vlist[shuffleRet[i]]);
-						  ridbox[i].innerHTML = Object.values(vlist2[shuffleRet[i]]);
-						  
+						  ridbox[i].innerHTML = Object.values(vlist2[shuffleRet[i]]);			
+						  rimgbox[i].innerHTML = Object.values(vlist3[shuffleRet[i]]);			
+							
 					   }
 					   		
 					   // 위: 셔플 결과를 상수화(두번셔플 방지)하기위해 변수그릇에 담아야 할듯?
