@@ -134,8 +134,8 @@ h3 {
 
 		<c:forEach items="${list}" var="dto">
 			var vjson = new Object();
-			vjson.ebook_ID = "${dto.ebook_ID}";
-			vlist.push(vjson);
+			vjson.ebook_ID = "${dto.name}";
+			vlist.push(vjson);  
 		</c:forEach>
 
 		/* alert(vlist[shuffleRet[0]]);
@@ -154,11 +154,11 @@ h3 {
 		 *//* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
 		
 		ret0.innerHTML =   Object.values(vlist[shuffleRet[0]]); /* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
+		ret1.innerHTML =   Object.values(vlist[shuffleRet[1]]); /* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
+		ret2.innerHTML =   Object.values(vlist[shuffleRet[2]]); /* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
+		ret3.innerHTML =   Object.values(vlist[shuffleRet[3]]); /* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
+		ret4.innerHTML =   Object.values(vlist[shuffleRet[4]]); /* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
 		
-		ret1.innerHTML = JSON.stringify(vlist[shuffleRet[1]]);
-		ret2.innerHTML = JSON.stringify(vlist[shuffleRet[2]]);
-		ret3.innerHTML = JSON.stringify(vlist[shuffleRet[3]]);
-		ret4.innerHTML = JSON.stringify(vlist[shuffleRet[4]]);
 
 	}
 
@@ -168,8 +168,9 @@ h3 {
 <body>
 
 	<div class="randTest">
+		[오늘의책]<br>
 		<a href="javascript:randPop(5)">																	
-			randPop															
+			난수생성 														
 		</a>
 	</div>
 	
