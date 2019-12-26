@@ -118,7 +118,8 @@ h3 {
 }
 	
 	function randPop(n){
-
+		
+	
 		/* alert(shuffleRandom(n));*/
 	
 		var shuffleRet = shuffleRandom(n); 
@@ -143,20 +144,20 @@ h3 {
 		alert(vlist[shuffleRet[3]]);
 		alert(vlist[shuffleRet[4]]);
 		 */
-/* 		var ret0 = document.getElementById("ret0");
+		var ret0 = document.getElementById("ret0");
 		var ret1 = document.getElementById("ret1");
 		var ret2 = document.getElementById("ret2");
 		var ret3 = document.getElementById("ret3");
-		var ret4 = document.getElementById("ret4"); */
+		var ret4 = document.getElementById("ret4");
 		   
 		/* ret0.innerHTML =   Object.values(JSON.stringify(vlist[shuffleRet[0]]));
 		 *//* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
 		
-/* 		ret0.innerHTML =   Object.values(vlist[shuffleRet[0]]); 
+		ret0.innerHTML =   Object.values(vlist[shuffleRet[0]]); 
 		ret1.innerHTML =   Object.values(vlist[shuffleRet[1]]); 
 		ret2.innerHTML =   Object.values(vlist[shuffleRet[2]]); 
 		ret3.innerHTML =   Object.values(vlist[shuffleRet[3]]); 
-		ret4.innerHTML =   Object.values(vlist[shuffleRet[4]]);  */
+		ret4.innerHTML =   Object.values(vlist[shuffleRet[4]]); 
 		
 		// 이상 북네임 밸류들을..반복문 틀에 붙여보기. 온로딩 시에. 
 
@@ -215,37 +216,25 @@ h3 {
 								<tr class="rand_tr">							
 									<td class="rand_td">
                                         <div class="rnamebox">rand1</div>
+                                        <br><div class="ridbox">rid1</div>                                        
                                     </td> 
                                     <td class="rand_td">
                                         <div class="rnamebox">rand2</div>
+                                        <br><div class="ridbox">rid2</div>
                                     </td> 
                                     <td class="rand_td">
                                         <div class="rnamebox">rand3</div>
+                                        <br><div class="ridbox">rid3</div>
                                     </td> 
                                     <td class="rand_td">
                                         <div class="rnamebox">rand4</div>
+                                        <br><div class="ridbox">rid4</div>
                                     </td> 
                                     <td class="rand_td">
                                         <div class="rnamebox">rand5</div>
+                                        <br><div class="ridbox">rid5</div>
                                     </td>     
-	                 				<td class="rand_td">
-                                        <div class="rnamebox">rand6</div>
-                                    </td> 
-                                    <td class="rand_td">
-                                        <div class="rnamebox">rand7</div>
-                                    </td> 
-                                    <td class="rand_td">
-                                        <div class="rnamebox">rand8</div>
-                                    </td> 
-                                    <td class="rand_td">
-                                        <div class="rnamebox">rand9</div>
-                                    </td> 
-                                    <td class="rand_td">
-                                        <div class="rnamebox">rand10</div>
-                                    </td>         
-                                    
 								</tr>
-								
 							</tbody>
 						</table>
 					</div>
@@ -790,10 +779,10 @@ h3 {
 					}
 							
 							
-						var shuffleRet = shuffleRandom(10);   // 온로딩으로 할때는 n=5로 대입해야 함!		
+						var shuffleRet = shuffleRandom(5	);   // 온로딩으로 할때는 n=5로 대입해야 함!		
 						
 						var vlist = new Array();
-
+                        var vlist2 = new Array();
 						
 						<c:forEach items="${list}" var="dto">
 								var vjson = new Object();
@@ -801,17 +790,28 @@ h3 {
 								vlist.push(vjson);  
 						</c:forEach>
 						
+						<c:forEach items="${list}" var="dto">
+		                        var vjson2 = new Object();
+		                        vjson2.ebook_ID = "${dto.ebook_ID}";
+		                        vlist2.push(vjson2);  
+					    </c:forEach>
+						
 
-					   // 포문화
-					   					   
+					   //0~4까지 포문화
+					   /* alert(JSON.stringify(vlist2));
+					    */
 					   var rnamebox = document.getElementsByClassName("rnamebox");
-					   
-					   
+					   var ridbox = document.getElementsByClassName("ridbox");  
+					    
 					   for(i=0; i<rnamebox.length; i++){
-						  alert(Object.values(vlist[shuffleRet[i]]));
 						  rnamebox[i].innerHTML = Object.values(vlist[shuffleRet[i]]);
+						  ridbox[i].innerHTML = Object.values(vlist2[shuffleRet[i]]);
+						  
 					   }
-					   					   
+					   		
+					   // 위: 셔플 결과를 상수화(두번셔플 방지)하기위해 변수그릇에 담아야 할듯?
+					   
+					   
 /*                       var  str001 = Object.values(vlist[shuffleRet[0]]);
                       var namebox001 = document.getElementById("namebox001");
                       namebox001.innerHTML =  str001; */
