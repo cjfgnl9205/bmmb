@@ -215,19 +215,19 @@ h3 {
 							<tbody>
 								<tr class="rand_tr">							
 									<td class="rand_td">
-                                        <div id="namebox0001">rand1</div>
+                                        <div class="rnamebox">rand1</div>
                                     </td> 
                                     <td class="rand_td">
-                                        <div class="namebox01">rand2</div>
+                                        <div class="rnamebox">rand2</div>
                                     </td> 
                                     <td class="rand_td">
-                                        <div class="namebox01">rand3</div>
+                                        <div class="rnamebox">rand3</div>
                                     </td> 
                                     <td class="rand_td">
-                                        <div class="namebox01">rand4</div>
+                                        <div class="rnamebox">rand4</div>
                                     </td> 
                                     <td class="rand_td">
-                                        <div class="namebox01">rand5</div>
+                                        <div class="rnamebox">rand5</div>
                                     </td>     
 								</tr>
 							</tbody>
@@ -791,10 +791,20 @@ h3 {
 		                        vlist2.push(vjson);  
 					    </c:forEach>
 						
-                      var  str = Object.values(vlist[shuffleRet[0]]);
-                      var namebox0001 = document.getElementById("namebox0001");
-                      namebox0001.innerHTML = str;
-							
+
+					   //0~4까지 포문화
+					   
+					   
+					   var rnamebox = document.getElementsByClassName("rnamebox");
+					   
+					   for(i=0; i<rnamebox.length; i++){
+						  rnamebox[i].innerHTML = Object.values(vlist[shuffleRet[i]]);
+					   }
+					   					   
+/*                       var  str001 = Object.values(vlist[shuffleRet[0]]);
+                      var namebox001 = document.getElementById("namebox001");
+                      namebox001.innerHTML =  str001; */
+							 
 					// e: 섹션0 테스트
 					
 					
