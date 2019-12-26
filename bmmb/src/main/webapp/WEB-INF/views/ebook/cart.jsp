@@ -20,9 +20,21 @@
 	<h2 style="padding-bottom: 20px;">장바구니</h2><br>
 	<h4>내가 선택한 도서</h4><br>
 
-	<p>${dto.ebook_ID }</p>
-	<p>${dto.name }</p>
-	<p>${dto.price }</p>
+
+	<table class="cntr" width="500" border="0" cellspacing="10"	cellpadding="5">
+		<tbody>
+		<tr>
+							<td>${dto.ebook_ID }</td>
+							<td>${dto.name }</td>
+							<td>${dto.price }</td>
+							<td>
+							<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
+																		width="178" height="264" />
+							</td>
+		</tr>
+		</tbody>
+		</table>		
+							
 
 	<button onclick="#">결제</button>
 </div>

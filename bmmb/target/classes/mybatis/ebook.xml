@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 <select id="vcart" parameterType="int" resultType="EbookDTO">
-SELECT EBOOK_ID, NAME, PRICE
+SELECT EBOOK_ID, NAME, PRICE, IMAGE
 		FROM EBOOK
  WHERE EBOOK_ID = #{ebook_ID}    
 </select>
