@@ -47,7 +47,7 @@ div {
 	height: auto;
 }
 
-.box_main_best .section.first h3 {
+.box_main_best .section h3 {
 	margin-left: 6px;
 }
 
@@ -153,12 +153,13 @@ h3 {
 		/* ret0.innerHTML =   Object.values(JSON.stringify(vlist[shuffleRet[0]]));
 		 *//* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
 		
-		ret0.innerHTML =   Object.values(vlist[shuffleRet[0]]); /* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
-		ret1.innerHTML =   Object.values(vlist[shuffleRet[1]]); /* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
-		ret2.innerHTML =   Object.values(vlist[shuffleRet[2]]); /* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
-		ret3.innerHTML =   Object.values(vlist[shuffleRet[3]]); /* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
-		ret4.innerHTML =   Object.values(vlist[shuffleRet[4]]); /* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
+		ret0.innerHTML =   Object.values(vlist[shuffleRet[0]]); 
+		ret1.innerHTML =   Object.values(vlist[shuffleRet[1]]); 
+		ret2.innerHTML =   Object.values(vlist[shuffleRet[2]]); 
+		ret3.innerHTML =   Object.values(vlist[shuffleRet[3]]); 
+		ret4.innerHTML =   Object.values(vlist[shuffleRet[4]]); 
 		
+		// 이상 북네임 밸류들을..반복문 틀에 붙여보기. 온로딩 시에. 
 
 	}
 
@@ -203,6 +204,39 @@ h3 {
 		<br>
 		<div class="box_main_best" id="newBook"><!-- s: 총 도서섹션 -->
 			<br><br>
+			
+            <div class="section zero"> <!-- s:  도서 섹션0 -->
+                
+					<h3><a href="#">랜덤pick</a></h3>
+					<div class="row"
+						style="background-color: white; text-align: center">
+						<table class="cntr" width="500" border="0" cellspacing="10"
+							cellpadding="5">
+							<tbody>
+								<tr class="rand_tr">							
+									<td class="rand_td">
+                                        <div id="namebox0001">rand1</div>
+                                    </td> 
+                                    <td class="rand_td">
+                                        <div class="namebox01">rand2</div>
+                                    </td> 
+                                    <td class="rand_td">
+                                        <div class="namebox01">rand3</div>
+                                    </td> 
+                                    <td class="rand_td">
+                                        <div class="namebox01">rand4</div>
+                                    </td> 
+                                    <td class="rand_td">
+                                        <div class="namebox01">rand5</div>
+                                    </td>     
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				
+		</div> <!-- e: 도서섹션 0 -->
+
+			
 			
 			<div class="section first"> <!-- s:  도서 섹션1 -->
 			<c:choose>
@@ -319,7 +353,7 @@ h3 {
 																						</td>
 																					</c:otherwise>
 																			</c:choose>
-																		</div>  <!-- e: 도서 섹션 1 --> 
+																		</div>  
 																</c:when>
 																
 																
@@ -715,6 +749,56 @@ h3 {
 				.ready(
 						function() {
 							
+							// s: 섹션0 테스트
+							
+							//셔플 함수
+						function shuffleRandom(n){
+					        var ar = new Array();
+					        var temp;
+					        var rnum;
+
+					        for(var i=1; i<=n; i++){
+					            ar.push(i);                             // ar = [1,2,3]
+					        }
+
+					        for(var i=0; i< ar.length ; i++)
+					        {
+					            rnum = Math.floor(Math.random() *n);     //2
+					            /* alert(rnum);  */      // ex) 1,2,1 순 출력
+					            temp = ar[i];        // 0회차: temp=ar[0]
+					            ar[i] = ar[rnum];  //0회차: ar[0] = ar[2]   -->  ar[0]  = 3  ...  ar =  [3,2,3]  ,  먼저 0번 자리에 0회차 난수 입.
+					            ar[rnum] = temp;       //0회차: ar[2] = ar[0]                      ... ar  = [ 3,2,1 ] , ar[0]과 ar[2] 자리 교체. 
+					        }
+					       
+					        return ar;
+					}
+							
+							
+						var shuffleRet = shuffleRandom(5	);   // 온로딩으로 할때는 n=5로 대입해야 함!		
+						
+						var vlist = new Array();
+                        var vlist2 = new Array();
+						
+						<c:forEach items="${list}" var="dto">
+								var vjson = new Object();
+								vjson.name = "${dto.name}";
+								vlist.push(vjson);  
+						</c:forEach>
+						
+						<c:forEach items="${list}" var="dto">
+		                        var vjson2 = new Object();
+		                        vjson2.ebook_ID = "${dto.ebook_ID}";
+		                        vlist2.push(vjson);  
+					    </c:forEach>
+						
+                      var  str = Object.values(vlist[shuffleRet[0]]);
+                      var namebox0001 = document.getElementById("namebox0001");
+                      namebox0001.innerHTML = str;
+							
+					// e: 섹션0 테스트
+					
+					
+					
 							var namebox = $(".namebox");
 							var namebox2 = $(".namebox2");
 							var temp_console = $(".temp_console");
