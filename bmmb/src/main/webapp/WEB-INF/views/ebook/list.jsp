@@ -245,7 +245,7 @@ h3 {
 					</div>
 				
 		</div> <!-- e: 도서섹션 0 -->
-
+		<br><br><br><br>
 			
 			
 			<div class="section first"> <!-- s:  도서 섹션1 -->
@@ -816,8 +816,16 @@ h3 {
 					   for(i=0; i<rnamebox.length; i++){
 						  rnamebox[i].innerHTML = Object.values(vlist[shuffleRet[i]]);
 						  ridbox[i].innerHTML = Object.values(vlist2[shuffleRet[i]]);			
-						  rimgbox[i].innerHTML = Object.values(vlist3[shuffleRet[i]]);			
+						  
+						  var 
+						  str = "<img src='"+ 
+						   "${pageContext.request.contextPath}/ebook_storage/"+
+						   Object.values(vlist3[shuffleRet[i]])+	   					   
+						   "' width='178' height='264' />";
+						   
 							
+/* 						  rimgbox[i].innerHTML = Object.values(vlist3[shuffleRet[i]]);			 */
+						  rimgbox[i].innerHTML = str;
 					   }
 					   		
 					   // 위: 셔플 결과를 상수화(두번셔플 방지)하기위해 변수그릇에 담아야 할듯?
