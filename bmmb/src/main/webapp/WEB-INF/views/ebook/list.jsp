@@ -95,75 +95,7 @@ h3 {
 		url += "&filename=" + fname;
 		location.href = url;
 	}
-	
-	function shuffleRandom(n){
-        var ar = new Array();
-        var temp;
-        var rnum;
 
-        for(var i=1; i<=n; i++){
-            ar.push(i);                             // ar = [1,2,3]
-        }
-
-        for(var i=0; i< ar.length ; i++)
-        {
-            rnum = Math.floor(Math.random() *n);     //2
-            /* alert(rnum);  */      // ex) 1,2,1 순 출력
-            temp = ar[i];        // 0회차: temp=ar[0]
-            ar[i] = ar[rnum];  //0회차: ar[0] = ar[2]   -->  ar[0]  = 3  ...  ar =  [3,2,3]  ,  먼저 0번 자리에 0회차 난수 입.
-            ar[rnum] = temp;       //0회차: ar[2] = ar[0]                      ... ar  = [ 3,2,1 ] , ar[0]과 ar[2] 자리 교체. 
-        }
-       
-        return ar;
-}
-	
-	function randPop(n){
-		
-	
-		/* alert(shuffleRandom(n));*/
-	
-		var shuffleRet = shuffleRandom(n); 
-		/* alert(shuffleRet);
-		alert(shuffleRet[0]);
-		alert(shuffleRet[1]);
-		alert(shuffleRet[2]);
-		alert(shuffleRet[3]);
-		alert(shuffleRet[4]); */
-		
-		var vlist = new Array();
-
-		<c:forEach items="${list}" var="dto">
-			var vjson = new Object();
-			vjson.ebook_ID = "${dto.name}";
-			vlist.push(vjson);  
-		</c:forEach>
-
-		/* alert(vlist[shuffleRet[0]]);
-		alert(vlist[shuffleRet[1]]);
-		alert(vlist[shuffleRet[2]]);
-		alert(vlist[shuffleRet[3]]);
-		alert(vlist[shuffleRet[4]]);
-		 */
-		var ret0 = document.getElementById("ret0");
-		var ret1 = document.getElementById("ret1");
-		var ret2 = document.getElementById("ret2");
-		var ret3 = document.getElementById("ret3");
-		var ret4 = document.getElementById("ret4");
-		   
-		/* ret0.innerHTML =   Object.values(JSON.stringify(vlist[shuffleRet[0]]));
-		 *//* {,",e,b,o,o,k,_,I,D,",:,",1,5,",} */
-		
-		ret0.innerHTML =   Object.values(vlist[shuffleRet[0]]); 
-		ret1.innerHTML =   Object.values(vlist[shuffleRet[1]]); 
-		ret2.innerHTML =   Object.values(vlist[shuffleRet[2]]); 
-		ret3.innerHTML =   Object.values(vlist[shuffleRet[3]]); 
-		ret4.innerHTML =   Object.values(vlist[shuffleRet[4]]); 
-		
-		// 이상 북네임 밸류들을..반복문 틀에 붙여보기. 온로딩 시에. 
-
-	}
-
-	
 </script>
 </head>
 <body>
@@ -817,27 +749,15 @@ h3 {
 						  rnamebox[i].innerHTML = Object.values(vlist[shuffleRet[i]]);
 						  ridbox[i].innerHTML = Object.values(vlist2[shuffleRet[i]]);			
 						  
-						  var 
-						  str = "<img src='"+ 
-						   "${pageContext.request.contextPath}/ebook_storage/"+
-						   Object.values(vlist3[shuffleRet[i]])+	   					   
-						   "' width='178' height='264' />";
+						  var str = "<a href=\"javascript:read('"+Object.values(vlist2[shuffleRet[i]])+"')\"><img src='"+
+						  "${pageContext.request.contextPath}/ebook_storage/"+
+						   Object.values(vlist3[shuffleRet[i]])+"' width='178' height='264' />";
 						   
 							
 /* 						  rimgbox[i].innerHTML = Object.values(vlist3[shuffleRet[i]]);			 */
 						  rimgbox[i].innerHTML = str;
 					   }
-					   		
-					   // 위: 셔플 결과를 상수화(두번셔플 방지)하기위해 변수그릇에 담아야 할듯?
-					   
-					   
-/*                       var  str001 = Object.values(vlist[shuffleRet[0]]);
-                      var namebox001 = document.getElementById("namebox001");
-                      namebox001.innerHTML =  str001; */
-							 
-					// e: 섹션0 테스트
-					
-					
+					   		  
 					
 							var namebox = $(".namebox");
 							var namebox2 = $(".namebox2");
