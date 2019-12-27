@@ -10,6 +10,12 @@
 <title>eBook 목록</title>
 <style>
 
+.entry {
+	float: left;
+	width: 33%;
+
+}
+
 /* display로 list 데이터 확인 */
 .temp_console3 {
 	display: none;
@@ -100,13 +106,6 @@ h3 {
 </head>
 <body>
 
-	<div class="randTest">
-		[오늘의책]<br>
-		<a href="javascript:randPop(5)">																	
-			난수생성 														
-		</a>
-	</div>
-	
 	<div class="randPanel">
 		<p id="ret0"></p>
 		<p id="ret1"></p>
@@ -137,9 +136,9 @@ h3 {
 		<div class="box_main_best" id="newBook"><!-- s: 총 도서섹션 -->
 			<br><br>
 			
-            <div class="section zero"> <!-- s:  도서 섹션0 -->
+            <div class="section first"> <!-- s:  도서 섹션1 -->
                 
-					<h3><a href="#">랜덤pick</a></h3>
+					<h3><a href="#">오늘의책</a></h3>
 					<div class="row"
 						style="background-color: white; text-align: center">
 						<table class="cntr" width="500" border="0" cellspacing="10"
@@ -176,151 +175,9 @@ h3 {
 						</table>
 					</div>
 				
-		</div> <!-- e: 도서섹션 0 -->
+		</div> <!-- e: 도서섹션 1-->
 		<br><br><br><br>
-			
-			
-			<div class="section first"> <!-- s:  도서 섹션1 -->
-			<c:choose>
-				<c:when test="${empty kmid}">
-					<h3><a href="#">오늘의책</a></h3>
-					<div class="row"
-						style="background-color: white; text-align: center">
-						<table class="cntr" width="500" border="0" cellspacing="10"
-							cellpadding="5">
-							<tbody>
-								<c:choose>
-									<c:when test="${empty list}">
-										<tr>
-											<td colspan="4">등록된 글이 없습니다.</td>
-										</tr>
-									</c:when>
-									<c:otherwise>
-										<tr>
-											<c:forEach var="dto" items="${list}" varStatus="status" >
-											
-																				
-												<c:choose>
-													<c:when test="${status.count % 5 == 0}">
-														<td class="imgpanel">
-															<a href="javascript:read('${dto.ebook_ID}')">																	
-																<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-																		width="178" height="264" />
-															</a>
-															<div class="midbox">${dto.midclass}</div>
-															<div class="viewbox">${dto.viewcnt}</div>
-															<!-- <div class="textbox">PRINT ME!</div> -->
-															<div class="utilbox">
-															${dto.rdate}
-															</div>
-														</td>
-														
-														</tr>
-																<c:choose>
-																	<c:when test="${status.count > 5}">
-																		<tr class="namebox2"></tr>
-																	</c:when>																	
-																	<c:otherwise>
-																		<tr class="namebox"></tr>
-																	</c:otherwise>
-																</c:choose>
-														<tr>
-														
-													</c:when>
-													<c:otherwise>
-														<td class="imgpanel">
-															<a href="javascript:read('${dto.ebook_ID}')">
-																<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-																			width="178" height="264" />
-															</a>
-															<div class="midbox">${dto.midclass}</div>	
-															<div class="viewbox">${dto.viewcnt}</div>
-															<div class="utilbox">
-															${dto.rdate}
-															</div>
-														</td>
-													</c:otherwise>
-												</c:choose>
-												
-												
-											
-											</c:forEach>
-										</tr>
-									</c:otherwise>
-								</c:choose>
-							</tbody>
-						</table>
-					</div>
-				</c:when>
 				
-				
-				<c:when test="${not empty kmid}"> 	
-				<div class="noempty_kmid"><!-- s: noempty kmid -->
-								
-								<div class="midsection1"> <!-- s: midsection1 -->
-										${kmid}
-										<br><br>
-										<tr>
-												<c:forEach var="dto" items="${list}" varStatus="status">											
-														<c:choose>
-																<c:when test="${dto.midclass == kmid}">
-																		<div class="pickbook1">
-																			<c:choose>
-																					<c:when test="${status.count % 5 == 0}">
-																						<td class="imgpanel">
-																							<a href="javascript:read('${dto.ebook_ID}')">
-																									<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-																									width="178" height="264" />
-																							</a>
-																							<div class="midbox">${dto.midclass}</div>
-																						</td>
-																						</tr>
-																								<c:choose>
-																										<c:when test="${status.count > 5}">
-																											<tr class="namebox2"></tr>
-																										</c:when>																	
-																										<c:otherwise>
-																											<tr class="namebox"></tr>
-																										</c:otherwise>
-																								</c:choose>
-																						<tr>
-																					</c:when>	
-																					<c:otherwise>
-																						<td class="imgpanel">
-																							<a href="javascript:read('${dto.ebook_ID}')">
-																									<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
-																									width="178" height="264" />
-																							</a>
-																							<div class="midbox">${dto.midclass}</div>	
-																						</td>
-																					</c:otherwise>
-																			</c:choose>
-																		</div>  
-																</c:when>
-																
-																
-																
-																<c:otherwise></c:otherwise>
-														</c:choose>
-														
-												</c:forEach>
-											</tr>
-								</div><!-- e: midsection1 -->
-				</div> <!-- e: noempty kmid -->	 				
-				</c:when>
-				
-							
-				<c:otherwise>
-					<div>Oops</div>
-				</c:otherwise>
-				
-				
-			</c:choose>
-		</div> <!-- e: 도서섹션 1 -->
-		
-		
-		<br><br><br><br>
-		
 		<div class="section second"> <!-- s:  도서 섹션2 -->
 			<c:choose>
 				<c:when test="${empty kmid}">
@@ -682,6 +539,24 @@ h3 {
 		
 		
 	
+	<!-- s: NYT API -->
+<div class="nyt_test">
+
+	<div id="reviews">
+	   <!-- reviews -->
+	</div>
+	
+	<div id="best-seller-titles">
+	  <!-- best sellers -->
+	</div>
+
+</div>
+<!-- e: NYT API -->
+	
+	
+	
+	
+	
 	</div>
 
 
@@ -808,7 +683,68 @@ h3 {
 							}
 
 							
+							//s: NYT API 
+														
+fetch('https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=6ad84e249d054efeaefe1abb8f89df5b', {
+    method: 'get',
+  })
+  .then(response => { return response.json(); })
+  .then(json => { updateBestSellers(json); })
+  .catch(error => {
+    console.log('NYT API Error: Defaulting to nytimes archival data.', error);
+    updateBestSellers(nytimesArchive);
+  });
+
+function updateBestSellers(nytimesBestSellers) {
+  nytimesBestSellers.results.forEach(function(book) {
+    var isbn = book.isbns[0].isbn10;
+    var bookInfo = book.book_details[0];
+    var lastWeekRank = book.rank_last_week || 'n/a';
+    var weeksOnList = book.weeks_on_list || 'New this week!';
+    var listing = 
+        '<div id="' + book.rank + '" class="entry">' + 
+          '<p>' + 
+          '<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/387928/book%20placeholder.png" class="book-cover" id="cover-' 
+          + book.rank + '" width="128" height="187">' + 
+          '</p>' + 
+          '<h2 class="btitle"><a href="' + book.amazon_product_url + '" target="_blank">.' + bookInfo.title + '.</a></h2>' +
+          '<h4 class="author">' + bookInfo.author + '.</h4>' +
+          '<h4 class="publisher">' + bookInfo.publisher + '.</h4>' +
+          '<p class="bdescription">' + bookInfo.description + '</p>' + 
+          '<div class="stats">' +
+            '<hr>' + 
+            '<p>Last Week: ' + lastWeekRank + '</p>' + 
+            '<p>Weeks on list: ' + weeksOnList + '</p>' +
+          '</div>' +
+        '</div>'+'<br>';
+
+    $('#best-seller-titles').append(listing);
+    $('#' + book.rank).attr('nyt-rank', book.rank);
+
+    updateCover(book.rank, isbn);
+  });
+}
+
+function updateCover(id, isbn) {
+  fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + "&key=AIzaSyAyINR2SYnt4K-0x6zh6S3x6NVUY15pY7Q", {
+    method: 'get'
+  })
+  .then(response => { return response.json(); })
+  .then(data => {
+    var img = data.items[0].volumeInfo.imageLinks.thumbnail;
+    img = img.replace(/^http:\/\//i, 'https://');
+    $('#cover-' + id).attr('src', img);
+  })
+  .catch(error => {
+    console.log(error);
+    // console.log('Googel API Error: Defaulting to archival images for book #' + id + ' ISBN: ' + isbn);
+    // var index = id - 1;
+    // var img = archivedImages[index];
+    // $('#cover-' + id).attr('src', img);
+  });
+}
 							
+							//e: NYT API
 						});// e: $(document).ready
 						
 function paramCheck(p){
