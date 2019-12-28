@@ -139,7 +139,7 @@
 				<td id="enkoTest1">${enkoTest1}</td>
 				<td id="enkoTest2">${enkoTest2}</td>
 				<td id="enkoTest3">${enkoTest3}</td>
-				<td id="enkoTest3">${enkoTest4}</td>
+				<td id="enkoTest4">${enkoTest4}</td>
 				
 				<%-- <td id="retP">${retP}</td> --%>
 			</tr>

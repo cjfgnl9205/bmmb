@@ -20,4 +20,11 @@
         <put-attribute name="side" value="" />
         <put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" /> 
     </definition>
+    
+    <!-- 빈 템플릿 -->
+	<definition name="empty_templ" template="/WEB-INF/views/template/template_list.jsp"> 
+        <put-attribute name="header" value="" />
+        <put-attribute name="side" value="" />
+        <put-attribute name="footer" value="" /> 
+    </definition>
 </tiles-definitions>

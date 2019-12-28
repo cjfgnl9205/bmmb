@@ -236,7 +236,6 @@ function popRead(id){
       
 <script type="text/javascript" src="${root}/js/breply.js"></script>
 
-
 <script>
 
 $(document).ready(function(){
@@ -270,8 +269,7 @@ $(document).ready(function(){
 		    		
 		    		);  /* e: function */
 		    		
-		    		
-		    		
+		    	
 	  } /* e: showList */
 	  
 	  function replaceAll(str, searchStr, replaceStr) {

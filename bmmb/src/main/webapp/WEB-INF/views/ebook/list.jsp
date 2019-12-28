@@ -10,11 +10,16 @@
 <title>eBook 목록</title>
 <style>
 
-.entry {
+ .div_entry{
+ 	float:left;
+ 	width:33%;
+} 
+
+/* .entry {
 	float: left;
 	width: 33%;
 
-}
+} */
 
 /* display로 list 데이터 확인 */
 .temp_console3 {
@@ -102,22 +107,27 @@ h3 {
 		location.href = url;
 	}
 
+	function extrac(){
+		var sourcetxt = document.getElementById("best-seller-titles");
+		
+		extracted = sourcetxt.textContent;
+		alert(extracted);
+		
+	}
 </script>
 </head>
 <body>
 
-	<div class="randPanel">
-		<p id="ret0"></p>
-		<p id="ret1"></p>
-		<p id="ret2"></p>
-		<p id="ret3"></p>
-		<p id="ret4"></p>
-	</div>
 
 	<div class="container">
-		<div class="temp_console"></div>
-		<div class="temp_console2"></div>
-		<div class="temp_console3">${list}</div>
+
+
+		<div id="extractor">
+		<br><br><br><br><br>
+						<button type="button" onclick="extrac();">통째 추출</button>
+						
+		</div>
+
 
 		<!--** s: 검색창 **-->
 		<form class="form-inline" action="list" method="post">
@@ -537,8 +547,8 @@ h3 {
 			</div> 
 			<!-- e:testSection -->
 		
-		
-	
+		<br><br>
+		<h3><a href="#">해외 베스트셀러</a></h3>
 	<!-- s: NYT API -->
 <div class="nyt_test">
 
@@ -565,7 +575,6 @@ h3 {
 		$(document)
 				.ready(
 						function() {
-							
 							// s: 섹션0 테스트
 							
 							//셔플 함수
@@ -685,7 +694,7 @@ h3 {
 							
 							//s: NYT API 
 														
-fetch('https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=6ad84e249d054efeaefe1abb8f89df5b', {
+/* fetch('https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=6ad84e249d054efeaefe1abb8f89df5b', {
     method: 'get',
   })
   .then(response => { return response.json(); })
@@ -701,8 +710,11 @@ function updateBestSellers(nytimesBestSellers) {
     var bookInfo = book.book_details[0];
     var lastWeekRank = book.rank_last_week || 'n/a';
     var weeksOnList = book.weeks_on_list || 'New this week!';
-    var listing = 
-        '<div id="' + book.rank + '" class="entry">' + 
+    var listing =
+    	'<table class="table table-striped">'+
+    	'<tr>'+
+    	'<div class="div_entry">'+
+        '<td id="' + book.rank + '" class="entry">' + 
           '<p>' + 
           '<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/387928/book%20placeholder.png" class="book-cover" id="cover-' 
           + book.rank + '" width="128" height="187">' + 
@@ -716,7 +728,10 @@ function updateBestSellers(nytimesBestSellers) {
             '<p>Last Week: ' + lastWeekRank + '</p>' + 
             '<p>Weeks on list: ' + weeksOnList + '</p>' +
           '</div>' +
-        '</div>'+'<br>';
+        '</td>'+
+        '</div>'+
+        '</tr>'+
+        '</table>';
 
     $('#best-seller-titles').append(listing);
     $('#' + book.rank).attr('nyt-rank', book.rank);
@@ -743,7 +758,13 @@ function updateCover(id, isbn) {
     // $('#cover-' + id).attr('src', img);
   });
 }
-							
+		
+var sourcetxt = document.getElementsByClassName("btitle");
+
+extracted = sourcetxt[0].textContent;
+alert(extracted);
+ */
+	
 							//e: NYT API
 						});// e: $(document).ready
 						
@@ -752,6 +773,46 @@ function paramCheck(p){
 							alert(typeof p);
 							alert(  p.includes('0')    );
 						}
+						
+						
+// s: PPG API 관련						
+		var entries = document.getElementsByClassName("entry");
+/* 	for (i=0; i<entries.length; i++){
+		alert(entries[i].innerText);
+	}	  */
+
+	var titles = document.getElementsByClassName("btitle");
+	var authors = document.getElementsByClassName("author");
+	var publishers = document.getElementsByClassName("publisher");
+	var descriptions = document.getElementsByClassName("bdescription");	
+	var stats = document.getElementsByClassName("stats");
+	
+/* 	var url = "eread"; */
+/* 	var testParam = entries[0].innerText; */
+
+	var croppedTxt = titles[0].innerText;
+	var testParam = croppedTxt.toLowerCase();
+	alert(testParam);
+	
+  	var testParam1 = authors[0].innerText;
+  	alert(testParam1);
+  	
+	var testParam2 = publishers[0].innerText;
+	var testParam3 = descriptions[0].innerText;
+	var testParam4 = stats[0].innerText;
+	
+/* 	url += "?testParam="+testParam;
+	url += "&testParam1="+testParam1;
+	url += "&testParam2="+testParam2;
+	url += "&testParam3="+testParam3;
+	url += "&testParam4="+testParam4; */
+	
+/* 	location.href = url;			 */ 
+
+		
+		
+// e: PPG API 관련
+
 	</script>
 </body>
 </html>
