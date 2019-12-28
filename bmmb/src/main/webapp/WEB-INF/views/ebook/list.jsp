@@ -197,10 +197,9 @@ h3 {
 					<tbody>
 								<tr>
 									<c:forEach var="dto" items="${list}" varStatus="status" >
-									
-																		
+									  <!-- 1~5번째 요소 -->						
 										<c:choose>
-											<c:when test="${util:newElems(dto.rdate)}">
+											<c:when test="${util:newElems(dto.rdate)}"> 
 												<td class="imgpanel">
 													<a href="javascript:read('${dto.ebook_ID}')">																	
 														<img src="${pageContext.request.contextPath}/ebook_storage/${dto.image}"
@@ -214,8 +213,12 @@ h3 {
 													${dto.rdate}
 													</div>
 												</td>
-												
 											</c:when>
+											
+											<!-- 6~10번째 요소 -->
+											<otherwise>
+											</otherwise>
+											
 										</c:choose>
 										
 									</c:forEach>
@@ -224,7 +227,6 @@ h3 {
 				</table>
 			</div>	
 </div> <!-- e: 도서 섹션2-->
-
 
 			<br>
 			<br>
