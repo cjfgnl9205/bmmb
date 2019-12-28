@@ -188,6 +188,7 @@ h3 {
 		</div> <!-- e: 도서섹션 1-->
 		<br><br><br><br>
 				
+				
 		<div class="section second"> <!-- s:  도서 섹션2 -->
 			<c:choose>
 				<c:when test="${empty kmid}">
@@ -751,21 +752,64 @@ function updateCover(id, isbn) {
     $('#cover-' + id).attr('src', img);
   })
   .catch(error => {
-    console.log(error);
+    console.log(error); */
     // console.log('Googel API Error: Defaulting to archival images for book #' + id + ' ISBN: ' + isbn);
     // var index = id - 1;
     // var img = archivedImages[index];
     // $('#cover-' + id).attr('src', img);
-  });
-}
+      
+/*   });
+} */
 		
-var sourcetxt = document.getElementsByClassName("btitle");
+/* var sourcetxt = document.getElementsByClassName("btitle");  */// 가정: 실행순서2
 
-extracted = sourcetxt[0].textContent;
-alert(extracted);
- */
-	
+/* extracted = sourcetxt[0].textContent;  */// 가정: 실행순서1  --> 에러: 순서2 내용이 undefined남.
+/* alert(extracted); */     // 결론: 순서 조정 없이는 못 가져옴... 아예 ajax로 세팅해보거나 다른 방법 강구.
+ 
+ 
 							//e: NYT API
+							
+//s: PPG API 관련						
+/* var entries = document.getElementsByClassName("entry");
+ */
+
+/* 	for (i=0; i<entries.length; i++){
+alert(entries[i].innerText);
+}	  */
+
+/* var titles = document.getElementsByClassName("btitle");
+var authors = document.getElementsByClassName("author");
+var publishers = document.getElementsByClassName("publisher");
+var descriptions = document.getElementsByClassName("bdescription");	
+var stats = document.getElementsByClassName("stats"); */
+
+/* 	var url = "eread"; */
+/* 	var testParam = entries[0].innerText; */
+
+/* var croppedTxt = titles[0].innerText;
+var testParam = croppedTxt.toLowerCase();
+alert(testParam);
+
+alert("boo!");  */// 위 extracted 부분에서 에러나서 여기까지 안내려오는듯.
+
+/* var testParam1 = authors[0].innerText;
+alert(testParam1);
+
+var testParam2 = publishers[0].innerText;
+var testParam3 = descriptions[0].innerText;
+var testParam4 = stats[0].innerText; */
+
+/* 	url += "?testParam="+testParam;
+url += "&testParam1="+testParam1;
+url += "&testParam2="+testParam2;
+url += "&testParam3="+testParam3;
+url += "&testParam4="+testParam4; */
+
+/* 	location.href = url;			 */ 
+//e: PPG API 관련
+							
+							
+							
 						});// e: $(document).ready
 						
 function paramCheck(p){
@@ -774,45 +818,6 @@ function paramCheck(p){
 							alert(  p.includes('0')    );
 						}
 						
-						
-// s: PPG API 관련						
-		var entries = document.getElementsByClassName("entry");
-/* 	for (i=0; i<entries.length; i++){
-		alert(entries[i].innerText);
-	}	  */
-
-	var titles = document.getElementsByClassName("btitle");
-	var authors = document.getElementsByClassName("author");
-	var publishers = document.getElementsByClassName("publisher");
-	var descriptions = document.getElementsByClassName("bdescription");	
-	var stats = document.getElementsByClassName("stats");
-	
-/* 	var url = "eread"; */
-/* 	var testParam = entries[0].innerText; */
-
-	var croppedTxt = titles[0].innerText;
-	var testParam = croppedTxt.toLowerCase();
-	alert(testParam);
-	
-  	var testParam1 = authors[0].innerText;
-  	alert(testParam1);
-  	
-	var testParam2 = publishers[0].innerText;
-	var testParam3 = descriptions[0].innerText;
-	var testParam4 = stats[0].innerText;
-	
-/* 	url += "?testParam="+testParam;
-	url += "&testParam1="+testParam1;
-	url += "&testParam2="+testParam2;
-	url += "&testParam3="+testParam3;
-	url += "&testParam4="+testParam4; */
-	
-/* 	location.href = url;			 */ 
-
-		
-		
-// e: PPG API 관련
-
 	</script>
 </body>
 </html>

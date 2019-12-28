@@ -137,16 +137,8 @@ function popRead(id){
 				<td>${dto.desc1 }</td>
 			</tr>
 			<tr>
-				<th>e북 팝업</th>
-				<td><a href="javascript:preview('${dto.desc2 }')">팝업으로 보기</a></td>
-			</tr>
-			<tr>
-				<th>eread 새창 </th>
-				<td><a href="javascript:popRead('${dto.ebook_ID }')">새창에서 보기</a></td>
-			</tr>
-			<tr>
-				<th>e북,샘플 조인 </th>
-				<td><a href="javascript:sRead('${dto.ebook_ID }')">sread 테스트</a></td>
+				<th>e북 미리보기</th>
+				<td><a href="javascript:sRead('${dto.ebook_ID }')">새창에서 보기</a></td>
 			</tr>			
 			<c:if test="${not empty dto.image }">
 				<tr>
