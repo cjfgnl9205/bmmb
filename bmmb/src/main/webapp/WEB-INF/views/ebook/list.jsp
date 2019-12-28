@@ -10,6 +10,44 @@
 <title>eBook 목록</title>
 <style>
 
+#extractor{
+display:none;
+}
+/*s: 새탭 */
+		li.tab-link{
+		font-size: 20px;
+		
+		}
+		ul.tabs{
+			margin: 0px;
+			padding: 0px;
+			list-style: none
+		}
+		ul.tabs li{
+			background: none;
+			color: #222;
+			display: inline-block;
+			padding: 10px 15px;
+			cursor: pointer;
+		}
+
+		ul.tabs li.current{
+			background: #ededed;
+			color: #222;
+		}
+
+		.tab-content{
+			display: none;
+			background: #ededed;
+			padding: 15px;
+		}
+
+		.tab-content.current{
+			display: inherit;
+			background: white;
+		}
+/*e:  새탭 */
+
  .div_entry{
  	float:left;
  	width:33%;
@@ -115,7 +153,6 @@ h3 {
   display: none;
   padding: 50px;
   text-align: center;
-}
 
 #London {background-color:red;}
 #Paris {background-color:green;}
@@ -133,23 +170,10 @@ display:none;
 }
 /* e: util들 잠깐 감춤 */
 
-	.tab-box{
-		padding: 20px;
-    	border: 1px solid #DDD;
-    	border-top: 0;
-	}
-	.tab-box > h3{
-		margin:20px 0;
-		font-style:italic;
-	}
-	.tab-box > p{
-		line-height: 2;
-		color: #919191;
-}
 
 </style>
-<script src="https://code.jquery.com/jquery-2.2.3.js"></script>
-<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+
+
 <script>
 
 
@@ -206,50 +230,33 @@ function read(no) {
 		</form>
 		<!--** e: 검색창 **-->
 		<br><br>			
-		<!-- s: tab 메뉴 -->		
-				
-		<div id="tab_bootstrap">
 	
-			<ul class="nav nav-tabs">
-		    <li class="nav-item">
-		      <a href="#tab1" class="nav-link navbar-default active" data-toggle="tab">TAB 1</a>
-		    </li>
-		    <li class="nav-item">
-		      <a href="#tab2" class="nav-link navbar-default" data-toggle="tab">TAB 2</a>
-		    </li>
-		    <li class="nav-item">
-		      <a href="#tab3" class="nav-link navbar-default" data-toggle="tab">TAB 3</a>
-		    </li>
-		    <li class="nav-item">
-		      <a href="#tab4" class="nav-link navbar-default" data-toggle="tab">TAB 4</a>
-		    </li>
-	  	</ul>
-	  
-		  <div class="tab-content">
-		    <div id="tab1" class="tab-pane active tab-box">
-		    <h3>What is Lorem Ipsum?</h3>
-		      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-	
-		    </div>
-		    <div id="tab2" class="tab-pane tab-box">
-		    	<h3>Why do we use it?</h3>
-		      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-		    </div>
-		    <div id="tab3" class="tab-pane tab-box">
-		    <h3>Where does it come from</h3>
-		      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-		    </div>
-		    <div id="tab4" class="tab-pane tab-box">
-		    <h3>Where can I get some?</h3>
-		      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-		    </div>
-	    
-	  </div>
-				
-		<!-- e: tab 메뉴 -->		
-		<br>
+		
+		<!-- s: 새탭 -->
+		<ul class="tabs">
+		<li class="tab-link current" data-tab="tab-1">Tab One</li>
+		<li class="tab-link" data-tab="tab-2">Tab Two</li>
+		<li class="tab-link" data-tab="tab-3">Tab Three</li>
+		<li class="tab-link" data-tab="tab-4">Tab Four</li>
+	</ul>
+
+	<div id="tab-1" class="tab-content current">
+		<img src="${pageContext.request.contextPath}/images/tab1.jpg">
+	</div>
+	<div id="tab-2" class="tab-content">
+		 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+	<div id="tab-3" class="tab-content">
+		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+	</div>
+	<div id="tab-4" class="tab-content">
+		Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	</div>
+		 <!-- e: 새탭 -->
+        
+        
+			<br>
 		<div class="box_main_best" id="newBook"><!-- s: 총 도서섹션 -->
-			<br><br>
 			
             <div class="section first"> <!-- s:  도서 섹션1 -->
                 
@@ -487,6 +494,19 @@ function read(no) {
 		$(document)
 				.ready(
 						function() {
+							
+							// s:새탭
+							$('ul.tabs li').click(function(){
+								var tab_id = $(this).attr('data-tab');
+
+								$('ul.tabs li').removeClass('current');
+								$('.tab-content').removeClass('current');
+
+								$(this).addClass('current');
+								$("#"+tab_id).addClass('current');
+							})
+							// e:새탭
+							
 							// s: 섹션0 테스트
 							
 							//셔플 함수
