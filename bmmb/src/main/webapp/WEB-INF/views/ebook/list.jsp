@@ -810,6 +810,7 @@ $(function () {
 			$("#search1").append("<br>");
 			
 		});
+	
 	/* 	e: 문학 섹션 */	
 	
 	
