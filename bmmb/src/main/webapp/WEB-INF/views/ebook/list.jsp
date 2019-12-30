@@ -209,20 +209,24 @@ function read(no) {
 			     <h1>책 제목을 검색해주세요.</h1>
     <input id="bookName" type="text">
     <button id="search">검색</button>
-    <p></p>
+    <p id="search1"></p>
+    <p id="search2"></p>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
     <script>
         $(function () {
-
+			
+        	
             $("#search").click(function () {
-
+					
+              	var searchWord = "펭수";
+              	
                 $.ajax({
                     method: "GET",
                     url: "https://dapi.kakao.com/v3/search/book?target=title", // 전송 주소
-                    data: { query: $("#bookName").val() }, // 보낼 데이터
+                    data: { query: searchWord }, // 보낼 데이터
                     headers: { Authorization: "KakaoAK b3a099af574d006668592a166ea366bf" }
                 })
                     .done(function (msg) { // 응답이 오면 처리를 하는 코드
@@ -236,10 +240,12 @@ function read(no) {
                         $("p").append("<strong>" + msg.documents[2].title + "</strong>");
                         $("p").append("<img src='" + msg.documents[2].thumbnail + "'>");
                     });
-            })
+            });
+            
+            
         });
 
-    </script>
+
     </script>
 		
 		
@@ -775,6 +781,69 @@ url += "&testParam4="+testParam4; */
 //e: PPG API 관련
 							
 							
+// s: 다음 책검색 API
+
+							
+$(function () {
+  	
+/* 	s: 문학 섹션 */
+	var searchWord1 = "문학";
+	
+	$.ajax({
+		method: "GET",
+		url: "https://dapi.kakao.com/v3/search/book?target=title", // 전송 주소
+		data: { query: searchWord1 }, // 보낼 데이터
+		headers: { Authorization: "KakaoAK b3a099af574d006668592a166ea366bf" }
+	})
+		.done(function (msg) { // 응답이 오면 처리를 하는 코드
+		
+			$("#search1").append("<strong>" + msg.documents[0].title + "</strong>");
+			$("#search1").append("<img src='" + msg.documents[0].thumbnail + "'>");
+			$("#search1").append("<br>");
+			
+			$("#search1").append("<strong>" + msg.documents[1].title + "</strong>");
+			$("#search1").append("<img src='" + msg.documents[1].thumbnail + "'>");
+			$("#search1").append("<br>");
+			
+			$("#search1").append("<strong>" + msg.documents[2].title + "</strong>");
+			$("#search1").append("<img src='" + msg.documents[2].thumbnail + "'>");
+			$("#search1").append("<br>");
+			
+		});
+	/* 	e: 문학 섹션 */	
+	
+	
+	/* 	s: 인문 섹션 */
+	var searchWord2 = "과학";
+	
+	$.ajax({
+		method: "GET",
+		url: "https://dapi.kakao.com/v3/search/book?target=title", // 전송 주소
+		data: { query: searchWord2 }, // 보낼 데이터
+		headers: { Authorization: "KakaoAK b3a099af574d006668592a166ea366bf" }
+	})
+		.done(function (msg) { // 응답이 오면 처리를 하는 코드
+		
+			$("#search2").append("<strong>" + msg.documents[0].title + "</strong>");
+			$("#search2").append("<img src='" + msg.documents[0].thumbnail + "'>");
+			$("#search2").append("<br>");
+			
+			$("#search2").append("<strong>" + msg.documents[1].title + "</strong>");
+			$("#search2").append("<img src='" + msg.documents[1].thumbnail + "'>");
+			$("#search2").append("<br>");
+			
+			$("#search2").append("<strong>" + msg.documents[2].title + "</strong>");
+			$("#search2").append("<img src='" + msg.documents[2].thumbnail + "'>");
+			$("#search2").append("<br>");
+			
+		});
+	/* 	e: 문학 섹션 */	
+	
+	
+	
+});
+// e: 다음 책검색 API
+
 
 		
 						});// e: $(document).ready
